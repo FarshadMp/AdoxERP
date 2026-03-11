@@ -53,8 +53,8 @@ export default function News() {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl lg:text-6xl font-normal text-black leading-tight tracking-tight"
             >
-              Updates from the <br className="hidden md:block" /> world of
-              Anarc.
+              Updates from the <br className="hidden md:block" /> world of{" "}
+              <span className="text-[var(--secondary)]">Anarc.</span>
             </motion.h2>
           </div>
 

@@ -22,7 +22,8 @@ export default function CTA() {
               transition={{ duration: 0.8 }}
               className="text-4xl md:text-6xl lg:text-7xl font-normal text-black leading-[1.1] tracking-tight mb-12"
             >
-              Every great build begins with understanding
+              Every great build begins with{" "}
+              <span className="text-[var(--secondary)]">understanding</span>
             </motion.h2>
 
             <div className="flex flex-wrap items-center gap-6 md:gap-8">

@@ -120,7 +120,7 @@ export default function OurServices() {
               What We Offer
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal text-black leading-tight tracking-tight">
-              Our Services
+              Our <span className="text-[var(--secondary)]">Services</span>
             </h2>
           </motion.div>
 

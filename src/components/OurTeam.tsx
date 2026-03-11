@@ -52,7 +52,8 @@ export default function OurTeam() {
               Our Team
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal text-black leading-tight tracking-tight">
-              Meet the minds <br /> behind the vision
+              Meet the <span className="text-[var(--secondary)]">minds</span>{" "}
+              <br /> behind the vision
             </h2>
           </motion.div>
         </div>

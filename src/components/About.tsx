@@ -72,7 +72,8 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-5xl lg:text-6xl font-normal text-[var(--foreground)] leading-[1.1] tracking-tight"
           >
-            Partner with Anarc <br />
+            Partner with <span className="text-[var(--secondary)]">Anarc</span>{" "}
+            <br />
             for your upcoming <br />
             premium projects.
           </motion.h2>
@@ -105,7 +106,7 @@ export default function About() {
               <div className="text-[var(--primary)] mb-2">{stat.icon}</div>
               <div className="flex flex-col">
                 <div className="flex items-baseline mb-1">
-                  <span className="text-3xl md:text-5xl font-normal text-[var(--foreground)]">
+                  <span className="text-3xl md:text-5xl font-semibold text-[var(--foreground)]">
                     <AnimatedStat value={stat.value} />
                   </span>
                 </div>

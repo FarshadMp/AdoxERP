@@ -12,7 +12,14 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
 
-  const navItems = ["Home", "Company", "Projects", "Services", "Events"];
+  const navItems = [
+    "Home",
+    "Company",
+    "Projects",
+    "Services",
+    "Gallery",
+    "News",
+  ];
 
   useEffect(() => {
     const handleScroll = () => {

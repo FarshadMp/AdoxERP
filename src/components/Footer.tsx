@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -39,6 +38,16 @@ export default function Footer() {
                   +91 8592061010
                 </a>
               </div>
+            </div>
+            <div className="mt-4">
+              <a
+                href="/company-profile.pdf"
+                download
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/20 rounded-full text-white text-[10px] uppercase tracking-widest hover:bg-white hover:text-[#521212] transition-all duration-300 group w-fit"
+              >
+                Company Profile
+                <Download className="w-4 h-4 transform group-hover:translate-y-1 transition-transform duration-300" />
+              </a>
             </div>
           </div>
 

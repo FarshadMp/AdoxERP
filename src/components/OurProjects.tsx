@@ -85,7 +85,7 @@ export default function OurProjects() {
           transition={{ duration: 0.8 }}
           className="max-w-2xl"
         >
-          <h2 className="text-4xl md:text-7xl font-normal text-white tracking-tight mb-4 md:mb-6">
+          <h2 className="text-4xl md:text-6xl font-normal text-white tracking-tight mb-4 md:mb-6">
             Our Projects
           </h2>
           <p className="text-white/90 text-sm md:text-base leading-relaxed">
@@ -112,14 +112,24 @@ export default function OurProjects() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
             >
-              <h3 className="text-2xl md:text-3xl font-normal text-black mb-6">
+              <div className="flex items-center gap-3 mb-4">
+                <span
+                  className={`text-[10px] md:text-xs px-3 py-1 rounded-full uppercase tracking-widest font-bold ${
+                    projects[currentIndex].status === "Completed"
+                      ? "bg-green-100 text-green-700"
+                      : projects[currentIndex].status === "Ongoing"
+                        ? "bg-blue-100 text-blue-700"
+                        : "bg-orange-100 text-orange-700"
+                  }`}
+                >
+                  {projects[currentIndex].status}
+                </span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-normal text-black mb-4">
                 {projects[currentIndex].title}
               </h3>
               <div className="space-y-1 text-black text-base md:text-lg">
                 <p>{projects[currentIndex].location}</p>
-                <p className="text-black/80">
-                  Status: {projects[currentIndex].status}
-                </p>
               </div>
             </motion.div>
           </AnimatePresence>

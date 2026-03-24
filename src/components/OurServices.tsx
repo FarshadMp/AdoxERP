@@ -3,75 +3,19 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
-  Building,
-  CalendarDays,
-  ClipboardCheck,
-  Settings,
-  HardHat,
-  KanbanSquare,
   ChevronLeft,
   ChevronRight,
   ArrowRight,
 } from "lucide-react";
+import { services } from "@/data/services";
 import { useRef } from "react";
 
 export default function OurServices() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const services = [
-    {
-      title: "Site Management",
-      icon: <Building className="w-10 h-10 md:w-12 md:h-12" strokeWidth={1} />,
-      description:
-        "Comprehensive site operations, ensuring safety, efficiency, and seamless execution throughout the building process.",
-      link: "#",
-    },
-    {
-      title: "Planning & Scheduling",
-      icon: (
-        <CalendarDays className="w-10 h-10 md:w-12 md:h-12" strokeWidth={1} />
-      ),
-      description:
-        "Strategic project planning and precise scheduling to meet deadlines without compromising quality.",
-      link: "#",
-    },
-    {
-      title: "Quality control",
-      icon: (
-        <ClipboardCheck className="w-10 h-10 md:w-12 md:h-12" strokeWidth={1} />
-      ),
-      description:
-        "Rigorous quality assurance protocols at every phase to guarantee structural integrity and excellence.",
-      link: "#",
-    },
-    {
-      title: "Field Engineering",
-      icon: <Settings className="w-10 h-10 md:w-12 md:h-12" strokeWidth={1} />,
-      description:
-        "Expert on-site engineering solutions addressing technical challenges and optimizing construction methods.",
-      link: "#",
-    },
-    {
-      title: "Construction",
-      icon: <HardHat className="w-10 h-10 md:w-12 md:h-12" strokeWidth={1} />,
-      description:
-        "Full-scale construction services delivering durable, sustainable, and aesthetically pleasing structures.",
-      link: "#",
-    },
-    {
-      title: "Project Management",
-      icon: (
-        <KanbanSquare className="w-10 h-10 md:w-12 md:h-12" strokeWidth={1} />
-      ),
-      description:
-        "End-to-end management aligning resources, timelines, and budgets to achieve project objectives.",
-      link: "#",
-    },
-  ];
-
   const getScrollAmount = () => {
     if (typeof window !== "undefined" && window.innerWidth >= 768) {
-      return 382; // Keep the original hardcoded desktop scroll amount
+      return 382;
     }
 
     if (
@@ -82,7 +26,7 @@ export default function OurServices() {
     }
 
     const item = scrollContainerRef.current.firstElementChild as HTMLElement;
-    return item.offsetWidth + 24; // mobile mobile gap (gap-6 = 24px)
+    return item.offsetWidth + 24;
   };
 
   const scrollLeft = () => {
@@ -178,7 +122,7 @@ export default function OurServices() {
                     {service.description}
                   </p>
                   <Link
-                    href={service.link}
+                    href={`/services/${service.slug}`}
                     className="inline-flex items-center gap-3 text-[var(--secondary)] font-semibold text-[13px] uppercase tracking-widest hover:text-black transition-colors duration-300 mt-auto group/link"
                   >
                     View more

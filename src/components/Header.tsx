@@ -13,12 +13,12 @@ export default function Header() {
   const lastScrollY = useRef(0);
 
   const navItems = [
-    "Home",
-    "Company",
-    "Projects",
-    "Services",
-    "Gallery",
-    "News",
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Projects", href: "/projects" },
+    { label: "Services", href: "/services" },
+    { label: "Gallery", href: "/#gallery" },
+    { label: "News", href: "/#news" },
   ];
 
   useEffect(() => {
@@ -87,15 +87,15 @@ export default function Header() {
         <nav className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
             <Link
-              key={item}
-              href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
+              key={item.label}
+              href={item.href}
               className={`hover:text-[#c9952f] uppercase text-sm font-normal tracking-wider transition-colors ${
                 isScrolled || isMobileMenuOpen
                   ? "text-[var(--foreground)]"
                   : "text-white"
               }`}
             >
-              {item}
+              {item.label}
             </Link>
           ))}
         </nav>
@@ -152,17 +152,17 @@ export default function Header() {
             <nav className="flex flex-col gap-6 items-start">
               {navItems.map((item, i) => (
                 <motion.div
-                  key={item}
+                  key={item.label}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 + i * 0.1 }}
                 >
                   <Link
-                    href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
+                    href={item.href}
                     className="text-[var(--foreground)] text-base md:text-2xl uppercase font-normal tracking-wide transition-colors hover:text-[var(--secondary)]"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </motion.div>
               ))}

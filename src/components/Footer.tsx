@@ -4,10 +4,6 @@ import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <footer className="bg-[#521212] text-white/90 py-20 px-6 md:px-12 border-t border-white/5">
       <div className="max-w-screen-2xl mx-auto">
@@ -57,17 +53,22 @@ export default function Footer() {
               Sitemap
             </span>
             <nav className="flex flex-col gap-3 text-sm md:text-base">
-              {["Home", "Approach", "Blog", "News", "About", "Contact"].map(
-                (item) => (
-                  <Link
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
-                    className="hover:text-[var(--secondary)] transition-colors w-fit"
-                  >
-                    {item}
-                  </Link>
-                ),
-              )}
+              {[
+                { label: "Home", href: "/" },
+                { label: "About", href: "/about" },
+                { label: "Projects", href: "/#projects" },
+                { label: "Services", href: "/#services" },
+                { label: "News", href: "/#news" },
+                { label: "Contact", href: "/#contact" },
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="hover:text-[var(--secondary)] transition-colors w-fit"
+                >
+                  {item.label}
+                </Link>
+              ))}
             </nav>
           </div>
 
@@ -146,18 +147,12 @@ export default function Footer() {
                 href="https://adoxsolutions.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[var(--secondary)] transition-colors"
+                className="hover:text-white transition-colors"
               >
                 Adoxsolutions
               </a>
             </p>
           </div>
-          <button
-            onClick={scrollToTop}
-            className="hover:text-white transition-colors flex items-center gap-2 group"
-          >
-            Back to top
-          </button>
         </div>
       </div>
     </footer>

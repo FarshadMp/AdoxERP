@@ -16,7 +16,7 @@ export default function ServicesPage() {
       <InnerHero
         title="Design & Build Solutions"
         subtitle="Our Expertise"
-        image="/img/projects/project_5.png"
+        image="/img/hero/services-ban.png"
       />
 
       {/* Services Grid */}

@@ -17,8 +17,9 @@ export default function Header() {
     { label: "About", href: "/about" },
     { label: "Projects", href: "/projects" },
     { label: "Services", href: "/services" },
-    { label: "Gallery", href: "/#gallery" },
-    { label: "News", href: "/#news" },
+    { label: "Gallery", href: "/gallery" },
+    { label: "News", href: "/news" },
+    { label: "Contact", href: "/contact" },
   ];
 
   useEffect(() => {
@@ -102,7 +103,7 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <Link
-            href="#contact"
+            href="/contact"
             className="hidden md:flex bg-[#c9952f] hover:bg-[#b08027] text-white h-10 px-6 rounded-lg text-xs font-normal transition-all items-center justify-center group"
           >
             <span className="text-lg leading-none transform transition-all duration-300 overflow-hidden flex justify-center items-center w-4 opacity-100 mr-2 group-hover:w-0 group-hover:opacity-0 group-hover:mr-0 group-hover:-translate-x-2">
@@ -174,7 +175,7 @@ export default function Header() {
                 className="w-full pt-8 border-t border-[var(--foreground)]/10"
               >
                 <Link
-                  href="#contact"
+                  href="/contact"
                   className="flex bg-[#c9952f] hover:bg-[#b08027] text-white h-10 px-6 rounded-lg text-xs font-normal transition-all items-center justify-center group w-fit"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

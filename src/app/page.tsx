@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
+import ProjectHero from "@/components/ProjectHero";
 import About from "@/components/About";
 import OurServices from "@/components/OurServices";
 import Testimonials from "@/components/Testimonials";
@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--background)]">
       <Header />
-      <Hero />
+      <ProjectHero />
       <About />
       <OurServices />
       <OurTeam />

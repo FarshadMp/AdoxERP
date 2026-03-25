@@ -56,10 +56,11 @@ export default function Footer() {
               {[
                 { label: "Home", href: "/" },
                 { label: "About", href: "/about" },
-                { label: "Projects", href: "/#projects" },
-                { label: "Services", href: "/#services" },
-                { label: "News", href: "/#news" },
-                { label: "Contact", href: "/#contact" },
+                { label: "Projects", href: "/projects" },
+                { label: "Services", href: "/services" },
+                { label: "Gallery", href: "/gallery" },
+                { label: "News", href: "/news" },
+                { label: "Contact", href: "/contact" },
               ].map((item) => (
                 <Link
                   key={item.label}

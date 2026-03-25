@@ -4,33 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-
-const newsItems = [
-  {
-    category: "Architecture",
-    date: "March 05, 2024",
-    title: "The evolution of modern residential spaces in Calicut.",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop",
-    link: "#",
-  },
-  {
-    category: "Construction",
-    date: "February 28, 2024",
-    title: "How sustainable materials are changing the landscape.",
-    image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop",
-    link: "#",
-  },
-  {
-    category: "Company",
-    date: "February 15, 2024",
-    title: "Anarc Group hits a new milestone in luxury housing.",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop",
-    link: "#",
-  },
-];
+import { newsItems } from "@/data/news";
 
 export default function News() {
   return (
@@ -64,7 +38,7 @@ export default function News() {
             viewport={{ once: true }}
           >
             <Link
-              href="#"
+              href="/news"
               className="group flex items-center gap-3 text-sm font-semibold tracking-widest uppercase hover:text-[var(--secondary)] transition-colors"
             >
               View All News
@@ -78,38 +52,39 @@ export default function News() {
         {/* News Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {newsItems.map((item, index) => (
-            <motion.article
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="group cursor-pointer"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden mb-6">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-black">
-                  {item.category}
+            <Link key={item.slug} href={`/news/${item.slug}`}>
+              <motion.article
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="group cursor-pointer"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden mb-6">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-black">
+                    {item.category}
+                  </div>
                 </div>
-              </div>
 
-              <div className="space-y-4">
-                <time className="text-gray-400 text-xs font-medium tracking-wider uppercase">
-                  {item.date}
-                </time>
-                <h3 className="text-2xl font-normal text-black leading-tight group-hover:text-[var(--secondary)] transition-colors">
-                  {item.title}
-                </h3>
-                <div className="flex items-center gap-2 text-black font-semibold text-xs tracking-widest uppercase group-hover:gap-4 transition-all">
-                  Read More <ArrowRight className="w-4 h-4" />
+                <div className="space-y-4">
+                  <time className="text-gray-400 text-xs font-medium tracking-wider uppercase">
+                    {item.date}
+                  </time>
+                  <h3 className="text-2xl font-normal text-black leading-tight group-hover:text-[var(--secondary)] transition-colors">
+                    {item.title}
+                  </h3>
+                  <div className="flex items-center gap-2 text-black font-semibold text-xs tracking-widest uppercase group-hover:gap-4 transition-all">
+                    Read More <ArrowRight className="w-4 h-4" />
+                  </div>
                 </div>
-              </div>
-            </motion.article>
+              </motion.article>
+            </Link>
           ))}
         </div>
       </div>

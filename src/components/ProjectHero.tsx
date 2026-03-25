@@ -5,38 +5,7 @@ import { ArrowLeft, ArrowRight, Menu } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-const projects = [
-  {
-    id: "01",
-    title: "The art of modern villa living redefined.",
-    name: "MAJD VILLA",
-    image: "/img/projects/project_1.png",
-  },
-  {
-    id: "02",
-    title: "Redefining urban commercial workspaces.",
-    name: "SKYLINE COMPLEX",
-    image: "/img/projects/project_2.png",
-  },
-  {
-    id: "03",
-    title: "Elevating the standards of luxury apartments.",
-    name: "MARINA RESIDENCY",
-    image: "/img/projects/project_3.png",
-  },
-  {
-    id: "04",
-    title: "Engineering the future of connectivity.",
-    name: "LINK BRIDGE",
-    image: "/img/projects/project_4.png",
-  },
-  {
-    id: "05",
-    title: "Sustainability meets innovative sports architecture.",
-    name: "ECO STADIUM",
-    image: "/img/projects/project_5.png",
-  },
-];
+import { projects } from "@/data/projects";
 
 export default function ProjectHero() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -77,7 +46,7 @@ export default function ProjectHero() {
       nextSlide();
     }, 6000); // 6 seconds auto-slide
     return () => clearInterval(timer);
-  }, [currentIndex]); // Re-run when index changes to reset timer
+  }, []); // Re-run when index changes to reset timer
 
   return (
     <section className="relative h-[80vh] md:h-screen w-full flex flex-col justify-end overflow-hidden bg-black">
@@ -99,7 +68,7 @@ export default function ProjectHero() {
             className="absolute inset-0"
           >
             <Image
-              src={projects[currentIndex].image}
+              src={projects[currentIndex].mainImage}
               alt={projects[currentIndex].name}
               fill
               priority
@@ -125,7 +94,7 @@ export default function ProjectHero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -30 }}
                   transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
-                  className="text-white text-4xl md:text-7xl font-light leading-[1.05] tracking-tight max-w-5xl"
+                  className="text-white text-4xl md:text-6xl font-light leading-[1.05] tracking-tight max-w-5xl uppercase"
                 >
                   {projects[currentIndex].title}
                 </motion.h1>
@@ -185,7 +154,9 @@ export default function ProjectHero() {
                     exit={{ opacity: 0, y: -5 }}
                     className="font-normal"
                   >
-                    {projects[currentIndex].id}
+                    {projects[currentIndex].id < 10
+                      ? `0${projects[currentIndex].id}`
+                      : projects[currentIndex].id}
                   </motion.span>
                 </AnimatePresence>
                 <span className="opacity-40">/</span>

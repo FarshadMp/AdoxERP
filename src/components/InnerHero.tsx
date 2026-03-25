@@ -41,7 +41,7 @@ export default function InnerHero({ title, subtitle, image }: InnerHeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.33, 1, 0.68, 1] }}
-            className="text-white text-4xl md:text-8xl font-light tracking-tight leading-[1]"
+            className="text-white text-4xl md:text-6xl font-light tracking-tight leading-[1]"
           >
             {title}
           </motion.h1>

@@ -43,7 +43,7 @@ export default function ContactPage() {
                   <MapPin className="w-6 h-6 text-[#c9952f]" />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-xl font-medium text-gray-900 group-hover:text-[#c9952f] transition-colors">
+                  <h3 className="text-lg md:text-xl font-medium text-gray-900 group-hover:text-[#c9952f] transition-colors">
                     Anarc Builders & Developers PVT. LTD.
                   </h3>
                   <p className="text-gray-500 leading-relaxed font-light">
@@ -60,7 +60,7 @@ export default function ContactPage() {
                   <Mail className="w-6 h-6 text-[#c9952f]" />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-xl font-medium text-gray-900 group-hover:text-[#c9952f] transition-colors">
+                  <h3 className="text-lg md:text-xl font-medium text-gray-900 group-hover:text-[#c9952f] transition-colors">
                     Mail Us
                   </h3>
                   <a
@@ -78,7 +78,7 @@ export default function ContactPage() {
                   <Phone className="w-6 h-6 text-[#c9952f]" />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-xl font-medium text-gray-900 group-hover:text-[#c9952f] transition-colors">
+                  <h3 className="text-lg md:text-xl font-medium text-gray-900 group-hover:text-[#c9952f] transition-colors">
                     Call Us
                   </h3>
                   <a

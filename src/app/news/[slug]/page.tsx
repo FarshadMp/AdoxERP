@@ -27,18 +27,18 @@ export default function NewsDetailsPage() {
         image={article.image}
       />
 
-      <section className="py-20 md:py-32 px-6 md:px-12 max-w-screen-xl mx-auto">
+      <section className="py-20 md:py-24 px-6 md:px-12 max-w-screen-xl mx-auto">
         {/* Navigation & Header Meta */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-10 mb-16 md:mb-24">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-10 mb-10 md:mb-20">
           <Link
             href="/news"
-            className="flex items-center gap-4 text-[10px] uppercase tracking-[0.2em] font-bold text-gray-500 hover:text-black transition-colors group"
+            className="flex items-center gap-4 text-[10px] uppercase font-bold text-gray-500 hover:text-black transition-colors group"
           >
             <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
             Back to News
           </Link>
 
-          <div className="flex items-center gap-8 text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400">
+          <div className="flex items-center gap-8 text-[10px] uppercase font-bold text-gray-400">
             <span className="flex items-center gap-2">
               <Calendar className="w-3.5 h-3.5" />
               {article.date}
@@ -70,13 +70,13 @@ export default function NewsDetailsPage() {
         </div>
 
         {/* Footer Navigation */}
-        <div className="mt-24 md:mt-32 pt-16 border-t border-gray-100 flex justify-center">
-            <Link 
-                href="/contact"
-                className="bg-[#c9952f] text-white py-6 px-12 text-xs font-bold uppercase tracking-[0.25em] hover:bg-[#b07d24] transition-all transform hover:-translate-y-1 active:translate-y-0"
-            >
-                Start a conversation
-            </Link>
+        <div className="mt-15 md:mt-20 pt-16 border-t border-gray-100 flex justify-center">
+          <Link
+            href="/contact"
+            className="bg-[#c9952f] text-white py-5 px-10 text-xs font-bold uppercase hover:bg-[#b07d24] transition-all transform hover:-translate-y-1 active:translate-y-0"
+          >
+            Start a conversation
+          </Link>
         </div>
       </section>
 

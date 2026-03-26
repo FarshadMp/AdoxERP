@@ -126,9 +126,9 @@ export default function Footer() {
               </div>
               <p className="text-[10px] text-white/30 leading-relaxed max-w-[240px]">
                 When you sign up for our newsletter you agree to our{" "}
-                <a href="#" className="underline">
+                <Link href="/privacy-policy" className="underline">
                   privacy policy
-                </a>{" "}
+                </Link>{" "}
                 and will receive commercial emails.
               </p>
             </div>
@@ -139,7 +139,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-8 pt-10 border-t border-white/10 text-xs md:text-sm text-white/50 tracking-wide">
           <p>© Anarc Developers {new Date().getFullYear()}</p>
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12">
-            <Link href="#" className="hover:text-white transition-colors">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">
               Privacy policy
             </Link>
             <p>

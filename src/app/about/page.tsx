@@ -1,7 +1,5 @@
 "use client";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import InnerHero from "@/components/InnerHero";
 import AboutContent from "@/components/AboutContent";
 import VisionMission from "@/components/VisionMission";
@@ -13,7 +11,6 @@ import CTA from "@/components/CTA";
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white">
-      <Header />
 
       {/* Reusable Hero Section */}
       <InnerHero 
@@ -40,7 +37,6 @@ export default function AboutPage() {
       {/* CTA Section */}
       <CTA />
 
-      <Footer />
     </main>
   );
 }

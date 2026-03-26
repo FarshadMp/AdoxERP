@@ -1,7 +1,5 @@
 "use client";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import InnerHero from "@/components/InnerHero";
 import { motion } from "framer-motion";
 
@@ -50,7 +48,6 @@ export default function PrivacyPolicyPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <Header />
       <InnerHero
         title="Privacy Policy"
         subtitle="Legal Information"
@@ -103,7 +100,6 @@ export default function PrivacyPolicyPage() {
         </motion.div>
       </section>
 
-      <Footer />
     </main>
   );
 }

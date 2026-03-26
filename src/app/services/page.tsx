@@ -1,7 +1,5 @@
 "use client";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import InnerHero from "@/components/InnerHero";
 import { motion } from "framer-motion";
@@ -12,7 +10,6 @@ import { ArrowRight } from "lucide-react";
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-white">
-      <Header />
       <InnerHero
         title="Design & Build Solutions"
         subtitle="Our Expertise"
@@ -63,7 +60,6 @@ export default function ServicesPage() {
       </section>
 
       <CTA />
-      <Footer />
     </main>
   );
 }

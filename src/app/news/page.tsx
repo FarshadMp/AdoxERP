@@ -1,7 +1,5 @@
 "use client";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import InnerHero from "@/components/InnerHero";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -12,7 +10,6 @@ import { newsItems } from "@/data/news";
 export default function NewsPage() {
   return (
     <main className="min-h-screen bg-white">
-      <Header />
       <InnerHero
         title="Perspectives & Updates"
         subtitle="News"
@@ -82,7 +79,6 @@ export default function NewsPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

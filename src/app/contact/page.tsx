@@ -1,7 +1,5 @@
 "use client";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import InnerHero from "@/components/InnerHero";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
@@ -9,7 +7,6 @@ import { Mail, Phone, MapPin } from "lucide-react";
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white">
-      <Header />
       <InnerHero
         title="Get in Touch"
         subtitle="Contact Us"
@@ -147,7 +144,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

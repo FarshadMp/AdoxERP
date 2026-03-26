@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "@/components/Header";
 import ProjectHero from "@/components/ProjectHero";
 import About from "@/components/About";
 import OurServices from "@/components/OurServices";
@@ -8,7 +7,6 @@ import CTA from "@/components/CTA";
 import OurProjects from "@/components/OurProjects";
 import OurTeam from "@/components/OurTeam";
 import News from "@/components/News";
-import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Anarc Builders & Developers | Construction Company in Calicut",
   description:
@@ -34,7 +32,6 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--background)]">
-      <Header />
       <ProjectHero />
       <About />
       <OurServices />
@@ -43,7 +40,6 @@ export default function Home() {
       <Testimonials />
       <News />
       <CTA />
-      <Footer />
     </main>
   );
 }

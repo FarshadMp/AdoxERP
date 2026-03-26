@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import Image from "next/image";
 import Link from "next/link";
@@ -115,7 +114,6 @@ export default function ServiceDetailPage() {
       </section>
 
       <CTA />
-      <Footer />
     </main>
   );
 }

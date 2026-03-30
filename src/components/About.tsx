@@ -72,7 +72,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-5xl lg:text-6xl font-normal text-[var(--foreground)] leading-[1.1] tracking-tight"
           >
-            Partner with <span className="text-[var(--secondary)]">Anarc</span>{" "}
+            Partner with <span className="text-[var(--secondary)]">Anarc</span>
             <br />
             for your upcoming <br />
             premium projects.
@@ -85,9 +85,11 @@ export default function About() {
             className="lg:max-w-md lg:ml-auto"
           >
             <p className="text-[var(--foreground)]/70 text-lg leading-relaxed">
-              Thanks to our dedicated construction capacity and in-house
-              expertise, we offer a wide range of high-quality services for
-              residential and commercial infrastructure.
+              With over two decades of industry experience, Anarc Developers
+              delivers high-quality construction solutions backed by strong
+              in-house expertise and advanced capabilities. We specialize in
+              both residential and commercial projects, ensuring excellence,
+              reliability, and value in every build.
             </p>
           </motion.div>
         </div>

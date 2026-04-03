@@ -1,71 +1,63 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Download } from "lucide-react";
+import Image from "next/image";
+import { Facebook, Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
-  return (
-    <footer className="bg-[#521212] text-white/90 py-20 px-6 md:px-12 border-t border-white/5">
-      <div className="max-w-screen-2xl mx-auto">
-        {/* Top Section Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8 mb-10 md:mb-32">
-          {/* Contact Column */}
-          <div className="flex flex-col gap-4 md:gap-8">
-            <span className="text-white/40 text-[10px] uppercase font-bold tracking-widest">
-              Contact
-            </span>
-            <div className="flex flex-col gap-4 text-sm md:text-base leading-relaxed">
-              <p>
-                Kalloor Building, Areacode Road, <br />
-                Mukkam, Calicut, <br />
-                Kerala, India-673602
-              </p>
-              <div className="flex flex-col gap-1 mt-4">
-                <a
-                  href="mailto:info@anarcdevelopers.com"
-                  className="hover:text-[var(--secondary)] transition-colors"
-                >
-                  info@anarcdevelopers.com
-                </a>
-                <a
-                  href="tel:+918592061010"
-                  className="hover:text-[var(--secondary)] transition-colors"
-                >
-                  +91 8592061010
-                </a>
-              </div>
-            </div>
-            <div className="mt-4">
-              <a
-                href="/company-profile.pdf"
-                download
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/20 rounded-full text-white text-[10px] uppercase tracking-widest hover:bg-white hover:text-[#521212] transition-all duration-300 group w-fit"
-              >
-                Company Profile
-                <Download className="w-4 h-4 transform group-hover:translate-y-1 transition-transform duration-300" />
-              </a>
-            </div>
-          </div>
+  const currentYear = 2026;
 
-          {/* Sitemap Column */}
-          <div className="flex flex-col gap-4 md:gap-8">
-            <span className="text-white/40 text-[10px] uppercase font-bold tracking-widest">
-              Sitemap
-            </span>
-            <nav className="flex flex-col gap-3 text-sm md:text-base">
+  return (
+    <footer id="contact" className="bg-white text-black py-20 px-6 md:px-12 border-t border-slate-100">
+      <div className="max-w-screen-2xl mx-auto">
+        {/* Top Logo Area */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-20 border-b border-slate-100 pb-12">
+          <div className="w-48 md:w-64">
+            <Image
+              src="/img/logo.png"
+              alt="Business Way Freight Cargo LLC"
+              width={240}
+              height={80}
+              className="h-auto w-full object-contain"
+            />
+          </div>
+          <div className="flex gap-4">
+             {[
+              { icon: <Facebook className="w-5 h-5" />, href: "#" },
+              { icon: <Twitter className="w-5 h-5" />, href: "#" },
+              { icon: <Linkedin className="w-5 h-5" />, href: "#" },
+            ].map((social, i) => (
+              <a
+                key={i}
+                href={social.href}
+                className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300"
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Main Content Grid - Updated with User's specific services */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
+          {/* Quick Links */}
+          <div className="flex flex-col gap-6">
+            <h4 className="text-sm uppercase font-bold tracking-widest text-[var(--primary)]">
+              Quick Links
+            </h4>
+            <nav className="flex flex-col gap-3 text-sm font-medium">
               {[
                 { label: "Home", href: "/" },
-                { label: "About", href: "/about" },
-                { label: "Projects", href: "/projects" },
-                { label: "Services", href: "/services" },
-                { label: "Gallery", href: "/gallery" },
-                { label: "News", href: "/news" },
-                { label: "Contact", href: "/contact" },
+                { label: "About Us", href: "/#about" },
+                { label: "Services", href: "/#services" },
+                { label: "Location", href: "/#location" },
+                { label: "Clients", href: "/#clients" },
+                { label: "Contact Us", href: "/#contact" },
               ].map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="hover:text-[var(--secondary)] transition-colors w-fit"
+                  className="text-slate-500 hover:text-black transition-colors w-fit"
                 >
                   {item.label}
                 </Link>
@@ -73,86 +65,84 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Socials Column */}
-          <div className="flex flex-col gap-4 md:gap-8">
-            <span className="text-white/40 text-[10px] uppercase font-bold tracking-widest">
-              Socials
-            </span>
-            <div className="flex flex-col gap-3 text-sm md:text-base">
-              <a
-                href="https://www.instagram.com/anarc_developers/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[var(--secondary)] transition-colors w-fit"
-              >
-                Instagram
-              </a>
-              <a
-                href="#"
-                className="hover:text-[var(--secondary)] transition-colors w-fit"
-              >
-                Facebook
-              </a>
-              <a
-                href="https://www.linkedin.com/company/anarc-builders/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[var(--secondary)] transition-colors w-fit"
-              >
-                LinkedIn
-              </a>
+          {/* Our Services - Updated List */}
+          <div className="flex flex-col gap-6">
+            <h4 className="text-sm uppercase font-bold tracking-widest text-[var(--primary)]">
+              Our Services
+            </h4>
+            <div className="flex flex-col gap-3 text-sm font-medium text-slate-500">
+              {[
+                "Shipping",
+                "Air Freight",
+                "Land Transportation",
+                "Customs Clearing",
+                "International Moving",
+                "Business way Freight",
+              ].map((item) => (
+                <span key={item} className="hover:text-black cursor-default transition-colors">
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
 
-          {/* Updates Column */}
-          <div className="flex flex-col gap-4 md:gap-8">
-            <span className="text-white/40 text-[10px] uppercase font-bold tracking-widest">
-              Updates
-            </span>
-            <div className="flex flex-col gap-6">
-              <p className="text-sm md:text-lg leading-tight">
-                Get occasional updates on <br className="hidden lg:block" /> all
-                things Anarc.
-              </p>
-              <div className="relative group">
-                <input
-                  type="email"
-                  placeholder="Email here"
-                  className="w-full bg-white/5 border-b border-white/20 py-4 px-4 pr-12 text-white placeholder:text-white/30 focus:outline-none focus:border-[var(--secondary)] transition-all"
-                />
-                <button className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 group-hover:text-white transition-colors">
-                  <ArrowRight className="w-5 h-5" />
-                </button>
+          {/* Get In Touch */}
+          <div className="flex flex-col gap-6">
+            <h4 className="text-sm uppercase font-bold tracking-widest text-[var(--primary)]">
+              Get In Touch
+            </h4>
+            <div className="space-y-6 text-sm font-medium text-slate-500">
+              <div className="flex gap-4">
+                <MapPin className="w-5 h-5 text-slate-400 shrink-0" />
+                <p className="leading-relaxed">
+                  Office No. 1013, 1st Floor, <br />
+                  Cargo Mega Terminal Building, <br />
+                  P.O Box. 57123, <br />
+                  Cargo Village, Dubai – U.A.E
+                </p>
               </div>
-              <p className="text-[10px] text-white/30 leading-relaxed max-w-[240px]">
-                When you sign up for our newsletter you agree to our{" "}
-                <Link href="/privacy-policy" className="underline">
-                  privacy policy
-                </Link>{" "}
-                and will receive commercial emails.
-              </p>
+              <div className="flex gap-4">
+                <Phone className="w-5 h-5 text-slate-400 shrink-0" />
+                <a href="tel:+97142834222" className="hover:text-black transition-colors">
+                  Call : +9714 283 4 222
+                </a>
+              </div>
+              <div className="flex gap-4">
+                <Mail className="w-5 h-5 text-slate-400 shrink-0" />
+                <a href="mailto:mansoor@bfreight.com" className="hover:text-black transition-colors">
+                  E-mail : mansoor@bfreight.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Branches */}
+          <div className="flex flex-col gap-6">
+            <h4 className="text-sm uppercase font-bold tracking-widest text-[var(--primary)]">
+              Branches
+            </h4>
+            <div className="flex flex-col gap-3 text-sm font-medium text-slate-500">
+              {["Ajman", "Sharjah,", "Dubai", "Dubai Flower Centre"].map((item) => (
+                <span key={item} className="hover:text-black cursor-default transition-colors">{item}</span>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-8 pt-10 border-t border-white/10 text-xs md:text-sm text-white/50 tracking-wide">
-          <p>© Anarc Developers {new Date().getFullYear()}</p>
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">
-              Privacy policy
-            </Link>
-            <p>
-              Website by{" "}
-              <a
-                href="https://adoxsolutions.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
-              >
-                Adoxsolutions
-              </a>
-            </p>
+        <div className="pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] md:text-xs uppercase font-bold tracking-[0.2em] text-slate-400">
+          <p>
+            © {currentYear} <span className="text-[var(--primary)]">bfreight.com</span>. All rights reserved
+          </p>
+          <div className="flex items-center gap-8">
+            <a 
+              href="https://www.adoxsolutions.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-slate-900 hover:text-[var(--primary)] transition-colors"
+            >
+              Designed by www.adoxsolutions.com
+            </a>
           </div>
         </div>
       </div>

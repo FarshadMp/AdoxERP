@@ -13,58 +13,50 @@ export interface NewsItem {
 export const newsItems: NewsItem[] = [
   {
     id: 1,
-    slug: "evolution-modern-residential-spaces",
-    category: "Architecture",
-    date: "March 05, 2024",
-    title: "The evolution of modern residential spaces in Calicut.",
-    excerpt: "Exploring how contemporary design is reshaping-the way we live in North Kerala's most vibrant city.",
+    slug: "global-network-expansion-2026",
+    category: "Expansion",
+    date: "April 01, 2026",
+    title: "B-Freight expands global agency network to 150+ countries.",
+    excerpt: "Strengthening our international reach to provide seamless freight solutions across all major continents.",
     content: `
-      <p>Calicut's residential landscape is undergoing a profound transformation. As urban density increases, the demand for spaces that balance luxury with functionality has never been higher. At Anarc, we believe that a home is more than just a structure; it's a reflection of its residents' aspirations.</p>
+      <p>B-Freight (Business Way) is proud to announce a significant expansion of our global agency network. We have successfully partnered with leading local forwarders in over 150 countries, ensuring that our clients receive the same level of excellence and reliability regardless of the destination.</p>
       
-      <p>Modern residential design in Calicut is characterized by open floor plans, ample natural light, and a seamless integration of indoor and outdoor spaces. We are seeing a move away from traditional, compartmentalized living towards more fluid and social environments.</p>
-      
-      <h3>The Role of Sustainable Design</h3>
-      <p>Sustainability is no longer an afterthought. It is now at the heart of residential architecture. From rainwater harvesting systems to solar energy integration, modern villas and apartments in Calicut are setting new standards for eco-conscious living.</p>
-      
-      <p>Our recent projects, like the Majd Villa, exemplify this trend by utilizing locally sourced materials and passive cooling techniques that reduce the carbon footprint while enhancing comfort.</p>
+      <h3>Connecting the World</h3>
+      <p>This expansion allows us to offer more competitive rates and faster transit times for both Air and Sea freight. Our self-motivated staff is now better equipped to handle complex logistics requirements through our enhanced global footprint.</p>
     `,
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop",
-    author: "Anarc Editorial",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1000&auto=format&fit=crop",
+    author: "Logistics Desk",
   },
   {
     id: 2,
-    slug: "sustainable-materials-changing-landscape",
-    category: "Construction",
-    date: "February 28, 2024",
-    title: "How sustainable materials are changing the landscape.",
-    excerpt: "From recycled steel to carbon-negative concrete, discover the innovations driving the future of construction.",
+    slug: "sea-freight-milestone-dubai",
+    category: "Operations",
+    date: "March 20, 2026",
+    title: "New milestone achieved in Sea Freight operations between Dubai and Asia.",
+    excerpt: "Recording a 40% increase in cargo volume through our specialized sea freight consolidation services.",
     content: `
-      <p>The construction industry is one of the largest contributors to global carbon emissions. However, a new wave of sustainable materials is promising to change that. Innovations in material science are providing architects and builders with alternatives that are not only eco-friendly but also structurally superior.</p>
+      <p>Our Sea Freight division has achieved a remarkable milestone this quarter. By optimizing our loading processes and strengthening our carrier relationships, we have significantly increased our capacity for the Dubai-Asia maritime route.</p>
       
-      <h3>Innovative Alternatives</h3>
-      <p>Recycled aggregates, bamboo-reinforced concrete, and cross-laminated timber are just a few examples of materials making their way into large-scale developments. These materials offer lower embodied energy and better thermal performance.</p>
-      
-      <p>At Anarc Developers, we are actively researching and implementing these materials in our ongoing projects. Our commitment to sustainability drives us to explore technologies that ensure our buildings stand the test of time while respecting the environment.</p>
+      <h3>Efficiency in Every Shipment</h3>
+      <p>Our focus on customer satisfaction drives us to find the most efficient maritime routes, ensuring that perishable and project cargo arrives on time and within budget. This achievement is a testament to our experienced and loyal operations team.</p>
     `,
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop",
-    author: "Construction Desk",
+    image: "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?q=80&w=1000&auto=format&fit=crop",
+    author: "Operations Team",
   },
   {
     id: 3,
-    slug: "anarc-group-hits-new-milestone",
-    category: "Company",
-    date: "February 15, 2024",
-    title: "Anarc Group hits a new milestone in luxury housing.",
-    excerpt: "Reflecting on our journey as we reach a significant goal in delivering premium residential projects.",
+    slug: "digital-transformation-logistics",
+    category: "Technology",
+    date: "February 10, 2026",
+    title: "B-Freight implements new real-time tracking for international shipments.",
+    excerpt: "Bringing total transparency to our freight services with end-to-end digital tracking solutions.",
     content: `
-      <p>Anarc Builders & Developers is proud to announce a significant milestone in our journey of creating exceptional living spaces. This month, we have successfully handed over our 50th luxury villa project, marking a decade of excellence in the Kerala real estate market.</p>
+      <p>As part of our commitment to complete customer satisfaction, B-Freight is undergoing a major digital transformation. We are implementing a new state-of-the-art tracking system that provides our clients with real-time updates on their shipments.</p>
       
-      <p>Since our inception in 2000, our focus has always been on quality, transparency, and timely delivery. This milestone is a testament to the trust our clients place in us and the hard work of our dedicated team of architects, engineers, and craftsmen.</p>
-      
-      <h3>Looking Ahead</h3>
-      <p>As we celebrate this achievement, we are also looking forward to the future. Our upcoming projects in Calicut and beyond will continue to push the boundaries of design and innovation, ensuring that the Anarc brand remains synonymous with luxury and reliability.</p>
+      <h3>Transparency and Trust</h3>
+      <p>From the moment a shipment is picked up until it reaches its final destination, our clients can now monitor its progress online. This level of transparency builds trust and reflects our core values as a modern international freight forwarder.</p>
     `,
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop",
-    author: "Anarc Group",
+    image: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=1000&auto=format&fit=crop",
+    author: "Tech Division",
   },
 ];

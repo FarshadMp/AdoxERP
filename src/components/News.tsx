@@ -17,7 +17,7 @@ export default function News() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-[var(--secondary)] font-medium tracking-widest text-xs uppercase mb-4 block"
+              className="text-[var(--primary)] font-medium tracking-widest text-xs uppercase mb-4 block"
             >
               Latest News
             </motion.span>
@@ -28,7 +28,7 @@ export default function News() {
               className="text-4xl md:text-5xl lg:text-6xl font-normal text-black leading-tight tracking-tight"
             >
               Updates from the <br className="hidden md:block" /> world of{" "}
-              <span className="text-[var(--secondary)]">Anarc.</span>
+              <span className="text-[var(--primary)]">B-Freight.</span>
             </motion.h2>
           </div>
 
@@ -38,10 +38,10 @@ export default function News() {
             viewport={{ once: true }}
           >
             <Link
-              href="/news"
-              className="group flex items-center gap-3 text-sm font-semibold tracking-widest uppercase hover:text-[var(--secondary)] transition-colors"
+              href="/#contact"
+              className="group flex items-center gap-3 text-sm font-semibold tracking-widest uppercase hover:text-[var(--primary)] transition-colors"
             >
-              View All News
+              Contact Us
               <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all">
                 <ArrowRight className="w-4 h-4" />
               </div>
@@ -52,7 +52,7 @@ export default function News() {
         {/* News Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {newsItems.map((item, index) => (
-            <Link key={item.slug} href={`/news/${item.slug}`}>
+            <div key={item.slug}>
               <motion.article
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -76,15 +76,15 @@ export default function News() {
                   <time className="text-gray-400 text-xs font-medium tracking-wider uppercase">
                     {item.date}
                   </time>
-                  <h3 className="text-2xl font-normal text-black leading-tight group-hover:text-[var(--secondary)] transition-colors">
+                  <h3 className="text-2xl font-normal text-black leading-tight group-hover:text-[var(--primary)] transition-colors">
                     {item.title}
                   </h3>
-                  <div className="flex items-center gap-2 text-black font-semibold text-xs tracking-widest uppercase group-hover:gap-4 transition-all">
+                  <div className="flex items-center gap-2 text-black font-semibold text-xs tracking-widest uppercase group-hover:gap-4 transition-all hover:text-[var(--primary)]">
                     Read More <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
               </motion.article>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

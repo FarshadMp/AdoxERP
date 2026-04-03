@@ -1,45 +1,33 @@
 import type { Metadata } from "next";
-import ProjectHero from "@/components/ProjectHero";
-import About from "@/components/About";
-import OurServices from "@/components/OurServices";
-import Testimonials from "@/components/Testimonials";
-import CTA from "@/components/CTA";
-import OurProjects from "@/components/OurProjects";
-import OurTeam from "@/components/OurTeam";
+import Hero from "@/components/Hero";
 import News from "@/components/News";
 export const metadata: Metadata = {
-  title: "Anarc Builders & Developers | Construction Company in Calicut",
+  title: "B-Freight | Premium Logistics Solutions",
   description:
-    "Anarc Developers is a construction company established in 2000 and based in Mukkam, Calicut. Completing initiatives on time and within budget.",
+    "B-Freight (Business Way) is a full-fledged international freight forwarder. We achieve success in both Air and Sea Freight operations due to our experienced staff and commitment to customer satisfaction.",
   keywords: [
-    "Anarc Developers",
-    "Builders",
-    "Developers",
-    "Construction Company",
-    "Calicut",
-    "Mukkam",
+    "B-Freight",
+    "Business Way",
+    "International Freight Forwarder",
+    "Air Freight",
+    "Sea Freight",
+    "Logistics Solutions",
   ],
   openGraph: {
-    title: "Anarc Builders & Developers",
+    title: "B-Freight Logistics",
     description:
-      "Anarc Developers is a construction company established in 2000 and based in Mukkam, Calicut.",
+      "B-Freight is a full-fledged international freight forwarder. We commit ourselves to complete customer satisfaction in every aspect of the service we offer.",
     type: "website",
     locale: "en_IN",
-    siteName: "Anarc Developers",
+    siteName: "B-Freight",
   },
 };
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--background)]">
-      <ProjectHero />
-      <About />
-      <OurServices />
-      <OurTeam />
-      <OurProjects />
-      <Testimonials />
+      <Hero />
       <News />
-      <CTA />
     </main>
   );
 }

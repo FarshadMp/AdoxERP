@@ -91,7 +91,7 @@ export default function Hero() {
                 <h2 className="text-white text-3xl md:text-4xl font-light tracking-tight">
                   {slides[current].titleTop}
                 </h2>
-                <h1 className="text-white text-5xl md:text-6xl font-black leading-[0.85] tracking-tight">
+                <h1 className="text-white text-[2.8rem] md:text-6xl font-bold md:font-black leading-[0.85] tracking-tight">
                   {slides[current].highlight}
                 </h1>
               </div>

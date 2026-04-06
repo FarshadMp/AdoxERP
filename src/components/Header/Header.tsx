@@ -54,33 +54,32 @@ export default function Header() {
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       } ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-2xl border-b border-slate-200/50 py-2"
-          : "bg-transparent border-b border-white/0 pb-2 md:pb-4"
+          ? "bg-black/30 backdrop-blur-[30px] border-b border-white/5 py-4"
+          : "bg-transparent border-b border-white/0 pb-6"
       }`}
     >
       <TopBar isScrolled={isScrolled} smoothEase={smoothEase} />
 
       {/* Main Header Container */}
       <div
-        className={`px-6 md:px-12 py-2 flex items-center justify-between relative z-[200] ${smoothEase}`}
+        className={`px-6 md:px-14 lg:px-12 flex items-center justify-between relative z-200 ${smoothEase}`}
       >
-        <Logo
-          isScrolled={isScrolled}
-          smoothEase={smoothEase}
-          onLogoClick={() => setIsMobileMenuOpen(false)}
-        />
-
-        <div className="flex items-center gap-10">
-          <Navbar
-            navItems={navItems}
+        <div className="shrink-0">
+          <Logo
             isScrolled={isScrolled}
             smoothEase={smoothEase}
+            onLogoClick={() => setIsMobileMenuOpen(false)}
           />
+        </div>
 
+        <div className="hidden lg:flex flex-1 justify-end">
+          <Navbar navItems={navItems} smoothEase={smoothEase} />
+        </div>
+
+        <div className="flex lg:hidden">
           <BurgerButton
             isMobileMenuOpen={isMobileMenuOpen}
             setIsMobileMenuOpen={setIsMobileMenuOpen}
-            isScrolled={isScrolled}
           />
         </div>
       </div>

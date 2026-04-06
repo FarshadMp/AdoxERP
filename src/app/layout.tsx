@@ -42,7 +42,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "B-Freight Logistics",
-    description: "B-Freight is a full-fledged international freight forwarder. We commit ourselves to complete customer satisfaction in every aspect of the service we offer.",
+    description:
+      "B-Freight is a full-fledged international freight forwarder. We commit ourselves to complete customer satisfaction in every aspect of the service we offer.",
     url: "https://bfreight.com",
     siteName: "B-Freight",
     locale: "en_IN",
@@ -51,7 +52,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "B-Freight",
-    description: "B-Freight is a full-fledged international freight forwarder. We commit ourselves to complete customer satisfaction in every aspect of the service we offer.",
+    description:
+      "B-Freight is a full-fledged international freight forwarder. We commit ourselves to complete customer satisfaction in every aspect of the service we offer.",
   },
   robots: {
     index: true,

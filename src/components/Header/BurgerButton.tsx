@@ -5,23 +5,17 @@ import { motion } from "framer-motion";
 interface BurgerButtonProps {
   isMobileMenuOpen: boolean;
   setIsMobileMenuOpen: (open: boolean) => void;
-  isScrolled: boolean;
 }
 
 export default function BurgerButton({
   isMobileMenuOpen,
   setIsMobileMenuOpen,
-  isScrolled,
 }: BurgerButtonProps) {
+  const barColor = "#fff";
+
   return (
     <button
-      className={`lg:hidden relative z-[200] w-10 h-10 flex flex-col items-center justify-center gap-[6px] transition-all duration-300 ${
-        isMobileMenuOpen
-          ? "text-white"
-          : isScrolled
-          ? "text-[#002d62]"
-          : "text-white"
-      }`}
+      className={`lg:hidden relative z-200 w-10 h-10 flex flex-col items-center justify-center gap-[6px] transition-all duration-300 text-white`}
       onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
     >
       <motion.span
@@ -31,10 +25,10 @@ export default function BurgerButton({
             : {
                 rotate: 0,
                 y: 0,
-                backgroundColor: isScrolled ? "#002d62" : "#fff",
+                backgroundColor: barColor,
               }
         }
-        className="w-8 h-[2px] rounded-full transition-colors duration-300"
+        className="w-8 h-[2.5px] rounded-full transition-colors duration-300"
       />
       <motion.span
         animate={
@@ -43,10 +37,10 @@ export default function BurgerButton({
             : {
                 opacity: 1,
                 x: 0,
-                backgroundColor: isScrolled ? "#002d62" : "#fff",
+                backgroundColor: barColor,
               }
         }
-        className="w-8 h-[2px] rounded-full transition-colors duration-300"
+        className="w-7 h-[2.5px] rounded-full transition-colors duration-300 self-end mr-1"
       />
       <motion.span
         animate={
@@ -55,10 +49,10 @@ export default function BurgerButton({
             : {
                 rotate: 0,
                 y: 0,
-                backgroundColor: isScrolled ? "#002d62" : "#fff",
+                backgroundColor: barColor,
               }
         }
-        className="w-8 h-[2px] rounded-full transition-colors duration-300"
+        className="w-8 h-[2.5px] rounded-full transition-colors duration-300"
       />
     </button>
   );

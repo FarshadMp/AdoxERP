@@ -45,7 +45,7 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, []);
 
-  const smoothTransition = { duration: 1.2, ease: [0.16, 1, 0.3, 1] };
+  const smoothTransition = { duration: 1.2, ease: [0.16, 1, 0.3, 1] } as const;
 
   return (
     <section className="relative h-[100dvh] lg:h-screen w-full overflow-hidden bg-black flex items-center">

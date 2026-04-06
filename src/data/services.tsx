@@ -4,11 +4,7 @@ import {
   ClipboardCheck, 
   Settings, 
   HardHat, 
-  KanbanSquare,
-  ShieldCheck,
-  Paintbrush,
-  Map,
-  Factory
+  KanbanSquare
 } from "lucide-react";
 import { ReactNode } from "react";
 

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
-import { newsItems } from "@/data/news";
+import { newsItems, type NewsItem } from "@/data/news";
 
 export default function News() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,7 +15,7 @@ export default function News() {
     viewport: { once: true, amount: 0.1 },
     transition: {
       duration: 1.2,
-      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   };
 
@@ -105,7 +105,7 @@ export default function News() {
   );
 }
 
-function NewsCard({ item }: { item: any }) {
+function NewsCard({ item }: { item: NewsItem }) {
   return (
     <article className="group cursor-pointer flex flex-col h-full">
       {/* Image Container with Hover Reveal */}

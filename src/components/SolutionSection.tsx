@@ -32,7 +32,7 @@ export default function SolutionSection() {
     viewport: { once: false, amount: 0.25 },
     transition: {
       duration: 1.4,
-      ease: [0.16, 1, 0.3, 1] as any,
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   };
 
@@ -41,7 +41,7 @@ export default function SolutionSection() {
       {/* Background Blue Chevron - Replicating Lodisna's "square rotated" logic */}
       <div className="absolute top-0 right-0 bottom-0 left-0 pointer-events-none z-0 overflow-hidden">
         <div
-          className="absolute top-1/2 right-[-25vw] md:right-[-15vw] w-[80vh] h-[80vh] transform -translate-y-1/2 rotate-[225deg]"
+          className="absolute top-1/2 right-[-25vw] md:right-[-15vw] w-[80vh] h-[80vh] transform -translate-y-1/2 rotate-225"
           style={{
             background:
               "linear-gradient(225deg, #00b8fe 0%, rgba(0, 184, 254, 0.12) 40%, transparent 75%)",
@@ -74,9 +74,9 @@ export default function SolutionSection() {
 
             <Link
               href="/#services"
-              className="inline-flex items-center gap-2.5 px-6 py-2 rounded-full border border-white/30 text-white font-medium text-[clamp(9px,0.7vw,11px)] uppercase tracking-[0.2em] hover:bg-white hover:text-[#011c4d] transition-all duration-[400ms] group"
+              className="inline-flex items-center gap-2.5 px-6 py-2 rounded-full border border-white/30 text-white font-medium text-[clamp(9px,0.7vw,11px)] uppercase tracking-[0.2em] hover:bg-white hover:text-[#011c4d] transition-all duration-400 group"
             >
-              <div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[6px] border-l-primary transition-colors group-hover:border-l-[#011c4d]" />
+              <div className="w-0 h-0 border-t-4 border-t-transparent border-b-4 border-b-transparent border-l-[6px] border-l-primary transition-colors group-hover:border-l-[#011c4d]" />
               SERVICES
             </Link>
           </motion.div>

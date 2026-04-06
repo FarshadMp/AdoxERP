@@ -27,7 +27,7 @@ export default function HowItWorks() {
     viewport: { once: false, amount: 0.25 },
     transition: {
       duration: 1.4,
-      ease: [0.16, 1, 0.3, 1] as any,
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   };
 
@@ -76,7 +76,7 @@ export default function HowItWorks() {
                 transition={{
                   duration: 1.2,
                   delay: 0.3 + index * 0.1,
-                  ease: [0.16, 1, 0.3, 1] as any,
+                  ease: [0.16, 1, 0.3, 1] as const,
                 }}
                 className="flex flex-col gap-4"
               >
@@ -98,7 +98,7 @@ export default function HowItWorks() {
             transition={{
               duration: 1.4,
               delay: 0.6,
-              ease: [0.16, 1, 0.3, 1] as any,
+              ease: [0.16, 1, 0.3, 1] as const,
             }}
             className="w-[280px] h-[280px] md:w-[300px] md:h-[300px] rounded-full border border-white/20 flex flex-col items-center justify-center relative shrink-0"
           >

@@ -108,7 +108,7 @@ export default function Services() {
     viewport: { once: false, amount: 0.25 },
     transition: {
       duration: 1.4,
-      ease: [0.16, 1, 0.3, 1] as any,
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   };
 

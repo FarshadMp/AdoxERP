@@ -5,23 +5,25 @@ import { motion } from "framer-motion";
 interface BurgerButtonProps {
   isMobileMenuOpen: boolean;
   setIsMobileMenuOpen: (open: boolean) => void;
+  isScrolled: boolean;
 }
 
 export default function BurgerButton({
   isMobileMenuOpen,
   setIsMobileMenuOpen,
+  isScrolled,
 }: BurgerButtonProps) {
-  const barColor = "#fff";
+  const barColor = isScrolled ? "#111827" : "#fff"; // gray-900 when scrolled
 
   return (
     <button
-      className={`lg:hidden relative z-200 w-10 h-10 flex flex-col items-center justify-center gap-[6px] transition-all duration-300 text-white`}
+      className={`lg:hidden relative z-200 w-10 h-10 flex flex-col items-center justify-center gap-[6px] transition-all duration-300`}
       onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
     >
       <motion.span
         animate={
           isMobileMenuOpen
-            ? { rotate: 45, y: 8, backgroundColor: "#fff" }
+            ? { rotate: 45, y: 8, backgroundColor: barColor }
             : {
                 rotate: 0,
                 y: 0,
@@ -45,7 +47,7 @@ export default function BurgerButton({
       <motion.span
         animate={
           isMobileMenuOpen
-            ? { rotate: -45, y: -8, backgroundColor: "#fff" }
+            ? { rotate: -45, y: -8, backgroundColor: barColor }
             : {
                 rotate: 0,
                 y: 0,

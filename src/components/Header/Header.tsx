@@ -53,14 +53,14 @@ export default function Header() {
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       } ${
         isScrolled
-          ? "bg-black/30 backdrop-blur-[30px] border-b border-white/5"
+          ? "bg-white shadow-sm border-b border-gray-100"
           : "bg-transparent border-b border-white/0"
       }`}
     >
       {/* Main Header Container */}
 
       <div
-        className={`px-6 md:px-14 lg:px-12 py-5 flex items-center justify-between relative z-200 ${smoothEase}`}
+        className={`px-6 md:px-14 lg:px-12 py-4 flex items-center justify-between relative z-200 ${smoothEase}`}
       >
         <div className="shrink-0">
           <Logo
@@ -71,13 +71,18 @@ export default function Header() {
         </div>
 
         <div className="hidden lg:flex flex-1 justify-end">
-          <Navbar navItems={navItems} smoothEase={smoothEase} />
+          <Navbar
+            navItems={navItems}
+            smoothEase={smoothEase}
+            isScrolled={isScrolled}
+          />
         </div>
 
         <div className="flex lg:hidden">
           <BurgerButton
             isMobileMenuOpen={isMobileMenuOpen}
             setIsMobileMenuOpen={setIsMobileMenuOpen}
+            isScrolled={isScrolled}
           />
         </div>
       </div>

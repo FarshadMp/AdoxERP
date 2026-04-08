@@ -20,19 +20,21 @@ export default function Logo({
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
       className="flex items-center"
     >
-      <Link 
-        href="/" 
+      <Link
+        href="/"
         onClick={onLogoClick}
         className="flex items-center gap-3 group"
       >
         <div className="relative flex items-center justify-center">
-          <div 
-            className={`absolute inset-0 blur-2xl rounded-full transition-all duration-700 ${isScrolled ? 'scale-75' : 'scale-100 opacity-60'}`} 
-            style={{ background: 'rgba(6, 147, 251, 0.25)' }}
+          <div
+            className={`absolute inset-0 blur-2xl rounded-full transition-all duration-700 ${isScrolled ? "scale-75" : "scale-100 opacity-60"}`}
+            style={{ background: "rgba(6, 147, 251, 0.25)" }}
           />
-          <div className={`relative z-10 transition-all duration-500 group-hover:scale-105 ${isScrolled ? 'w-32' : 'w-40'}`}>
+          <div
+            className={`relative z-10 transition-all duration-500 group-hover:scale-105 ${isScrolled ? "w-40" : "w-40"}`}
+          >
             <Image
-              src="/img/logo.png"
+              src={isScrolled ? "/img/logo-dark.png" : "/img/logo.png"}
               alt="IntelliERP Logo"
               width={200}
               height={60}
@@ -42,10 +44,6 @@ export default function Logo({
           </div>
         </div>
       </Link>
-
     </motion.div>
   );
 }
-
-
-

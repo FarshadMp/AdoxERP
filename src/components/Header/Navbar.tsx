@@ -6,9 +6,14 @@ import { motion } from "framer-motion";
 interface NavbarProps {
   navItems: { label: string; href: string }[];
   smoothEase: string;
+  isScrolled: boolean;
 }
 
-export default function Navbar({ navItems, smoothEase }: NavbarProps) {
+export default function Navbar({
+  navItems,
+  smoothEase,
+  isScrolled,
+}: NavbarProps) {
   return (
     <div className="flex items-center gap-16">
       {/* Desktop Nav */}
@@ -26,13 +31,19 @@ export default function Navbar({ navItems, smoothEase }: NavbarProps) {
           >
             <Link
               href={item.href}
-              className={`relative group text-[13.5px] font-bold tracking-wide flex flex-col items-center ${smoothEase} text-white/90 hover:text-white pb-1.5 overflow-hidden`}
+              className={`relative group text-[13.5px] font-bold tracking-wide flex flex-col items-center ${smoothEase} ${
+                isScrolled
+                  ? "text-gray-800 hover:text-black"
+                  : "text-white/90 hover:text-white"
+              } pb-1.5 overflow-hidden`}
             >
               <span className="relative flex flex-col overflow-hidden">
                 <span className="inline-block transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:-translate-y-full whitespace-nowrap">
                   {item.label}
                 </span>
-                <span className="absolute left-0 top-full inline-block transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:-translate-y-full whitespace-nowrap text-white font-black">
+                <span
+                  className={`absolute left-0 top-full inline-block transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:-translate-y-full whitespace-nowrap ${isScrolled ? "text-black" : "text-white"} font-black`}
+                >
                   {item.label}
                 </span>
               </span>
@@ -54,7 +65,11 @@ export default function Navbar({ navItems, smoothEase }: NavbarProps) {
         >
           <Link
             href="/#platform"
-            className="hidden lg:flex items-center justify-center px-5 py-3 rounded-lg text-[13px] font-semibold border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all duration-300 text-white/90 hover:text-white whitespace-nowrap backdrop-blur-md"
+            className={`hidden lg:flex items-center justify-center px-5 py-3 rounded-xl text-[13px] font-semibold transition-all duration-300 whitespace-nowrap backdrop-blur-md ${
+              isScrolled
+                ? "border border-gray-300 hover:border-gray-400 hover:bg-gray-100 text-gray-800 hover:text-black"
+                : "border border-white/10 hover:border-white/30 hover:bg-white/5 text-white/90 hover:text-white"
+            }`}
           >
             View Platform
           </Link>
@@ -70,10 +85,12 @@ export default function Navbar({ navItems, smoothEase }: NavbarProps) {
           <Link
             href="/#contact"
             style={{ backgroundColor: "#0693FB" }}
-            className="group relative hidden lg:flex items-center justify-center px-5 py-3 rounded-lg text-[13px] font-semibold transition-all duration-300 text-white shadow-lg shadow-blue-500/25 whitespace-nowrap overflow-hidden"
+            className="group relative hidden lg:flex items-center justify-center px-5 py-3 rounded-xl text-[13px] font-semibold transition-all duration-300 text-white shadow-lg shadow-blue-500/25 whitespace-nowrap overflow-hidden"
           >
             {/* Creative Shine Effect */}
-            <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shine_0.8s_ease-out] pointer-events-none" />
+            <div
+              className={`absolute inset-0 w-full h-full bg-gradient-to-r ${isScrolled ? "from-transparent via-white/40 to-transparent" : "from-transparent via-white/20 to-transparent"} -translate-x-full group-hover:animate-[shine_0.8s_ease-out] pointer-events-none`}
+            />
             <span className="relative z-10">Request Demo</span>
           </Link>
         </motion.div>

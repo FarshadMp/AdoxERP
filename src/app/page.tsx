@@ -10,6 +10,7 @@ import DistributionSection from "@/components/DistributionSection";
 import TractionSection from "@/components/TractionSection";
 import ImpactSection from "@/components/ImpactSection";
 import FAQSection from "@/components/FAQSection";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
   // ... existing metadata
@@ -50,6 +51,7 @@ export default function Home() {
       <TractionSection />
       <ImpactSection />
       <FAQSection />
+      <ScrollToTop />
     </main>
   );
 }

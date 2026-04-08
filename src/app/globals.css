@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
@@ -20,13 +24,13 @@
 
 
 
-  --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee: marquee 20s linear infinite;
   @keyframes marquee {
     from {
       transform: translateX(0);
     }
     to {
-      transform: translateX(calc(-100% - 1.5rem));
+      transform: translateX(-50%);
     }
   }
 

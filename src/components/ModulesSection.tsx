@@ -86,7 +86,7 @@ export default function ModulesSection() {
   return (
     <section
       className="relative py-14 md:py-22 bg-white overflow-hidden"
-      id="solutions"
+      id="modules"
     >
       {/* Enhanced Background Decoration */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">

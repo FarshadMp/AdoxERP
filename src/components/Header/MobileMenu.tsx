@@ -9,7 +9,11 @@ interface MobileMenuProps {
   navItems: { label: string; href: string }[];
 }
 
-export default function MobileMenu({ isOpen, onClose, navItems }: MobileMenuProps) {
+export default function MobileMenu({
+  isOpen,
+  onClose,
+  navItems,
+}: MobileMenuProps) {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -53,14 +57,12 @@ export default function MobileMenu({ isOpen, onClose, navItems }: MobileMenuProp
                 className="w-full bg-white text-[#002d62] py-5 rounded-xl text-center text-sm font-bold uppercase tracking-widest active:scale-95 transition-transform"
                 onClick={onClose}
               >
-                Contact Us
+                Request Demo
               </Link>
 
               <div className="flex justify-between items-end opacity-40">
-                <span className="text-white text-[12px]">
-                  mansoor@bfreight.com
-                </span>
-                <span className="text-white text-[12px] italic">B-F</span>
+                <span className="text-white text-[12px]">[EMAIL_ADDRESS]</span>
+                <span className="text-white text-[12px]">IntelliERP</span>
               </div>
             </div>
           </nav>

@@ -39,9 +39,9 @@ export default function Header() {
   }, [lastScrollY]);
 
   const navItems = [
-    { label: "Product", href: "/#product" },
+    { label: "Product", href: "/#proposition" },
     { label: "Modules", href: "/#modules" },
-    { label: "Proof", href: "/#proof" },
+    { label: "Proof", href: "/#traction" },
     { label: "Contact", href: "/#contact" },
   ];
 

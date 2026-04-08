@@ -1,33 +1,38 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import SolutionSection from "@/components/SolutionSection";
-import HowItWorks from "@/components/HowItWorks";
-import CultureSection from "@/components/CultureSection";
-import ClientSection from "@/components/ClientSection";
-import CTASection from "@/components/CTASection";
-import News from "@/components/News";
+import PositioningSection from "@/components/PositioningSection";
+import ValueProposition from "@/components/ValueProposition";
+import AIAssistantSection from "@/components/AIAssistantSection";
+import IntelligenceSection from "@/components/IntelligenceSection";
+import WhySection from "@/components/WhySection";
+import ModulesSection from "@/components/ModulesSection";
+import DistributionSection from "@/components/DistributionSection";
+import TractionSection from "@/components/TractionSection";
+import ImpactSection from "@/components/ImpactSection";
+import FAQSection from "@/components/FAQSection";
 
 export const metadata: Metadata = {
-  title: "B-Freight | Premium Logistics Solutions",
+  // ... existing metadata
+
+  // ... (keep metadata)
+  title: "AI-Driven ERP for Modern SMEs",
   description:
-    "B-Freight (Business Way) is a full-fledged international freight forwarder. We achieve success in both Air and Sea Freight operations due to our experienced staff and commitment to customer satisfaction.",
+    "IntelliERP is a next-generation, cloud-native ERP platform that combines business operations, automation, and AI-driven insights into a single unified system. Designed specifically for small and medium-sized enterprises, IntelliERP enables businesses to operate with real-time visibility, reduced complexity, and intelligent decision-making.",
   keywords: [
-    "B-Freight",
-    "Business Way",
-    "International Freight Forwarder",
-    "Air Freight",
-    "Sea Freight",
-    "Logistics Solutions",
+    "IntelliERP",
+    "AI-Driven ERP",
+    "Cloud ERP",
+    "SME ERP",
+    "Business Automation",
+    "Real-time visibility",
   ],
   openGraph: {
-    title: "B-Freight Logistics",
+    title: "AI-Driven ERP for Modern SMEs",
     description:
-      "B-Freight is a full-fledged international freight forwarder. We commit ourselves to complete customer satisfaction in every aspect of the service we offer.",
+      "IntelliERP is a next-generation, cloud-native ERP platform that combines business operations, automation, and AI-driven insights into a single unified system.",
     type: "website",
-    locale: "en_IN",
-    siteName: "B-Freight",
+    locale: "en_US",
+    siteName: "IntelliERP",
   },
 };
 
@@ -35,14 +40,16 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <Hero />
-      <About />
-      <SolutionSection />
-      <Services />
-      <HowItWorks />
-      <CultureSection />
-      <News />
-      <CTASection />
-      <ClientSection />
+      <PositioningSection />
+      <ValueProposition />
+      <AIAssistantSection />
+      <WhySection />
+      <IntelligenceSection />
+      <ModulesSection />
+      <DistributionSection />
+      <TractionSection />
+      <ImpactSection />
+      <FAQSection />
     </main>
   );
 }

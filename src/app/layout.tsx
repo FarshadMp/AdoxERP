@@ -1,59 +1,53 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import ScrollToTop from "@/components/ScrollToTop";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"], // Including all relevant weights for flexibility
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "B-Freight | Premium Logistics Solutions",
-    template: "%s | B-Freight",
+    default: "IntelliERP | AI-Driven ERP for Modern SMEs",
+    template: "%s | IntelliERP",
   },
   description:
-    "B-Freight (Business Way) is a full-fledged international freight forwarder with an extensive agency network throughout the world. We specialize in Air and Sea Freight operations with a clear focus on complete customer satisfaction.",
+    "IntelliERP is a next-generation, cloud-native ERP platform that combines business operations, automation, and AI-driven insights into a single unified system. Designed specifically for small and medium-sized enterprises, IntelliERP enables businesses to operate with real-time visibility, reduced complexity, and intelligent decision-making.",
   keywords: [
-    "B-Freight",
-    "Business Way",
-    "International Freight Forwarder",
-    "Air Freight",
-    "Sea Freight",
-    "Logistics",
-    "Transportation",
-    "Dubai Freight",
+    "IntelliERP",
+    "AI ERP",
+    "Cloud ERP",
+    "Business Automation",
+    "Enterprise Resource Planning",
+    "SME Solutions",
+    "Intelligent Decision-Making",
+    "Cloud-Native ERP",
   ],
-  authors: [{ name: "B-Freight" }],
-  creator: "B-Freight",
-  publisher: "B-Freight",
+  authors: [{ name: "IntelliERP" }],
+  creator: "IntelliERP",
+  publisher: "IntelliERP",
   formatDetection: {
     email: false,
     address: true,
     telephone: true,
   },
   openGraph: {
-    title: "B-Freight Logistics",
+    title: "IntelliERP | AI-Driven ERP for Modern SMEs",
     description:
-      "B-Freight is a full-fledged international freight forwarder. We commit ourselves to complete customer satisfaction in every aspect of the service we offer.",
-    url: "https://bfreight.com",
-    siteName: "B-Freight",
-    locale: "en_IN",
+      "IntelliERP is a next-generation, cloud-native ERP platform that combines business operations, automation, and AI-driven insights into a single unified system.",
+    url: "https://intellierp.com", // Assuming new domain or should I omit? I'll use a placeholder or leave it as requested.
+    siteName: "IntelliERP",
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "B-Freight",
-    description:
-      "B-Freight is a full-fledged international freight forwarder. We commit ourselves to complete customer satisfaction in every aspect of the service we offer.",
+    title: "IntelliERP",
+    description: "The next-generation, AI-driven ERP platform for modern SMEs.",
   },
   robots: {
     index: true,
@@ -68,13 +62,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${plusJakartaSans.className} antialiased`}>
         <Header />
         {children}
         <Footer />
-        <ScrollToTop />
       </body>
     </html>
   );

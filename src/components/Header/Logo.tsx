@@ -1,8 +1,6 @@
-"use client";
-
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 interface LogoProps {
   isScrolled: boolean;
@@ -22,19 +20,32 @@ export default function Logo({
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
       className="flex items-center"
     >
-      <Link href="/" onClick={onLogoClick}>
-        <Image
-          src="/img/logo.png"
-          alt="B-Freight Logo"
-          width={200}
-          height={80}
-          className={`w-auto object-contain ${smoothEase} ${
-            isScrolled
-              ? "h-12 md:h-14 brightness-100"
-              : "h-14 md:h-16 brightness-110"
-          }`}
-        />
+      <Link 
+        href="/" 
+        onClick={onLogoClick}
+        className="flex items-center gap-3 group"
+      >
+        <div className="relative flex items-center justify-center">
+          <div 
+            className={`absolute inset-0 blur-2xl rounded-full transition-all duration-700 ${isScrolled ? 'scale-75' : 'scale-100 opacity-60'}`} 
+            style={{ background: 'rgba(6, 147, 251, 0.25)' }}
+          />
+          <div className={`relative z-10 transition-all duration-500 group-hover:scale-105 ${isScrolled ? 'w-32' : 'w-40'}`}>
+            <Image
+              src="/img/logo.png"
+              alt="IntelliERP Logo"
+              width={200}
+              height={60}
+              priority
+              className="w-full h-auto object-contain"
+            />
+          </div>
+        </div>
       </Link>
+
     </motion.div>
   );
 }
+
+
+

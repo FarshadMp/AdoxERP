@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import TopBar from "./TopBar";
 import Logo from "./Logo";
 import Navbar from "./Navbar";
+
 import BurgerButton from "./BurgerButton";
 import MobileMenu from "./MobileMenu";
 
@@ -39,11 +39,10 @@ export default function Header() {
   }, [lastScrollY]);
 
   const navItems = [
-    { label: "Home", href: "/", active: true },
-    { label: "About Us", href: "/#about" },
-    { label: "Services", href: "/#services" },
-    { label: "Clients", href: "/#clients" },
-    { label: "Location", href: "/#location" },
+    { label: "Product", href: "/#product" },
+    { label: "Modules", href: "/#modules" },
+    { label: "Proof", href: "/#proof" },
+    { label: "Contact", href: "/#contact" },
   ];
 
   const smoothEase = "transition-all duration-700 ease-[0.16,1,0.3,1]";
@@ -54,15 +53,14 @@ export default function Header() {
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       } ${
         isScrolled
-          ? "bg-black/30 backdrop-blur-[30px] border-b border-white/5 py-4"
-          : "bg-transparent border-b border-white/0 pb-6"
+          ? "bg-black/30 backdrop-blur-[30px] border-b border-white/5"
+          : "bg-transparent border-b border-white/0"
       }`}
     >
-      <TopBar isScrolled={isScrolled} smoothEase={smoothEase} />
-
       {/* Main Header Container */}
+
       <div
-        className={`px-6 md:px-14 lg:px-12 flex items-center justify-between relative z-200 ${smoothEase}`}
+        className={`px-6 md:px-14 lg:px-12 py-5 flex items-center justify-between relative z-200 ${smoothEase}`}
       >
         <div className="shrink-0">
           <Logo

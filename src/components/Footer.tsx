@@ -25,7 +25,7 @@ export default function Footer() {
 
       <div className="relative z-10 px-6 md:px-14 lg:px-20">
         {/* Final CTA Section */}
-        <div className="py-10 md:py-14 border-b border-white/10">
+        <div className="py-10 md:py-12 border-b border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 max-w-7xl mx-auto">
             <div className="max-w-2xl text-center md:text-left">
               <h2 className="text-2xl md:text-4xl font-bold tracking-tight mb-3">

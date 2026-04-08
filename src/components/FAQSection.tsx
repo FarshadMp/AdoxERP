@@ -47,10 +47,17 @@ export default function FAQSection() {
     >
       <div className="max-w-3xl mx-auto px-6 relative z-10">
         <div className="text-center mb-8 md:mb-12">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#0693FB]/10 text-[#0693FB] text-[12.5px] font-semibold mb-6">
+          <div
+            data-aos="fade-up"
+            className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#0693FB]/10 text-[#0693FB] text-[12.5px] font-semibold mb-6"
+          >
             You have Q&apos;S, we have A&apos;S
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-dark tracking-tight">
+          <h2
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="text-3xl md:text-4xl font-bold text-primary-dark tracking-tight"
+          >
             Frequently Asked Questions
           </h2>
         </div>
@@ -59,6 +66,8 @@ export default function FAQSection() {
           {faqs.map((faq, i) => (
             <div
               key={i}
+              data-aos="fade-up"
+              data-aos-delay={200 + i * 100}
               className="group border border-black/5 rounded-2xl bg-white hover:border-[#0693FB]/20 transition-all duration-300 overflow-hidden"
             >
               <button

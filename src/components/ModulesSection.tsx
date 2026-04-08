@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback, useRef } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import {
   Calculator,
   Users,
@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 
 const modules = [
-  // ... (same modules array)
   {
     title: "Finance & Accounting",
     description:
@@ -55,10 +54,17 @@ const modules = [
 ];
 
 export default function ModulesSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsToShow, setCardsToShow] = useState(3);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(true);
   const GAP = 32; // 32px for gap-8
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    containScroll: "trimSnaps",
+    dragFree: true,
+  });
 
   useEffect(() => {
     const handleResize = () => {
@@ -71,17 +77,36 @@ export default function ModulesSection() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const next = () => {
-    if (currentIndex < modules.length - cardsToShow) {
-      setCurrentIndex((prev) => prev + 1);
-    }
-  };
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
 
-  const prev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prev) => prev - 1);
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  const onScroll = useCallback(() => {
+    if (!emblaApi) return;
+    const progress = Math.max(0, Math.min(1, emblaApi.scrollProgress()));
+    if (progressBarRef.current) {
+      progressBarRef.current.style.transform = `translate3d(${progress * ((modules.length / cardsToShow) - 1) * 100}%, 0px, 0px)`;
     }
-  };
+  }, [emblaApi, cardsToShow]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onScroll();
+    requestAnimationFrame(() => onSelect());
+    emblaApi.on("scroll", onScroll);
+    emblaApi.on("reInit", onScroll);
+    emblaApi.on("select", onSelect);
+  }, [emblaApi, onScroll, onSelect]);
 
   return (
     <section
@@ -98,18 +123,29 @@ export default function ModulesSection() {
       <div className="max-w-7xl mx-auto px-6 md:px-14 lg:px-20 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 gap-8">
           <div className="max-w-xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0693FB]/10 text-[#0693FB] text-[13px] font-semibold mb-5">
+            <div
+              data-aos="fade-up"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0693FB]/10 text-[#0693FB] text-[13px] font-semibold mb-5"
+            >
               System Core
             </div>
 
-            <h2 className="text-3xl md:text-5xl font-bold text-primary-dark leading-[1.1] tracking-[-0.04em] mb-6">
+            <h2
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="text-3xl md:text-5xl font-bold text-primary-dark leading-[1.1] tracking-[-0.04em] mb-6"
+            >
               Everything Your <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-[#0693FB] to-[#0470c2]">
                 Business Needs
               </span>
             </h2>
 
-            <p className="text-primary-light text-base leading-relaxed">
+            <p
+              data-aos="fade-up"
+              data-aos-delay="200"
+              className="text-primary-light text-base leading-relaxed"
+            >
               IntelliERP integrates all core functions into a single,
               high-performance operating system.
             </p>
@@ -118,23 +154,23 @@ export default function ModulesSection() {
           {/* Carousel Controls - Desktop */}
           <div className="hidden md:flex items-center gap-4">
             <button
-              onClick={prev}
-              disabled={currentIndex === 0}
+              onClick={scrollPrev}
+              disabled={!canScrollPrev}
               className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 ${
-                currentIndex === 0
+                !canScrollPrev
                   ? "border-gray-200 text-gray-300 cursor-not-allowed"
-                  : "border-black/5 text-primary-dark hover:border-[#0693FB] hover:text-[#0693FB] hover:bg-[#0693FB]/5 shadow-sm"
+                  : "border-black/5 text-primary-dark hover:border-[#0693FB] hover:text-[#0693FB] hover:bg-[#0693FB]/5 shadow-sm active:scale-95"
               }`}
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
-              onClick={next}
-              disabled={currentIndex >= modules.length - cardsToShow}
+              onClick={scrollNext}
+              disabled={!canScrollNext}
               className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 ${
-                currentIndex >= modules.length - cardsToShow
+                !canScrollNext
                   ? "border-gray-200 text-gray-300 cursor-not-allowed"
-                  : "border-black/5 text-primary-dark hover:border-[#0693FB] hover:text-[#0693FB] hover:bg-[#0693FB]/5 shadow-sm"
+                  : "border-black/5 text-primary-dark hover:border-[#0693FB] hover:text-[#0693FB] hover:bg-[#0693FB]/5 shadow-sm active:scale-95"
               }`}
             >
               <ChevronRight className="w-5 h-5" />
@@ -144,34 +180,13 @@ export default function ModulesSection() {
 
         {/* Carousel Container */}
         <div className="relative overflow-visible">
-          <div className="overflow-hidden py-4 -my-4 px-4 -mx-4">
-            <motion.div
-              drag="x"
-              dragConstraints={{
-                right: 0,
-                left: -((modules.length - cardsToShow) * 2000), // Large enough or will snap back
-              }}
-              onDragEnd={(_, info) => {
-                const threshold = 50;
-                if (
-                  info.offset.x < -threshold &&
-                  currentIndex < modules.length - cardsToShow
-                ) {
-                  setCurrentIndex((prev) => prev + 1);
-                } else if (info.offset.x > threshold && currentIndex > 0) {
-                  setCurrentIndex((prev) => prev - 1);
-                }
-              }}
-              animate={{
-                x: `calc(-${currentIndex * (100 / cardsToShow)}% - ${currentIndex * (GAP / cardsToShow)}px)`,
-              }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="flex gap-8 cursor-grab active:cursor-grabbing"
-              ref={containerRef}
-            >
+          <div className="overflow-hidden py-4 -my-4 px-4 -mx-4" ref={emblaRef}>
+            <div className="flex gap-8 cursor-grab active:cursor-grabbing touch-pan-y">
               {modules.map((module, i) => (
                 <div
                   key={i}
+                  data-aos="fade-up"
+                  data-aos-delay={300 + i * 100}
                   className="shrink-0"
                   style={{
                     width: `calc(${100 / cardsToShow}% - ${(GAP * (cardsToShow - 1)) / cardsToShow}px)`,
@@ -203,27 +218,27 @@ export default function ModulesSection() {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
 
           {/* Progress Bar */}
           <div className="mt-12 h-[2px] w-full bg-gray-100 rounded-full relative overflow-hidden">
-            <motion.div
-              animate={{
-                width: `${((currentIndex + cardsToShow) / modules.length) * 100}%`,
-                x: `${(currentIndex / modules.length) * 100}%`,
+            <div
+              ref={progressBarRef}
+              className="absolute h-full bg-[#0693FB] rounded-full"
+              style={{
+                width: `${(cardsToShow / modules.length) * 100}%`,
               }}
-              className="absolute h-full bg-[#0693FB] transition-all duration-500"
             />
           </div>
 
           {/* Carousel Controls - Mobile */}
           <div className="flex md:hidden items-center justify-center gap-6 mt-10">
             <button
-              onClick={prev}
-              disabled={currentIndex === 0}
+              onClick={scrollPrev}
+              disabled={!canScrollPrev}
               className={`w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 ${
-                currentIndex === 0
+                !canScrollPrev
                   ? "border-gray-200 text-gray-300 cursor-not-allowed"
                   : "border-black/5 text-primary-dark active:scale-95 shadow-sm bg-white"
               }`}
@@ -231,10 +246,10 @@ export default function ModulesSection() {
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
-              onClick={next}
-              disabled={currentIndex >= modules.length - cardsToShow}
+              onClick={scrollNext}
+              disabled={!canScrollNext}
               className={`w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 ${
-                currentIndex >= modules.length - cardsToShow
+                !canScrollNext
                   ? "border-gray-200 text-gray-300 cursor-not-allowed"
                   : "border-black/5 text-primary-dark active:scale-95 shadow-sm bg-white"
               }`}

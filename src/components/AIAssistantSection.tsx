@@ -1,7 +1,6 @@
 "use client";
 
 import { Sparkles, MessageSquare, Search, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function AIAssistantSection() {
@@ -31,27 +30,42 @@ export default function AIAssistantSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
           {/* Left Side: Content */}
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white text-[13px] font-bold mb-8 border border-white/20">
+            <div
+              data-aos="fade-up"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white text-[13px] font-bold mb-8 border border-white/20"
+            >
               <Sparkles className="w-4 h-4" /> AI Assistant (Key Differentiator)
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-6">
+            <h2
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-6"
+            >
               Ask Your <br />
               <span className="text-[#0693FB]">ERP Anything</span>
             </h2>
 
-            <p className="text-white text-base font-light leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
+            <p
+              data-aos="fade-up"
+              data-aos-delay="200"
+              className="text-white text-base font-light leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0"
+            >
               IntelliERP includes an embedded AI assistant that allows you to
               interact with your business data using natural language.
             </p>
 
-            <div className="flex items-center gap-2 text-white/90 font-medium group cursor-pointer justify-center lg:justify-start">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="300"
+              className="flex items-center gap-2 text-white/90 font-medium group cursor-pointer justify-center lg:justify-start"
+            >
               Get instant, actionable insights
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
 
-          <div className="relative">
+          <div data-aos="fade-up" data-aos-delay="400" className="relative">
             <div className="bg-white/5 backdrop-blur-3xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden group">
               {/* Fake Search Bar */}
               <div className="flex items-center gap-3 px-5 py-4 rounded-2xl bg-white/5 border border-white/10 mb-10 group-hover:border-white/20 transition-colors">

@@ -29,18 +29,29 @@ export default function TractionSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
           {/* Left Column - Content */}
           <div>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0693FB]/10 text-[#0693FB] text-[12.5px] font-semibold border border-[#0693FB]/20 mb-6">
+            <div
+              data-aos="fade-up"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0693FB]/10 text-[#0693FB] text-[12.5px] font-semibold border border-[#0693FB]/20 mb-6"
+            >
               Proof & Traction
             </div>
 
-            <h2 className="text-3xl md:text-5xl font-bold text-primary-dark leading-tight tracking-tight mb-6">
+            <h2
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="text-3xl md:text-5xl font-bold text-primary-dark leading-tight tracking-tight mb-6"
+            >
               A Platform Built for <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-[#0693FB] to-[#0470c2]">
                 Real Business Use
               </span>
             </h2>
 
-            <p className="text-primary-light text-base leading-relaxed mb-10 max-w-lg">
+            <p
+              data-aos="fade-up"
+              data-aos-delay="200"
+              className="text-primary-light text-base leading-relaxed mb-10 max-w-lg"
+            >
               IntelliERP is already deployed in live business environments and
               supports:
             </p>
@@ -70,7 +81,11 @@ export default function TractionSection() {
               ))}
             </div>
 
-            <div className="p-6 rounded-[16px] bg-linear-to-r from-[#0693FB]/5 to-transparent border-l-4 border-[#0693FB]">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="400"
+              className="p-6 rounded-[16px] bg-linear-to-r from-[#0693FB]/5 to-transparent border-l-4 border-[#0693FB]"
+            >
               <p className="text-primary-dark font-medium text-sm md:text-base leading-relaxed">
                 The platform is generating recurring subscription revenue,
                 demonstrating real-world adoption and commercial viability.
@@ -79,7 +94,11 @@ export default function TractionSection() {
           </div>
 
           {/* Right Column - Visual representation of traction */}
-          <div className="relative border border-black/5 rounded-[28px] md:rounded-[48px] p-5 md:p-8 bg-gray-50/50 overflow-hidden">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="300"
+            className="relative border border-black/5 rounded-[28px] md:rounded-[48px] p-5 md:p-8 bg-gray-50/50 overflow-hidden"
+          >
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#0693FB]/10 blur-3xl rounded-full" />
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#0693FB]/5 blur-3xl rounded-full" />
 

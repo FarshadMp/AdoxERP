@@ -27,15 +27,26 @@ export default function DistributionSection() {
         <div className="absolute inset-0 bg-linear-to-b from-[#020817]/10 via-[#020817]/30 to-[#020817]" />
       </div>
       <div className="max-w-4xl mx-auto px-6 md:px-14 lg:px-20 relative z-10 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white text-[13px] font-bold mb-8 border border-white/20">
+        <div
+          data-aos="fade-up"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white text-[13px] font-bold mb-8 border border-white/20"
+        >
           Distribution Intelligence (Strong Differentiator)
         </div>
 
-        <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight mb-6">
+        <h2
+          data-aos="fade-up"
+          data-aos-delay="100"
+          className="text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight mb-6"
+        >
           Built-In Route & Field Operations
         </h2>
 
-        <p className="text-white/90 text-base leading-relaxed mb-10 max-w-2xl mx-auto">
+        <p
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="text-white/90 text-base leading-relaxed mb-10 max-w-2xl mx-auto"
+        >
           Unlike most ERP systems, IntelliERP includes native distribution
           capabilities:
         </p>
@@ -65,7 +76,11 @@ export default function DistributionSection() {
           ))}
         </div>
 
-        <p className="text-white font-bold text-sm md:text-xl">
+        <p
+          data-aos="fade-up"
+          data-aos-delay="300"
+          className="text-white font-bold text-sm md:text-xl"
+        >
           This creates a closed-loop system from sales to delivery.
         </p>
       </div>

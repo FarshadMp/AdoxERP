@@ -29,14 +29,21 @@ export default function ImpactSection() {
       id="impact"
     >
       <div className="max-w-4xl mx-auto px-6 md:px-14 lg:px-20 relative z-10 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0693FB]/10 text-[#0693FB] text-[12.5px] font-semibold border border-[#0693FB]/20 mb-6">
+        <div
+          data-aos="fade-up"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0693FB]/10 text-[#0693FB] text-[12.5px] font-semibold border border-[#0693FB]/20 mb-6"
+        >
           Business Impact
         </div>
 
-        <h2 className="text-3xl md:text-5xl font-bold text-primary-dark leading-tight tracking-tight mb-8 md:mb-12">
-          IntelliERP delivers <br />
+        <h2
+          data-aos="fade-up"
+          data-aos-delay="100"
+          className="text-3xl md:text-5xl font-bold text-primary-dark leading-tight tracking-tight mb-8 md:mb-12"
+        >
+          IntelliERP Delivers <br />
           <span className="text-transparent bg-clip-text bg-linear-to-r from-[#0693FB] to-[#0470c2]">
-            measurable improvements:
+            Measurable Improvements:
           </span>
         </h2>
 

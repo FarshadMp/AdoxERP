@@ -73,7 +73,10 @@ export default function Hero() {
             {/* Left Column - Text Content */}
             <div className="flex flex-col items-center text-center md:items-start md:text-left max-w-xl mx-auto md:mx-0">
               {/* Headline with premium word-by-word reveal */}
-              <h1 className="text-white text-[2.2rem] md:text-[3.5rem] font-extrabold leading-[1.1] tracking-tight mb-4 md:mb-6">
+              <h1
+                data-aos="fade-up"
+                className="text-white text-[2.2rem] md:text-[3.5rem] font-extrabold leading-[1.1] tracking-tight mb-4 md:mb-6"
+              >
                 <span className="block overflow-hidden pb-1">
                   <span className="inline-block">AI-Driven ERP</span>
                 </span>
@@ -84,13 +87,21 @@ export default function Hero() {
                 </span>
               </h1>
 
-              <p className="text-white text-sm md:text-base leading-relaxed mb-6 md:mb-10 max-w-lg font-light">
+              <p
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="text-white text-sm md:text-base leading-relaxed mb-6 md:mb-10 max-w-lg font-light"
+              >
                 IntelliERP is a next-generation, cloud-based ERP platform that
                 combines operations, automation, and AI-driven insights into a
                 single unified system.
               </p>
 
-              <div className="flex flex-row items-center gap-4 w-full md:w-auto">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="200"
+                className="flex flex-row items-center gap-4 w-full md:w-auto"
+              >
                 <motion.div
                   whileHover={{ scale: 1.03, y: -2 }}
                   whileTap={{ scale: 0.98 }}
@@ -198,6 +209,8 @@ export default function Hero() {
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
                 whileHover={{
                   scale: 1.02,
                   backgroundColor: "rgba(255, 255, 255, 0.05)",

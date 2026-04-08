@@ -37,18 +37,29 @@ export default function ValueProposition() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-start">
           {/* Left Column - Headline */}
           <div className="lg:col-span-12 xl:col-span-5 flex flex-col items-center text-center lg:items-start lg:text-left gap-5">
-            <div className="px-4 py-1.5 rounded-full bg-[#0693FB]/10 text-[#0693FB] text-[12.5px] font-semibold border border-[#0693FB]/20">
+            <div
+              data-aos="fade-up"
+              className="px-4 py-1.5 rounded-full bg-[#0693FB]/10 text-[#0693FB] text-[12.5px] font-semibold border border-[#0693FB]/20"
+            >
               Core Value Proposition
             </div>
 
-            <h2 className="text-3xl md:text-5xl font-bold text-primary-dark leading-tight tracking-tight">
+            <h2
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="text-3xl md:text-5xl font-bold text-primary-dark leading-tight tracking-tight"
+            >
               One Platform. <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-[#0693FB] to-[#0470c2]">
                 Complete Control.
               </span>
             </h2>
 
-            <p className="text-primary-light text-base leading-relaxed max-w-md mx-auto lg:mx-0">
+            <p
+              data-aos="fade-up"
+              data-aos-delay="200"
+              className="text-primary-light text-base leading-relaxed max-w-md mx-auto lg:mx-0"
+            >
               Manage your entire business from a single system for maximum
               efficiency and real-time visibility.
             </p>

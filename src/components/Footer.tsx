@@ -110,23 +110,35 @@ export default function Footer() {
               </h4>
               <ul className="space-y-4 text-sm text-white font-light">
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Blog
+                  <Link
+                    href="/about"
+                    className="hover:text-white transition-colors"
+                  >
+                    About
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Sign up
+                  <Link
+                    href="/careers"
+                    className="hover:text-white transition-colors"
+                  >
+                    Careers
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Login
+                  <Link
+                    href="/graduate"
+                    className="hover:text-white transition-colors"
+                  >
+                    Graduate Programme
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Partnerships
+                  <Link
+                    href="/contact"
+                    className="hover:text-white transition-colors"
+                  >
+                    Contact
                   </Link>
                 </li>
               </ul>

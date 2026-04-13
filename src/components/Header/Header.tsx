@@ -1,21 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import Navbar from "./Navbar";
-
+import Link from "next/link";
 import BurgerButton from "./BurgerButton";
 import MobileMenu from "./MobileMenu";
+import { Globe } from "lucide-react";
 
 export default function Header() {
-  const pathname = usePathname();
-  const isScrolledPage =
-    pathname === "/about" || 
-    pathname === "/traction" || 
-    pathname === "/careers" || 
-    pathname === "/graduate" || 
-    pathname === "/contact";
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -24,11 +17,8 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 20);
 
-      // Smoother threshold for background change
-      setIsScrolled(currentScrollY > 40);
-
-      // Visibility logic
       if (currentScrollY > 200) {
         if (currentScrollY > lastScrollY) {
           setIsVisible(false);
@@ -38,7 +28,6 @@ export default function Header() {
       } else {
         setIsVisible(true);
       }
-
       setLastScrollY(currentScrollY);
     };
 
@@ -48,55 +37,70 @@ export default function Header() {
 
   const navItems = [
     { label: "Product", href: "/product" },
-    { label: "Modules", href: "/#modules" },
-    { label: "About", href: "/about" },
-    { label: "Careers", href: "/careers" },
-    { label: "Graduate", href: "/graduate" },
-    { label: "Proof", href: "/traction" },
-    { label: "Contact", href: "/contact" },
+    { label: "Solutions", href: "/#solutions" },
+    { label: "Resources", href: "/#resources" },
+    { label: "Company", href: "/about" },
+    { label: "Pricing", href: "/#pricing" },
   ];
 
-  const smoothEase = "transition-all duration-700 ease-[0.16,1,0.3,1]";
-
-  const displayScrolled = isScrolled || isScrolledPage;
+  const smoothEase = "transition-all duration-500 ease-[0.16,1,0.3,1]";
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 ${smoothEase} ${
+      className={`fixed top-0 left-0 right-0 z-50 border-b border-white/10 ${smoothEase} ${
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       } ${
-        displayScrolled
-          ? "bg-white border-b border-gray-100"
-          : "bg-transparent border-b border-white/0"
+        isScrolled
+          ? "bg-[#020817]/80 backdrop-blur-xl py-2"
+          : "bg-transparent py-2.5"
       }`}
     >
-      {/* Main Header Container */}
-
-      <div
-        className={`px-6 md:px-14 lg:px-12 py-4 flex items-center justify-between relative z-200 ${smoothEase}`}
-      >
-        <div className="shrink-0">
+      <div className="px-6 md:px-14 lg:px-12 flex items-center relative">
+        {/* Left: Logo */}
+        <div className="flex-1 flex justify-start">
           <Logo
-            isScrolled={displayScrolled}
+            isScrolled={false}
             smoothEase={smoothEase}
             onLogoClick={() => setIsMobileMenuOpen(false)}
           />
         </div>
 
-        <div className="hidden lg:flex flex-1 justify-end">
+        {/* Center: Navbar */}
+        <div className="hidden lg:flex flex-1 justify-center">
           <Navbar
             navItems={navItems}
             smoothEase={smoothEase}
-            isScrolled={displayScrolled}
+            isScrolled={false}
           />
         </div>
 
-        <div className="flex lg:hidden">
-          <BurgerButton
-            isMobileMenuOpen={isMobileMenuOpen}
-            setIsMobileMenuOpen={setIsMobileMenuOpen}
-            isScrolled={displayScrolled}
-          />
+        {/* Right: Actions */}
+        <div className="flex-1 flex justify-end items-center gap-4">
+          <div className="hidden lg:flex items-center gap-2">
+            <Link
+              href="/#demo"
+              className="px-5 py-2.5 bg-primary hover:opacity-90 text-white text-sm rounded-lg transition-all"
+            >
+              Book a demo
+            </Link>
+            <Link
+              href="/#login"
+              className="px-5 py-2.5 bg-white/5 hover:bg-white/10 text-white text-sm rounded-lg border border-white/10 transition-all font-medium"
+            >
+              Log in
+            </Link>
+            <button className="text-white transition-colors ml-2">
+              <Globe className="w-5 h-5" />
+            </button>
+          </div>
+
+          <div className="flex lg:hidden">
+            <BurgerButton
+              isMobileMenuOpen={isMobileMenuOpen}
+              setIsMobileMenuOpen={setIsMobileMenuOpen}
+              isScrolled={false}
+            />
+          </div>
         </div>
       </div>
 

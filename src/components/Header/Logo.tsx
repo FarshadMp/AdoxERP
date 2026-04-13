@@ -31,7 +31,7 @@ export default function Logo({
             style={{ background: "rgba(6, 147, 251, 0.25)" }}
           />
           <div
-            className={`relative z-10 transition-all duration-500 group-hover:scale-105 ${isScrolled ? "w-40" : "w-40"}`}
+            className={`relative z-10 transition-all duration-500 group-hover:scale-105 ${isScrolled ? "w-32" : "w-32"}`}
           >
             <Image
               src={isScrolled ? "/img/logo-dark.png" : "/img/logo.png"}

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
+import AboutSection from "@/components/AboutSection";
+import CoreModules from "@/components/CoreModules";
 
 export const metadata: Metadata = {
   title: "AdoxERP — The Ultimate Cloud ERP System in Saudi Arabia",
@@ -38,6 +40,8 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <Hero />
+      <AboutSection />
+      <CoreModules />
     </main>
   );
 }

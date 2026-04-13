@@ -44,7 +44,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0 hidden md:block">
         <Image
           src="/img/hero/hero.jpg"
-          alt="IntelliERP Background"
+          alt="AdoxERP Background"
           fill
           className="object-cover"
           priority
@@ -57,7 +57,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0 md:hidden">
         <Image
           src="/img/hero/gradient.png"
-          alt="IntelliERP Mobile Background"
+          alt="AdoxERP Mobile Background"
           fill
           className="object-cover opacity-60"
           priority
@@ -92,7 +92,7 @@ export default function Hero() {
                 data-aos-delay="100"
                 className="text-white text-sm md:text-base leading-relaxed mb-6 md:mb-10 max-w-lg font-light"
               >
-                IntelliERP is a next-generation, cloud-based ERP platform that
+                AdoxERP is a next-generation, cloud-based ERP platform that
                 combines operations, automation, and AI-driven insights into a
                 single unified system.
               </p>

@@ -32,7 +32,7 @@ export default function Footer() {
                 Start Your Digital Transformation
               </h2>
               <p className="text-white text-sm md:text-base leading-relaxed">
-                See how IntelliERP can simplify operations and enable smarter
+                See how AdoxERP can simplify operations and enable smarter
                 decision-making.
               </p>
             </div>
@@ -64,7 +64,7 @@ export default function Footer() {
               >
                 <Image
                   src="/img/logo.png"
-                  alt="IntelliERP Logo"
+                  alt="AdoxERP Logo"
                   width={180}
                   height={60}
                   className="filter brightness-0 invert opacity-90 h-auto"
@@ -229,7 +229,7 @@ export default function Footer() {
         {/* Copyright Section */}
         <div className="py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] text-white">
           <div>
-            © Copyright {currentYear}, All Rights Reserved by IntelliERP
+            © Copyright {currentYear}, All Rights Reserved by AdoxERP
           </div>
           <div className="flex items-center gap-2 hover:text-[#0693FB] transition-colors cursor-pointer group">
             Made by{" "}

@@ -62,9 +62,9 @@ export default function MobileMenu({
 
               <div className="flex justify-between items-end opacity-40">
                 <span className="text-white text-[12px]">
-                  info@intellierp.xyz
+                  info@adoxerp.com
                 </span>
-                <span className="text-white text-[12px]">IntelliERP</span>
+                <span className="text-white text-[12px]">AdoxERP</span>
               </div>
             </div>
           </nav>

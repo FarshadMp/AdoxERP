@@ -1,39 +1,36 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
-import PositioningSection from "@/components/PositioningSection";
-import ValueProposition from "@/components/ValueProposition";
-import AIAssistantSection from "@/components/AIAssistantSection";
-import IntelligenceSection from "@/components/IntelligenceSection";
-import WhySection from "@/components/WhySection";
-import ModulesSection from "@/components/ModulesSection";
-import DistributionSection from "@/components/DistributionSection";
-import TractionSection from "@/components/TractionSection";
-import ImpactSection from "@/components/ImpactSection";
-import FAQSection from "@/components/FAQSection";
-import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
-  // ... existing metadata
-
-  // ... (keep metadata)
-  title: "AI-Driven ERP for Modern SMEs",
+  title: "AdoxERP — The Ultimate Cloud ERP System in Saudi Arabia",
   description:
-    "IntelliERP is a next-generation, cloud-native ERP platform that combines business operations, automation, and AI-driven insights into a single unified system. Designed specifically for small and medium-sized enterprises, IntelliERP enables businesses to operate with real-time visibility, reduced complexity, and intelligent decision-making.",
+    "AdoxERP is an AI-powered, ZATCA-compliant cloud ERP system for businesses in Riyadh, Jeddah & Dammam. Manage sales, accounting, HR, inventory, and more — all in one platform.",
   keywords: [
-    "IntelliERP",
-    "AI-Driven ERP",
-    "Cloud ERP",
-    "SME ERP",
-    "Business Automation",
-    "Real-time visibility",
+    "cloud ERP system Saudi Arabia",
+    "AI ERP software Riyadh",
+    "best ERP for business KSA",
+    "ZATCA compliant ERP",
+    "Fatoorah e-invoicing software",
+    "ERP system Jeddah",
+    "ERP system Dammam",
+    "manufacturing ERP Saudi Arabia",
+    "accounting software KSA",
+    "inventory management Saudi Arabia",
+    "how to manage a business in Saudi Arabia",
+    "what is the best ERP for SMEs in Saudi Arabia",
+    "which ERP is ZATCA compliant",
+    "how does ZATCA e-invoicing work",
+    "can ERP software use AI",
+    "what are AI agents in business software",
+    "is there an Arabic ERP system",
   ],
   openGraph: {
-    title: "AI-Driven ERP for Modern SMEs",
+    title: "AdoxERP — The Ultimate Cloud ERP System in Saudi Arabia",
     description:
-      "IntelliERP is a next-generation, cloud-native ERP platform that combines business operations, automation, and AI-driven insights into a single unified system.",
+      "AdoxERP is an AI-powered, ZATCA-compliant cloud ERP system for businesses in Riyadh, Jeddah & Dammam.",
     type: "website",
     locale: "en_US",
-    siteName: "IntelliERP",
+    siteName: "AdoxERP",
   },
 };
 
@@ -41,17 +38,6 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <Hero />
-      <PositioningSection />
-      <ValueProposition />
-      <AIAssistantSection />
-      <WhySection />
-      <IntelligenceSection />
-      <ModulesSection />
-      <DistributionSection />
-      <TractionSection />
-      <ImpactSection />
-      <FAQSection />
-      <ScrollToTop />
     </main>
   );
 }

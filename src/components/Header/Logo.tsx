@@ -35,7 +35,7 @@ export default function Logo({
           >
             <Image
               src={isScrolled ? "/img/logo-dark.png" : "/img/logo.png"}
-              alt="IntelliERP Logo"
+              alt="AdoxERP Logo"
               width={200}
               height={60}
               priority

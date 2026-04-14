@@ -68,7 +68,7 @@ export default function Hero() {
               className="px-5 py-4 md:py-3 bg-white md:bg-primary hover:bg-white hover:text-black text-black md:text-white text-sm rounded-lg transition-all duration-500 ease-[0.16,1,0.3,1] flex items-center justify-center gap-2 shadow-lg shadow-white/10 md:shadow-primary/10 w-[220px] md:w-auto"
             >
               Get a Free Demo
-              <Sparkles className="w-4 h-4 text-primary md:text-white" />
+              <Sparkles className="w-4 h-4" />
             </Link>
           </motion.div>
           <motion.div
@@ -96,7 +96,7 @@ export default function Hero() {
           {/* Desktop Version */}
           <div className="hidden md:block shadow-2xl shadow-blue-500/10">
             <Image
-              src="/img/hero/screen.svg"
+              src="/img/hero/screen-dark.svg"
               alt="AdoxERP Dashboard"
               width={1200}
               height={800}
@@ -107,7 +107,7 @@ export default function Hero() {
           {/* Mobile Version - Truly touching the bottom */}
           <div className="block md:hidden mb-[-5px]">
             <Image
-              src="/img/hero/mob.svg"
+              src="/img/hero/mob-dark.svg"
               alt="AdoxERP Mobile dashboard"
               width={600}
               height={1000}

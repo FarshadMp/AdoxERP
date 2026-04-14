@@ -8,7 +8,7 @@ export default function AboutSection() {
     {
       id: 1,
       value: "500+",
-      label: "Businesses Trusted",
+      label: "Businesses in KSA & GCC",
       icon: (
         <svg
           className="w-6 h-6"
@@ -29,7 +29,7 @@ export default function AboutSection() {
     {
       id: 2,
       value: "15+",
-      label: "Years Experience",
+      label: "Years of Regional Experience",
       icon: (
         <svg
           className="w-6 h-6"
@@ -50,7 +50,7 @@ export default function AboutSection() {
     {
       id: 3,
       value: "98%",
-      label: "Client Retention",
+      label: "Client Retention Rate",
       icon: (
         <svg
           className="w-6 h-6"
@@ -71,7 +71,7 @@ export default function AboutSection() {
     {
       id: 4,
       value: "24/7",
-      label: "Local Support",
+      label: "Arabic & English Support",
       icon: (
         <svg
           className="w-6 h-6"
@@ -94,71 +94,100 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative py-16 md:py-24 bg-white overflow-hidden"
+      className="relative py-16 md:py-24 bg-white overflow-hidden border-b border-gray-100"
     >
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col items-center"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-primary/10 border border-primary/20 w-fit mb-6 mx-auto">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-primary text-sm font-semibold">
+      <div className="max-w-[1300px] mx-auto px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start mb-14 md:mb-24">
+          {/* Left Side: Header & CTA */}
+          <div className="lg:col-span-5 space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="text-secondary-dark font-medium text-lg mb-4">
                 About AdoxERP
-              </span>
-            </div>
+              </div>
+              <h2 className="text-4xl md:text-[3.5rem] font-medium text-primary-dark leading-[1.05] tracking-tight">
+                An ERP Platform That Actually Understands the Saudi Market
+              </h2>
 
-            <h2 className="text-4xl md:text-[3.5rem] text-primary-dark font-medium leading-[1.1] tracking-tight mb-8">
-              An ERP Platform That Actually Understands the Saudi Market
-            </h2>
+              {/* Pill Button like in image */}
+              <button className="mt-10 inline-flex items-center gap-3 px-5 py-2.5 bg-[#f4f4f5] hover:bg-gray-200 text-gray-900 rounded-full transition-all duration-300 font-medium group text-sm">
+                <div className="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm text-black">
+                  <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+                Learn more
+              </button>
+            </motion.div>
+          </div>
 
-            <p className="text-[1.125rem] text-primary-dark leading-relaxed mb-6 font-normal">
-              Most ERP systems were built for Western markets and then adapted
-              for the Middle East as an afterthought. AdoxERP is different. We
-              built our platform from the ground up with Saudi businesses in
-              mind — which means ZATCA compliance is native, Arabic is a
-              first-class language, and local regulations like GOSI,
-              Saudization, and VAT are fully supported without needing
-              workarounds or third-party add-ons.
-            </p>
+          {/* Right Side: Content & Testimonial-style text */}
+          <div className="lg:col-span-7 space-y-12">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <p className="text-xl lg:text-[1.5rem] text-primary-dark leading-snug font-normal">
+                Most ERP systems were built for Western markets and then adapted
+                for the Middle East as an afterthought. AdoxERP is different. We
+                built our platform from the ground up with Saudi businesses in
+                mind — which means ZATCA compliance is native, Arabic is a
+                first-class language, and local regulations.
+              </p>
 
-            <p className="text-[1.125rem] text-primary-dark leading-relaxed mb-12 font-normal">
-              Whether you run a trading business in Riyadh, a manufacturing
-              facility in Dammam, or a retail operation in Jeddah, AdoxERP was
-              designed to fit how you actually work. And with built-in
-              artificial intelligence now embedded across the platform, your
-              system does not just record what happened — it helps you
-              understand what is happening right now and what to do next.
-            </p>
-
-            {/* Simple Stats Grid Mapped */}
-            <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 text-center max-w-6xl mx-auto">
-              {stats.map((stat) => (
-                <motion.div
-                  key={stat.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: stat.delay }}
-                  className="flex flex-col items-center"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4 transition-transform hover:scale-110 duration-300">
-                    {stat.icon}
+              {/* Styled with vertical left border like image */}
+              <div className="mt-10 md:mt-16 border-l border-gray-200 pl-4 md:pl-8 space-y-4">
+                <p className="text-base text-secondary-dark leading-relaxed italic">
+                  Whether you run a trading business in Riyadh, a manufacturing
+                  facility in Dammam, or a retail operation in Jeddah, AdoxERP
+                  was designed to fit how you actually work. And with built-in
+                  artificial intelligence now embedded across the platform, your
+                  system does not just record what happened — it helps you
+                  understand what is happening right now and what to do next.
+                </p>
+                <div className="pt-0 md:pt-2">
+                  <div className="font-semibold text-primary-dark">
+                    AdoxERP Team
                   </div>
-                  <h4 className="text-4xl font-bold text-primary-dark mb-1">
-                    {stat.value}
-                  </h4>
-                  <p className="text-secondary-dark text-sm font-medium tracking-wide">
+                  <div className="text-sm text-secondary-dark">
+                    Built for Saudi Vision 2030
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Simple Stats Grid Mapped - Enterprise Style */}
+        <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-y-8 md:gap-y-16 lg:gap-0 max-w-[1300px] mx-auto pt-12 md:pt-20 border-t border-gray-100 lg:divide-x lg:divide-gray-100">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: stat.delay }}
+              className="px-0 md:px-8 lg:first:pl-0 space-y-4 group"
+            >
+              <div className="flex flex-col space-y-1">
+                <h4 className="text-4xl lg:text-[4.5rem] font-normal text-primary-dark tracking-tighter leading-none">
+                  {stat.value}
+                </h4>
+                <div className="flex items-center gap-2">
+                  <div className="w-0.5 h-3 bg-primary" />
+                  <p className="text-secondary-dark text-xs lg:text-sm font-medium leading-none">
                     {stat.label}
                   </p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

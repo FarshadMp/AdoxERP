@@ -31,8 +31,8 @@ export default function Navbar({
             href={item.href}
             className={`px-2 py-1 text-sm font-medium rounded-sm transition-all duration-300 ${
               isScrolled
-                ? "text-white/90 hover:bg-white hover:text-black"
-                : "text-white/80 hover:bg-white hover:text-black"
+                ? "text-primary-dark/80 hover:text-primary"
+                : "text-white/80 hover:text-white"
             }`}
           >
             {item.label}

@@ -67,7 +67,7 @@ export default function Footer() {
                   alt="AdoxERP Logo"
                   width={180}
                   height={60}
-                  className="filter brightness-0 invert opacity-90 h-auto"
+                  className="filter brightness-0 invert h-auto"
                 />
               </Link>
               <p className="text-white text-sm leading-relaxed max-w-xs font-light">
@@ -228,9 +228,7 @@ export default function Footer() {
 
         {/* Copyright Section */}
         <div className="py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] text-white">
-          <div>
-            © Copyright {currentYear}, All Rights Reserved by AdoxERP
-          </div>
+          <div>© Copyright {currentYear}, All Rights Reserved by AdoxERP</div>
           <div className="flex items-center gap-2 hover:text-[#0693FB] transition-colors cursor-pointer group">
             Made by{" "}
             <span className="text-white/50 group-hover:text-white transition-colors">

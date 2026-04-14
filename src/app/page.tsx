@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import CoreModules from "@/components/CoreModules";
+import AIIntegration from "@/components/AIIntegration";
+import KeyFeatures from "@/components/KeyFeatures";
+import ZatcaCompliance from "@/components/ZatcaCompliance";
+import Testimonials from "@/components/Testimonials";
+import Integrations from "@/components/Integrations";
 
 export const metadata: Metadata = {
   title: "AdoxERP — The Ultimate Cloud ERP System in Saudi Arabia",
@@ -42,6 +47,11 @@ export default function Home() {
       <Hero />
       <AboutSection />
       <CoreModules />
+      <AIIntegration />
+      <KeyFeatures />
+      <ZatcaCompliance />
+      <Testimonials />
+      <Integrations />
     </main>
   );
 }

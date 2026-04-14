@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
@@ -200,20 +200,20 @@ const Card = ({ module, index }: { module: any; index: number }) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start end", "start start"],
+    offset: ["start end", "end start"],
   });
 
-  // Scale down and fade as we progress
-  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-
-  // This is the relative scroll within the card section
-  const { scrollYProgress: cardScroll } = useScroll({
-    target: container,
-    offset: ["start start", "end start"],
+  // Smooth out the scroll progress for a liquid feel
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
   });
 
-  const innerScale = useTransform(cardScroll, [0, 1], [1, 0.9]);
-  const opacity = useTransform(cardScroll, [0, 1], [1, 0.6]);
+  // 0 to 0.5: Card is entering (scaling up from 0.8 to 1)
+  // 0.5 to 1: Card is stacking (scaling down from 1 to 0.9 and fading)
+  const scale = useTransform(smoothProgress, [0, 0.5, 1], [0.8, 1, 0.9]);
+  const opacity = useTransform(smoothProgress, [0, 0.5, 1], [1, 1, 0.6]);
 
   return (
     <div
@@ -221,8 +221,8 @@ const Card = ({ module, index }: { module: any; index: number }) => {
       className="h-screen sticky top-0 flex items-center justify-center py-20"
     >
       <motion.div
-        style={{ scale: innerScale, opacity }}
-        className="w-full bg-white rounded-[40px] border border-gray-100 overflow-hidden grid grid-cols-1 lg:grid-cols-2 p-8 lg:p-16 gap-12 lg:gap-20 items-center relative z-[10]"
+        style={{ scale, opacity }}
+        className="w-full bg-[#f4f4f5] rounded-[20px] md:rounded-[40px] overflow-hidden grid grid-cols-1 lg:grid-cols-2 p-7 lg:p-16 gap-12 lg:gap-20 items-center relative z-[10]"
       >
         {/* Left Content */}
         <div className="space-y-6">
@@ -230,13 +230,13 @@ const Card = ({ module, index }: { module: any; index: number }) => {
             {module.icon}
             Module {module.id}
           </div>
-          <h3 className="text-3xl lg:text-[2.75rem] font-medium text-gray-900 leading-[1.1] tracking-tight">
+          <h3 className="text-2xl lg:text-[2.75rem] font-medium text-primary-dark leading-[1.1] tracking-tight">
             {module.title}
           </h3>
-          <p className="text-base lg:text-lg text-gray-600 leading-relaxed max-w-[95%] pb-6">
+          <p className="text-base text-secondary-dark leading-relaxed max-w-[95%] pb-2 md:pb-6">
             {module.description}
           </p>
-          <button className="bg-primary hover:bg-primary/90 text-white transition-all duration-300 px-8 py-4 rounded-xl inline-flex items-center gap-2 font-medium group">
+          <button className="bg-primary hover:bg-primary/90 text-white transition-all duration-300 text-sm px-5 py-2.5 rounded-md inline-flex items-center gap-2 font-medium group">
             Learn more
             <svg
               className="w-4 h-4 transition-transform group-hover:translate-x-1"
@@ -254,13 +254,21 @@ const Card = ({ module, index }: { module: any; index: number }) => {
           </button>
         </div>
 
-        {/* Right Image */}
-        <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-lg bg-gray-50 flex items-center justify-center transform transition-transform duration-700 hover:scale-[1.02]">
+        {/* Right Image Container */}
+        <div className="relative w-full aspect-[4/3] rounded-2xl md:rounded-3xl overflow-hidden flex items-center justify-center transform transition-transform duration-700 hover:scale-[1.02]">
+          {/* Background Background Image */}
+          <Image
+            src="/img/hero/hero.png"
+            alt="Background"
+            fill
+            className="object-cover"
+          />
+          {/* Main Interface Image */}
           <Image
             src="/img/right.png"
             alt={`${module.title} Interface`}
             fill
-            className="object-contain p-4 lg:p-8"
+            className="object-contain p-4 lg:p-8 relative z-10"
           />
         </div>
       </motion.div>
@@ -271,7 +279,7 @@ const Card = ({ module, index }: { module: any; index: number }) => {
 export default function CoreModules() {
   return (
     <section className="bg-white">
-      <div className="max-w-[1300px] mx-auto px-6 md:px-12 pt-24 pb-12 text-center">
+      <div className="max-w-[1300px] mx-auto px-6 md:px-12 pt-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -281,10 +289,10 @@ export default function CoreModules() {
           <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold text-primary bg-primary/10 rounded-sm">
             Core Modules
           </span>
-          <h2 className="text-4xl md:text-[3.5rem] font-medium tracking-tight text-gray-900 mb-6 leading-[1.1]">
+          <h2 className="text-4xl md:text-[3.5rem] font-medium tracking-tight text-primary-dark mb-4 leading-[1.1]">
             Everything Your Business Needs, All in One Place
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+          <p className="text-lg text-semibold text-primary-dark leading-relaxed max-w-4xl mx-auto">
             Running a business in Saudi Arabia means managing a lot of moving
             parts at once. AdoxERP brings all of them together — nine fully
             integrated modules that share data in real time, so every department
@@ -295,7 +303,7 @@ export default function CoreModules() {
       </div>
 
       {/* The Scrollable Cards Section */}
-      <div className="bg-[#F5F5F7] px-4 md:px-8">
+      <div className="">
         <div className="max-w-[1300px] mx-auto relative flex flex-col gap-0">
           {modules.map((module, index) => (
             <Card key={module.id} module={module} index={index} />

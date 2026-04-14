@@ -50,7 +50,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "AdoxERP — The Ultimate Cloud ERP System in Saudi Arabia",
-    description: "AdoxERP is an AI-powered, ZATCA-compliant cloud ERP system for businesses in Riyadh, Jeddah & Dammam.",
+    description:
+      "AdoxERP is an AI-powered, ZATCA-compliant cloud ERP system for businesses in Riyadh, Jeddah & Dammam.",
   },
   robots: {
     index: true,
@@ -69,7 +70,7 @@ export default function RootLayout({
         <AosProvider>
           <Header />
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </AosProvider>
       </body>
     </html>

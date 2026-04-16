@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import FooterWrapper from "@/components/FooterWrapper";
 import { AosProvider } from "@/components/AosProvider";
 import ScrollToTop from "@/components/ScrollToTop";
 import "./globals.css";
@@ -71,7 +71,7 @@ export default function RootLayout({
         <AosProvider>
           <Header />
           {children}
-          <Footer />
+          <FooterWrapper />
           <ScrollToTop />
         </AosProvider>
       </body>

@@ -6,13 +6,19 @@ import Navbar from "./Navbar";
 import Link from "next/link";
 import BurgerButton from "./BurgerButton";
 import MobileMenu from "./MobileMenu";
+import { usePathname } from "next/navigation";
 import { Globe } from "lucide-react";
 
 export default function Header() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Pages that have a white background and need a dark header from the start
+  const isWhitePage = pathname === "/privacy" || pathname === "/terms" || pathname === "/contact";
+  const forceScrolledStyle = isScrolled || isWhitePage;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +54,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 border-b ${
-        isScrolled ? "border-gray-100 bg-white shadow-sm" : "border-white/10 bg-transparent"
+        forceScrolledStyle ? "border-gray-100 bg-white shadow-sm" : "border-white/10 bg-transparent"
       } ${smoothEase} ${
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       } py-2.5`}
@@ -57,7 +63,7 @@ export default function Header() {
         {/* Left: Logo */}
         <div className="flex-1 flex justify-start">
           <Logo
-            isScrolled={isScrolled}
+            isScrolled={forceScrolledStyle}
             smoothEase={smoothEase}
             onLogoClick={() => setIsMobileMenuOpen(false)}
           />
@@ -68,7 +74,7 @@ export default function Header() {
           <Navbar
             navItems={navItems}
             smoothEase={smoothEase}
-            isScrolled={isScrolled}
+            isScrolled={forceScrolledStyle}
           />
         </div>
 
@@ -84,14 +90,14 @@ export default function Header() {
             <Link
               href="/#login"
               className={`px-5 py-2.5 text-sm rounded-lg border transition-all font-medium ${
-                isScrolled 
+                forceScrolledStyle 
                   ? "bg-gray-50 hover:bg-gray-100 text-primary-dark border-gray-200" 
                   : "bg-white/5 hover:bg-white/10 text-white border-white/10"
               }`}
             >
               Log in
             </Link>
-            <button className={`${isScrolled ? "text-primary-dark" : "text-white"} transition-colors ml-2`}>
+            <button className={`${forceScrolledStyle ? "text-primary-dark" : "text-white"} transition-colors ml-2`}>
               <Globe className="w-5 h-5" />
             </button>
           </div>
@@ -100,7 +106,7 @@ export default function Header() {
             <BurgerButton
               isMobileMenuOpen={isMobileMenuOpen}
               setIsMobileMenuOpen={setIsMobileMenuOpen}
-              isScrolled={isScrolled}
+              isScrolled={forceScrolledStyle}
             />
           </div>
         </div>

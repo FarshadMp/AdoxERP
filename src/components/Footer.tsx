@@ -57,7 +57,7 @@ export default function Footer() {
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   className="w-full sm:w-auto px-5 py-4 md:py-3 rounded-lg border border-slate-200 text-primary-dark font-bold text-base hover:bg-slate-50 transition-all duration-300 text-center"
                 >
                   Send Us a Message
@@ -189,7 +189,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href=""
+                    href="/contact"
                     className="hover:text-primary transition-colors"
                   >
                     Contact

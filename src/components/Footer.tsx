@@ -28,13 +28,10 @@ export default function Footer() {
   ];
 
   return (
-    <footer
-      id="contact"
-      className="relative bg-white text-primary-dark overflow-hidden border-t border-slate-100"
-    >
+    <footer id="contact" className="relative bg-white text-primary-dark">
       <div className="relative z-10 px-6 md:px-14 lg:px-20">
         {/* Let's Talk Section */}
-        <div className="py-14 md:py-20 border-b border-slate-100">
+        <div className="pb-14 md:pb-20 border-b border-slate-100">
           <div className="flex flex-col lg:flex-row items-start justify-between gap-12 max-w-7xl mx-auto">
             <div className="max-w-3xl">
               <h2 className="text-4xl md:text-[2.5rem] font-medium tracking-tight text-primary-dark mb-4 leading-[1.1]">

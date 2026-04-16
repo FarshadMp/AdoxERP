@@ -37,10 +37,10 @@ export default function ScrollToTop() {
           whileHover={{ scale: 1.1, translateY: -5 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-[100] p-4 bg-primary text-white rounded-full shadow-2xl shadow-primary/30 flex items-center justify-center group border border-white/10"
+          className="fixed bottom-8 right-8 z-[100] p-3 bg-primary text-white rounded-full shadow-2xl shadow-primary/30 flex items-center justify-center group border border-white/10"
           aria-label="Scroll to top"
         >
-          <ArrowUp className="w-6 h-6 transition-transform group-hover:animate-bounce" />
+          <ArrowUp className="w-4 h-4 transition-transform group-hover:animate-bounce" />
           <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
         </motion.button>
       )}

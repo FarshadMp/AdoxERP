@@ -16,6 +16,28 @@ const testimonials = [
   {
     id: 1,
     content:
+      "“The user interface is exceptionally clean and intuitive. Our staff required minimal training to get up and running, which was crucial for our expansion in Medina. AdoxERP truly understands the modern business landscape in KSA.”",
+    author: "Head of Operations",
+    company: "Medina Retail Group — Medina",
+    location: "Medina, Saudi Arabia",
+    image: "/saudi_business_general_1_1776164677349.png",
+    category: "Retail",
+    icon: <Store className="w-6 h-6" />,
+  },
+  {
+    id: 2,
+    content:
+      "“Managing multiple construction sites across Khobar was a nightmare until we integrated AdoxERP. The project costing and procurement modules are built exactly how we need them. It's a game-changer for our infrastructure projects.”",
+    author: "Project Director",
+    company: "Eastern Construction Co. — Khobar",
+    location: "Khobar, Saudi Arabia",
+    image: "/saudi_business_general_2_1776164697826.png",
+    category: "Construction",
+    icon: <Building2 className="w-6 h-6" />,
+  },
+  {
+    id: 3,
+    content:
       "“We evaluated several ERP systems before choosing AdoxERP. The ZATCA integration worked straight out of the box, the AI chatbot has genuinely saved our team hours every week, and the support team actually understands the Saudi market. It has made a real difference to how we run our business.”",
     author: "Operations Director",
     company: "Trading Company — Riyadh",
@@ -25,7 +47,7 @@ const testimonials = [
     icon: <Store className="w-6 h-6" />,
   },
   {
-    id: 2,
+    id: 4,
     content:
       "“Our finance team used to spend weeks on quarterly reporting and VAT reconciliation. With AdoxERP’s automated accounting and AI-generated reports, the same process now takes two days. The time saving alone has been worth every riyal.”",
     author: "CFO",
@@ -36,7 +58,7 @@ const testimonials = [
     icon: <Building2 className="w-6 h-6" />,
   },
   {
-    id: 3,
+    id: 5,
     content:
       "“As a manufacturing company in Dammam, we needed an ERP that could handle production planning and inventory across multiple sites. AdoxERP delivered that and more — and the predictive analytics module has completely changed how we manage our supply chain.”",
     author: "General Manager",
@@ -46,39 +68,40 @@ const testimonials = [
     category: "Manufacturing",
     icon: <Factory className="w-6 h-6" />,
   },
+  {
+    id: 6,
+    content:
+      "“The scalability of AdoxERP is what impressed us most. We started with the basic modules and added more as our hospitality group grew. The customer experience insights have directly impacted our service quality in Al-Ula.”",
+    author: "Hospitality Head",
+    company: "Desert Bloom Resorts — Al-Ula",
+    location: "Al-Ula, Saudi Arabia",
+    image: "/saudi_business_riyadh_1776163776987.png",
+    category: "Hospitality",
+    icon: <Store className="w-6 h-6" />,
+  },
+  {
+    id: 7,
+    content:
+      "“Security and local compliance were our top priorities. AdoxERP's data hosting in Saudi Arabia and seamless e-invoicing made the choice easy. It’s the most reliable platform for healthcare providers in the Tabuk region.”",
+    author: "IT Manager",
+    company: "Tabuk Health Center — Tabuk",
+    location: "Tabuk, Saudi Arabia",
+    image: "/saudi_business_jeddah_1776163792887.png",
+    category: "Healthcare",
+    icon: <Building2 className="w-6 h-6" />,
+  },
 ];
 
-// Filler poles to match the 7-pole UI from the screenshot
-const fillerPoles = [
-  { id: "f1", image: "/saudi_business_general_1_1776164677349.png" },
-  { id: "f2", image: "/saudi_business_general_2_1776164697826.png" },
-  { id: "f3", image: "/saudi_business_riyadh_1776163776987.png" }, // reusing
-  { id: "f4", image: "/saudi_business_jeddah_1776163792887.png" }, // reusing
-];
-
-// Combine into a 7-item list: [Filler, Testimonial1, Testimonial2, Testimonial3, Filler, Filler, Filler]
-// Or better: [Filler, Filler, Testimonial1, Testimonial2, Testimonial3, Filler, Filler] - Testimonial2 is center
-const galleryItems = [
-  { type: "filler", ...fillerPoles[0] },
-  { type: "filler", ...fillerPoles[1] },
-  { type: "content", ...testimonials[0] },
-  { type: "content", ...testimonials[1] },
-  { type: "content", ...testimonials[2] },
-  { type: "filler", ...fillerPoles[2] },
-  { type: "filler", ...fillerPoles[3] },
-];
+// Combine into a 7-item list for the gallery
+const galleryItems = testimonials.map((t) => ({ type: "content", ...t }));
 
 export default function Testimonials() {
-  const [activeIndex, setActiveIndex] = useState(3); // Start with center testimonial (Index 3)
+  const [activeIndex, setActiveIndex] = useState(3); // Start with center item (Index 3)
 
   useEffect(() => {
     const timer = setInterval(() => {
-      // Rotate active index among the 3 content poles (2, 3, 4)
-      setActiveIndex((prev) => {
-        if (prev === 2) return 3;
-        if (prev === 3) return 4;
-        return 2;
-      });
+      // Cycle through all 7 poles
+      setActiveIndex((prev) => (prev + 1) % galleryItems.length);
     }, 6000);
     return () => clearInterval(timer);
   }, []);
@@ -130,7 +153,7 @@ export default function Testimonials() {
         </div>
 
         {/* 7-Pole Imagepole Gallery */}
-        <div className="flex flex-row items-stretch h-[400px] md:h-[550px] gap-2 md:gap-3 overflow-hidden rounded-xl md:rounded-xl">
+        <div className="flex flex-row items-stretch h-[500px] md:h-[550px] gap-2 md:gap-3 overflow-hidden rounded-xl md:rounded-xl">
           {galleryItems.map((item, index) => {
             const isActive = index === activeIndex;
 
@@ -142,7 +165,7 @@ export default function Testimonials() {
                   flex: isActive ? 12 : 1, // High flex for expanded card
                 }}
                 transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
-                className="relative cursor-pointer overflow-hidden group rounded-sm md:rounded-xl"
+                className={`relative cursor-pointer overflow-hidden group rounded-sm md:rounded-xl ${!isActive ? "hidden md:block" : "w-full md:w-auto"}`}
               >
                 <Image
                   src={item.image}
@@ -167,10 +190,10 @@ export default function Testimonials() {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
-                      className="absolute inset-0 flex items-end justify-center p-6 md:p-8 z-20"
+                      className="absolute inset-x-0 bottom-0 md:inset-0 flex items-end justify-center p-4 md:p-8 z-20"
                     >
                       {/* Floating White Card matching screenshot */}
-                      <div className="bg-white/95 backdrop-blur-sm p-6 md:p-8 rounded-xl md:rounded-2xl shadow-2xl relative max-w-2xl ml-auto md:mr-0 mr-auto">
+                      <div className="bg-white/95 backdrop-blur-sm p-5 md:p-8 rounded-xl md:rounded-2xl shadow-2xl relative max-w-2xl w-full">
                         {/* Top Row: Logo and Category */}
                         <div className="flex items-center justify-between mb-8">
                           <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
@@ -182,7 +205,7 @@ export default function Testimonials() {
                           </span>
                         </div>
 
-                        <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-8 font-normal">
+                        <p className="text-slate-700 text-sm md:text-lg leading-relaxed mb-6 md:mb-8 font-normal">
                           "{item.content}"
                         </p>
 

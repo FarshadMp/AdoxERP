@@ -73,17 +73,25 @@ export default function ZatcaCompliance() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => {
-            const direction = index < 2 ? -100 : 100;
+            // Directional offsets to make cards slide out from the center
+            // Index 0, 1 (Left side) start with positive X to come from center-right
+            // Index 2, 3 (Right side) start with negative X to come from center-left
+            let initialX = 0;
+            if (index === 0) initialX = 100;
+            else if (index === 1) initialX = 30;
+            else if (index === 2) initialX = -30;
+            else if (index === 3) initialX = -100;
+
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: direction, scale: 0.9 }}
+                initial={{ opacity: 0, x: initialX, scale: 0.95 }}
                 whileInView={{ opacity: 1, x: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: (index % 2) * 0.1,
-                  ease: [0.16, 1, 0.3, 1] 
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{
+                  duration: 0.8,
+                  delay: (index % 4) * 0.1,
+                  ease: [0.16, 1, 0.3, 1],
                 }}
                 className="group bg-[#f8fafc] hover:bg-white p-6 md:p-8 rounded-[1.5rem] border border-slate-100/50 hover:border-primary/20 hover:shadow-[0_40px_80px_-20px_rgba(0,138,208,0.15)] transition-all duration-700 flex flex-col items-start"
               >

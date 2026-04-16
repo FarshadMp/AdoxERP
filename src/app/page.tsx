@@ -41,6 +41,9 @@ export const metadata: Metadata = {
   },
 };
 
+import FAQ from "@/components/FAQ";
+import NewsletterCTA from "@/components/NewsletterCTA";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
@@ -52,6 +55,8 @@ export default function Home() {
       <ZatcaCompliance />
       <Testimonials />
       <Integrations />
+      <FAQ />
+      <NewsletterCTA />
     </main>
   );
 }

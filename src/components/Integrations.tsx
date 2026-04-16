@@ -110,7 +110,7 @@ const IntegrationCard = ({ item, index }: { item: any; index: number }) => (
     viewport={{ once: true }}
     transition={{ duration: 0.6, delay: index * 0.05 }}
     whileHover={{ y: -5 }}
-    className="group relative bg-white p-6 md:p-8 rounded-[1.5rem] border border-slate-100 hover:border-primary/30 transition-all duration-500 overflow-hidden"
+    className="group relative bg-white p-4 md:p-6 rounded-[1rem] md:rounded-[1.5rem] border border-slate-100 hover:border-primary/30 transition-all duration-500 overflow-hidden"
   >
     {/* Animated Background Gradient on Hover */}
     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -120,7 +120,7 @@ const IntegrationCard = ({ item, index }: { item: any; index: number }) => (
 
     <div className="relative z-10">
       <div className="flex items-center justify-between mb-6">
-        <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400 group-hover:text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-lg group-hover:shadow-primary/20">
+        <div className="w-10 md:w-12 h-10 md:h-12 bg-slate-50 rounded-sm md:rounded-xl flex items-center justify-center text-slate-400 group-hover:text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-lg group-hover:shadow-primary/20">
           {item.icon}
         </div>
 
@@ -133,7 +133,7 @@ const IntegrationCard = ({ item, index }: { item: any; index: number }) => (
         </div>
       </div>
 
-      <h4 className="text-primary-dark font-bold text-lg mb-1 group-hover:text-primary transition-colors">
+      <h4 className="text-primary-dark font-bold text-sm md:text-lg mb-1 leading-[1.05] tracking-tight group-hover:text-primary transition-colors">
         {item.name}
       </h4>
       <p className="text-secondary-dark text-xs font-semibold uppercase tracking-wider opacity-60 group-hover:opacity-100 transition-opacity">
@@ -162,14 +162,14 @@ export default function Integrations() {
             className="flex flex-col items-center"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-md text-primary text-sm font-semibold mb-4">
-              Omnichannel Ecosystem
+              Integrations
             </div>
 
             <h2 className="text-4xl md:text-[3.5rem] font-medium tracking-tight text-primary-dark mb-4 leading-[1.1]">
               Connect AdoxERP to the Tools You Already Use
             </h2>
 
-            <p className="text-lg text-secondary-dark leading-relaxed font-normal max-w-5xl opacity-80">
+            <p className="text-lg text-secondary-dark leading-relaxed font-normal max-w-5xl">
               AdoxERP integrates with the platforms Saudi businesses depend on —
               from local payment gateways and government portals to global
               e-commerce and productivity tools. One ERP. Your entire ecosystem.
@@ -191,7 +191,7 @@ export default function Integrations() {
             </h3>
           </motion.div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6">
             {saudiIntegrations.map((item, index) => (
               <IntegrationCard key={index} item={item} index={index} />
             ))}
@@ -212,7 +212,7 @@ export default function Integrations() {
             </h3>
           </motion.div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6">
             {globalIntegrations.map((item, index) => (
               <IntegrationCard key={index} item={item} index={index} />
             ))}
@@ -225,7 +225,7 @@ export default function Integrations() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="mt-16 p-8 rounded-[2rem] bg-slate-50/50 border border-slate-100 text-center max-w-4xl mx-auto"
+          className="mt-10 md:mt-16 p-8 rounded-[1rem] md:rounded-[1.5rem] bg-slate-50/90 border border-slate-200 text-center max-w-4xl mx-auto"
         >
           <p className="text-secondary-dark text-sm md:text-base font-medium opacity-80">
             + Saudi banking integrations, Absher, Maroof, HyperPay, and more via

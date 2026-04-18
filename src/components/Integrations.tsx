@@ -1,142 +1,189 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  ShieldCheck,
-  CreditCard,
-  Smartphone,
-  Globe,
-  ShoppingCart,
-  Cloud,
-  Mail,
-  Slack,
-  Files,
-  Key,
-  Zap,
-  Building2,
-  Users,
-} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 const saudiIntegrations = [
   {
     name: "ZATCA / Fatoorah",
-    sub: "E-Invoicing",
-    icon: <ShieldCheck className="w-6 h-6" />,
+    domain: "zatca.gov.sa",
+    sub: "Full compliance with Saudi e-invoicing Phase 2 requirements.",
+    logo: "/img/logos/zatca.png",
+    tag: "E-Invoicing",
   },
   {
     name: "Mada",
-    sub: "Saudi Payments",
-    icon: <CreditCard className="w-6 h-6" />,
+    domain: "mada.com.sa",
+    sub: "Seamless acceptance of Saudi Arabia's local payment network.",
+    logo: "/img/logos/mada.png",
+    tag: "Saudi Payments",
   },
   {
     name: "STC Pay",
-    sub: "Saudi Payments",
-    icon: <Smartphone className="w-6 h-6" />,
+    domain: "stcpay.com.sa",
+    sub: "Direct integration with the Kingdom's most popular digital wallet.",
+    logo: "/img/logos/stc.png",
+    tag: "Saudi Payments",
   },
   {
     name: "PayTabs",
-    sub: "Payment Gateway",
-    icon: <Globe className="w-6 h-6" />,
+    domain: "paytabs.com",
+    sub: "Secure payment gateway for local and international transactions.",
+    logo: "/img/logos/PayTabs.png",
+    tag: "Payment Gateway",
   },
   {
     name: "GOSI Portal",
-    sub: "Government KSA",
-    icon: <Building2 className="w-6 h-6" />,
+    domain: "gosi.gov.sa",
+    sub: "Automated social insurance reporting and compliance tracking.",
+    logo: "/img/logos/gosi.png",
+    tag: "Government KSA",
   },
   {
     name: "Muqeem / MOL",
-    sub: "HR / Iqama",
-    icon: <Users className="w-6 h-6" />,
+    domain: "muqeem.sa",
+    sub: "Direct HR integration with Muqeem and Ministry of Labor portals.",
+    logo: "/img/logos/Muqeem.png",
+    tag: "HR / Iqama",
   },
   {
     name: "Salla",
-    sub: "E-Commerce KSA",
-    icon: <ShoppingCart className="w-6 h-6" />,
+    domain: "salla.sa",
+    sub: "Sync your inventory and sales from Saudi's leading e-commerce platform.",
+    logo: "/img/logos/Salla.png",
+    tag: "E-Commerce KSA",
   },
   {
     name: "Zid",
-    sub: "E-Commerce KSA",
-    icon: <ShoppingCart className="w-6 h-6" />,
+    domain: "zid.sa",
+    sub: "Complete ERP synchronization for your Zid-powered online store.",
+    logo: "/img/logos/Zid.png",
+    tag: "E-Commerce KSA",
   },
 ];
 
 const globalIntegrations = [
   {
     name: "Shopify",
-    sub: "E-Commerce",
-    icon: <ShoppingCart className="w-6 h-6" />,
+    domain: "shopify.com",
+    sub: "Automate orders, inventory, and customer sync with Shopify.",
+    logo: "/img/logos/shopify.png",
+    tag: "E-Commerce",
   },
   {
     name: "WooCommerce",
-    sub: "E-Commerce",
-    icon: <ShoppingCart className="w-6 h-6" />,
+    domain: "woocommerce.com",
+    sub: "Robust sync for WordPress-based online businesses.",
+    logo: "/img/logos/woocommerce.png",
+    tag: "E-Commerce",
   },
-  { name: "Stripe", sub: "Payments", icon: <CreditCard className="w-6 h-6" /> },
-  { name: "PayPal", sub: "Payments", icon: <CreditCard className="w-6 h-6" /> },
+  {
+    name: "Stripe",
+    domain: "stripe.com",
+    sub: "Accept payments globally with world-class security.",
+    logo: "/img/logos/stripe.png",
+    tag: "Payments",
+  },
+  {
+    name: "PayPal",
+    domain: "paypal.com",
+    sub: "Expand your reach with the world's most trusted wallet.",
+    logo: "/img/logos/paypal.png",
+    tag: "Payments",
+  },
   {
     name: "Razorpay",
-    sub: "Payments",
-    icon: <CreditCard className="w-6 h-6" />,
+    domain: "razorpay.com",
+    sub: "Next-generation payment processing for modern business.",
+    logo: "/img/logos/razorpay.png",
+    tag: "Payments",
   },
   {
     name: "Tabby / Tamara",
-    sub: "BNPL KSA",
-    icon: <Zap className="w-6 h-6" />,
+    domain: "tabby.ai",
+    sub: "Enable 'Buy Now Pay Later' solutions for your KSA customers.",
+    logo: "/img/logos/Tabby.png",
+    tag: "BNPL KSA",
   },
-  { name: "AWS", sub: "Cloud / Hosting", icon: <Cloud className="w-6 h-6" /> },
+  {
+    name: "AWS",
+    domain: "aws.amazon.com",
+    sub: "Enterprise-grade cloud hosting and infrastructure solutions.",
+    logo: "/img/logos/aws.png",
+    tag: "Cloud / Hosting",
+  },
   {
     name: "Google Workspace",
-    sub: "Productivity",
-    icon: <Mail className="w-6 h-6" />,
+    domain: "google.com",
+    sub: "Sync your calendar, mail and documents seamlessly.",
+    logo: "/img/logos/Google.png",
+    tag: "Productivity",
   },
   {
     name: "Microsoft 365",
-    sub: "Productivity",
-    icon: <Mail className="w-6 h-6" />,
+    domain: "microsoft.com",
+    sub: "Full integration with Outlook, Teams, and Excel.",
+    logo: "/img/logos/microsoft.png",
+    tag: "Productivity",
   },
-  { name: "Slack", sub: "Collaboration", icon: <Slack className="w-6 h-6" /> },
-  { name: "Dropbox", sub: "File Storage", icon: <Files className="w-6 h-6" /> },
+  {
+    name: "Slack",
+    domain: "slack.com",
+    sub: "Automated business notifications and team collaboration.",
+    logo: "/img/logos/slack.png",
+    tag: "Collaboration",
+  },
+  {
+    name: "Dropbox",
+    domain: "dropbox.com",
+    sub: "Cloud-based file storage and document management sync.",
+    logo: "/img/logos/Dropbox.png",
+    tag: "File Storage",
+  },
   {
     name: "Open API",
-    sub: "Custom Connect",
-    icon: <Key className="w-6 h-6" />,
+    domain: "adoxerp.com",
+    sub: "Flexible API endpoints to connect any custom software.",
+    logo: "/img/logos/openapi.png",
+    tag: "Custom Connect",
   },
 ];
 
-const IntegrationCard = ({ item, index }: { item: any; index: number }) => (
+const IntegrationItem = ({ item, index }: { item: any; index: number }) => (
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6, delay: index * 0.05 }}
-    whileHover={{ y: -5 }}
-    className="group relative bg-white p-4 md:p-6 rounded-[1rem] md:rounded-[1.5rem] border border-slate-100 hover:border-primary/30 transition-all duration-500 overflow-hidden"
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.3, delay: index * 0.03 }}
+    className="flex flex-col md:flex-row md:items-center py-6 border-b border-slate-100 last:border-0 gap-3 md:gap-0"
   >
-    {/* Animated Background Gradient on Hover */}
-    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-    {/* Floating Decoration */}
-    <div className="absolute -top-4 -right-4 w-12 h-12 bg-primary/5 rounded-full blur-xl group-hover:scale-150 transition-transform duration-700" />
-
-    <div className="relative z-10">
-      <div className="flex items-center justify-between mb-6">
-        <div className="w-10 md:w-12 h-10 md:h-12 bg-slate-50 rounded-sm md:rounded-xl flex items-center justify-center text-slate-400 group-hover:text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-lg group-hover:shadow-primary/20">
-          {item.icon}
-        </div>
-
-        {/* Connection Light */}
-        <div className="flex items-center gap-1.5 bg-slate-50 px-2 py-1 rounded-full group-hover:bg-primary/10 transition-colors">
-          <div className="w-1 h-1 rounded-full bg-slate-300 group-hover:bg-primary animate-pulse" />
-          <span className="text-[10px] font-bold text-slate-400 group-hover:text-primary uppercase tracking-tighter">
-            Ready
-          </span>
+    <div className="flex items-center shrink-0">
+      {/* Logo Column */}
+      <div className="w-12 md:w-14 shrink-0 flex items-center justify-start">
+        <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-slate-50 rounded-lg overflow-hidden">
+          <img
+            src={item.logo}
+            alt={item.name}
+            className="max-w-[70%] max-h-[70%] object-contain"
+            loading="lazy"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = `https://www.google.com/s2/favicons?domain=${item.domain}&sz=128`;
+            }}
+          />
         </div>
       </div>
 
-      <h4 className="text-primary-dark font-bold text-sm md:text-lg mb-1 leading-[1.05] tracking-tight group-hover:text-primary transition-colors">
-        {item.name}
-      </h4>
-      <p className="text-secondary-dark text-xs font-semibold uppercase tracking-wider opacity-60 group-hover:opacity-100 transition-opacity">
+      {/* Name Column */}
+      <div className="w-[120px] md:w-[220px] shrink-0 pr-4">
+        <h4 className="text-slate-900 font-bold md:font-medium text-[15px] md:text-[16px] tracking-tight">
+          {item.name}
+        </h4>
+      </div>
+    </div>
+
+    {/* Description Column */}
+    <div className="flex-1 md:pl-0 pl-12">
+      <p className="text-slate-600 text-[14px] md:text-[15px] font-normal leading-relaxed">
         {item.sub}
       </p>
     </div>
@@ -144,21 +191,16 @@ const IntegrationCard = ({ item, index }: { item: any; index: number }) => (
 );
 
 export default function Integrations() {
-  return (
-    <section className="pb-14 md:pb-24 bg-[#fcfdfe] relative overflow-hidden">
-      {/* Background Decorative patterns */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/20 rounded-full blur-[120px] -translate-x-1/2" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[120px] translate-x-1/2" />
-      </div>
+  const [activeTab, setActiveTab] = useState<"saudi" | "global">("saudi");
 
-      <div className="max-w-[1300px] mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col items-center text-center mb-10 md:mb-16">
+  return (
+    <section className="pb-16 md:pb-26 bg-white relative overflow-hidden">
+      <div className="max-w-[1000px] mx-auto px-6 relative z-10">
+        <div className="flex flex-col items-center text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
             className="flex flex-col items-center"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-md text-primary text-sm font-semibold mb-4">
@@ -174,48 +216,52 @@ export default function Integrations() {
               from local payment gateways and government portals to global
               e-commerce and productivity tools. One ERP. Your entire ecosystem.
             </p>
+
+            {/* Premium Tabs */}
+            <div className="flex p-1 bg-slate-100 rounded-full my-8 md:my-12">
+              <button
+                onClick={() => setActiveTab("saudi")}
+                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  activeTab === "saudi"
+                    ? "bg-white text-primary shadow-sm"
+                    : "text-slate-500 hover:text-slate-700"
+                }`}
+              >
+                Saudi-Specific Integrations
+              </button>
+              <button
+                onClick={() => setActiveTab("global")}
+                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  activeTab === "global"
+                    ? "bg-white text-primary shadow-sm"
+                    : "text-slate-500 hover:text-slate-700"
+                }`}
+              >
+                Global Integrations
+              </button>
+            </div>
           </motion.div>
         </div>
 
-        {/* Saudi Specific Grid */}
-        <div className="mb-15">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-4 mb-8"
-          >
-            <div className="h-[1px] w-12 bg-primary/30" />
-            <h3 className="text-primary font-bold uppercase text-xs">
-              SAUDI-SPECIFIC INTEGRATIONS
-            </h3>
-          </motion.div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6">
-            {saudiIntegrations.map((item, index) => (
-              <IntegrationCard key={index} item={item} index={index} />
-            ))}
-          </div>
-        </div>
-
-        {/* Global Grid */}
-        <div>
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-4 mb-8"
-          >
-            <div className="h-[1px] w-12 bg-primary/30" />
-            <h3 className="text-primary font-bold uppercase text-xs">
-              GLOBAL INTEGRATIONS
-            </h3>
-          </motion.div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6">
-            {globalIntegrations.map((item, index) => (
-              <IntegrationCard key={index} item={item} index={index} />
-            ))}
+        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden min-h-[500px]">
+          <div className="divide-y divide-slate-100">
+            <AnimatePresence>
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, x: activeTab === "saudi" ? -5 : 5 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: activeTab === "saudi" ? 10 : -10 }}
+                transition={{ duration: 0.2 }}
+                className="px-4 md:px-6"
+              >
+                {(activeTab === "saudi"
+                  ? saudiIntegrations
+                  : globalIntegrations
+                ).map((item, index) => (
+                  <IntegrationItem key={item.name} item={item} index={index} />
+                ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
 
@@ -224,16 +270,12 @@ export default function Integrations() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-10 md:mt-16 p-8 rounded-[1rem] md:rounded-[1.5rem] bg-slate-50/90 border border-slate-200 text-center max-w-4xl mx-auto"
+          transition={{ delay: 0.4 }}
+          className="mt-12 text-center"
         >
-          <p className="text-secondary-dark text-sm md:text-base font-medium opacity-80">
-            + Saudi banking integrations, Absher, Maroof, HyperPay, and more via
-            our{" "}
-            <span className="text-primary font-bold not-italic">
-              Open API ecosystem
-            </span>
-            .
+          <p className="text-secondary-dark/50 text-sm font-medium">
+            + Saudi banking, Absher, Maroof, HyperPay, and more via our{" "}
+            <span className="text-primary font-bold">Open API</span>
           </p>
         </motion.div>
       </div>

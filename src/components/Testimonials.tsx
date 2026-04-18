@@ -117,7 +117,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="pb-14 md:pb-24 bg-white overflow-hidden text-primary-dark">
+    <section className="pb-16 md:pb-26 bg-white overflow-hidden text-primary-dark">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-8 md:mb-12">

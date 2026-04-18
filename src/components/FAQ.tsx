@@ -69,7 +69,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-14 md:py-24 bg-[#f8fafc] relative overflow-hidden">
+    <section className="py-16 md:py-26 bg-[#f8fafc] relative overflow-hidden">
       {/* Background Decorative patterns - keeping it consistent with the rest of the site */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px]" />
@@ -103,7 +103,7 @@ export default function FAQ() {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full px-6 md:px-8 py-6 md:py-6 flex items-center justify-between text-left transition-colors duration-200"
               >
-                <span className="text-md md:text-lg leading-[1.15] tracking-tight font-bold text-primary-dark pr-8 group-hover:text-primary transition-colors duration-300">
+                <span className="text-md md:text-lg leading-[1.15] tracking-tight font-medium md:font-bold text-primary-dark pr-8 group-hover:text-primary transition-colors duration-300">
                   {faq.question}
                 </span>
                 <div className="flex items-center gap-3 md:gap-6 shrink-0">

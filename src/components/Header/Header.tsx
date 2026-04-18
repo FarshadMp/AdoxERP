@@ -17,7 +17,11 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Pages that have a white background and need a dark header from the start
-  const isWhitePage = pathname === "/privacy" || pathname === "/terms" || pathname === "/contact";
+  const isWhitePage =
+    pathname === "/privacy" ||
+    pathname === "/terms" ||
+    pathname === "/contact" ||
+    pathname === "/about";
   const forceScrolledStyle = isScrolled || isWhitePage;
 
   useEffect(() => {
@@ -53,17 +57,25 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 border-b ${
-        forceScrolledStyle ? "border-gray-100 bg-white shadow-sm" : "border-white/10 bg-transparent"
-      } ${smoothEase} ${
+      className={`fixed top-0 left-0 right-0 z-[200] flex justify-center ${smoothEase} ${
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-      } py-2.5`}
+      } ${isScrolled && !isMobileMenuOpen ? "pt-4" : "pt-0"}`}
     >
-      <div className="px-6 md:px-14 lg:px-12 flex items-center relative">
+      <div
+        className={`flex items-center w-full transition-all duration-700 ease-[0.16,1,0.3,1] ${
+          isMobileMenuOpen
+            ? "max-w-full bg-transparent py-5 px-6 md:px-14 shadow-none pointer-events-auto"
+            : isScrolled
+              ? "max-w-[1200px] mx-4 bg-white/100 backdrop-blur-xl rounded-full py-2.5 px-6 md:px-8 shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
+              : isWhitePage
+                ? "max-w-full bg-white py-4 px-6 md:px-14 border-b border-gray-100"
+                : "max-w-full bg-transparent py-5 px-6 md:px-14"
+        }`}
+      >
         {/* Left: Logo */}
         <div className="flex-1 flex justify-start">
           <Logo
-            isScrolled={forceScrolledStyle}
+            isScrolled={forceScrolledStyle && !isMobileMenuOpen}
             smoothEase={smoothEase}
             onLogoClick={() => setIsMobileMenuOpen(false)}
           />
@@ -79,25 +91,29 @@ export default function Header() {
         </div>
 
         {/* Right: Actions */}
-        <div className="flex-1 flex justify-end items-center gap-4">
-          <div className="hidden lg:flex items-center gap-2">
-            <Link
-              href="/#demo"
-              className="px-5 py-2.5 bg-primary hover:opacity-90 text-white text-sm rounded-lg transition-all"
-            >
-              Book a demo
-            </Link>
+        <div className="flex-1 flex justify-end items-center gap-2 md:gap-4">
+          <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/#login"
-              className={`px-5 py-2.5 text-sm rounded-lg border transition-all font-medium ${
-                forceScrolledStyle 
-                  ? "bg-gray-50 hover:bg-gray-100 text-primary-dark border-gray-200" 
-                  : "bg-white/5 hover:bg-white/10 text-white border-white/10"
+              className={`px-6 py-2.5 text-sm rounded-full transition-all font-semibold ${
+                forceScrolledStyle
+                  ? "text-primary-dark hover:bg-gray-100"
+                  : "text-white hover:bg-white/10"
               }`}
             >
               Log in
             </Link>
-            <button className={`${forceScrolledStyle ? "text-primary-dark" : "text-white"} transition-colors ml-2`}>
+            <Link
+              href="/#demo"
+              className="px-6 py-2.5 bg-primary hover:bg-secondary text-white text-sm font-bold rounded-full transition-all shadow-lg hover:shadow-primary/20"
+            >
+              Book a demo
+            </Link>
+            <button
+              className={`${
+                forceScrolledStyle ? "text-primary-dark" : "text-white"
+              } transition-colors ml-1 p-2 hover:bg-gray-100/10 rounded-full`}
+            >
               <Globe className="w-5 h-5" />
             </button>
           </div>

@@ -94,7 +94,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative py-16 md:py-24 bg-white overflow-hidden border-b border-gray-100"
+      className="relative py-16 md:py-26 bg-white overflow-hidden border-b border-gray-100"
     >
       <div className="max-w-[1300px] mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start mb-14 md:mb-24">

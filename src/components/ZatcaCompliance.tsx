@@ -38,7 +38,7 @@ const features = [
 
 export default function ZatcaCompliance() {
   return (
-    <section className="pb-14 md:pb-24 bg-white relative overflow-hidden">
+    <section className="py-16 md:py-26 bg-white relative overflow-hidden">
       <div className="px-6 md:px-12 relative z-10">
         <div className="flex flex-col items-center text-center mb-12 md:mb-14">
           <motion.div
@@ -58,15 +58,11 @@ export default function ZatcaCompliance() {
             </h2>
 
             <p className="text-lg text-secondary-dark leading-relaxed font-normal max-w-5xl">
-              ZATCA’s e-invoicing mandate (Fatoorah) is one of the most
-              significant regulatory requirements facing businesses in Saudi
-              Arabia today — and non-compliance carries real financial
-              penalties. AdoxERP is fully certified for both Phase 1
-              (Generation) and Phase 2 (Integration) of the ZATCA e-invoicing
-              programme, which means every invoice your business generates is
-              automatically formatted, validated, and submitted to the ZATCA
-              portal without any manual intervention. You stay compliant. Your
-              accountants stay sane. And your business keeps moving.
+              ZATCA e-invoicing compliance is critical in Saudi Arabia, and
+              non-compliance leads to penalties. AdoxERP is fully certified for
+              Phase 1 and Phase 2, automatically handling invoice generation,
+              validation, and submission — keeping your business compliant with
+              zero manual effort.
             </p>
           </motion.div>
         </div>

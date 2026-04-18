@@ -6,7 +6,7 @@ import { Send } from "lucide-react";
 
 export default function NewsletterCTA() {
   return (
-    <section className="pb-14 md:pb-24 bg-white relative overflow-hidden">
+    <section className="pb-16 md:pb-26 bg-white relative overflow-hidden">
       <div className="px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

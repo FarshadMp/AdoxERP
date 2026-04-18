@@ -13,11 +13,12 @@ export default function BurgerButton({
   setIsMobileMenuOpen,
   isScrolled,
 }: BurgerButtonProps) {
-  const barColor = isScrolled ? "#111827" : "#fff"; // gray-900 when scrolled
+  // Always white when menu is open, otherwise depends on scroll
+  const barColor = isMobileMenuOpen ? "#fff" : isScrolled ? "#111827" : "#fff";
 
   return (
     <button
-      className={`lg:hidden relative z-200 w-10 h-10 flex flex-col items-center justify-center gap-[6px] transition-all duration-300`}
+      className={`lg:hidden relative z-[200] w-10 h-10 flex flex-col items-center justify-center gap-[6px] transition-all duration-300`}
       onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
     >
       <motion.span

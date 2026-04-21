@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import AboutSection from "@/components/AboutSection";
-import NewsletterCTA from "@/components/NewsletterCTA";
+
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -105,7 +105,7 @@ export default function AboutPage() {
       </section>
 
       {/* Newsletter / CTA Section */}
-      <NewsletterCTA />
+
     </main>
   );
 }

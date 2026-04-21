@@ -164,8 +164,8 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Simple Stats Grid Mapped - Enterprise Style */}
-        <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-y-8 md:gap-y-16 lg:gap-0 max-w-[1300px] mx-auto pt-12 md:pt-20 border-t border-gray-100 lg:divide-x lg:divide-gray-100">
+        {/* Global Stats Grid - Refined Card Style */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 pt-12 md:pt-20 border-t border-gray-100">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.id}
@@ -173,18 +173,16 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: stat.delay }}
-              className="px-0 md:px-8 lg:first:pl-0 space-y-4 group"
+              className="bg-[#f2f4f8] px-8 md:px-6 py-8 rounded-lg flex flex-col justify-center transition-all duration-500 hover:bg-[#f1f3f6]"
             >
-              <div className="flex flex-col space-y-1">
-                <h4 className="text-4xl lg:text-[4.5rem] font-normal text-primary-dark tracking-tighter leading-none">
+              <div className="flex flex-col">
+                <h4 className="text-4xl md:text-5xl font-bold text-primary-dark tracking-tight leading-none mb-3">
                   {stat.value}
                 </h4>
-                <div className="flex items-center gap-2">
-                  <div className="w-0.5 h-3 bg-primary" />
-                  <p className="text-secondary-dark text-xs lg:text-sm font-medium leading-none">
-                    {stat.label}
-                  </p>
-                </div>
+                <p className="text-secondary-dark text-sm md:text-base font-medium leading-tight opacity-80">
+                  {stat.label}
+                  <sup className="ml-0.5 text-[10px] font-normal"></sup>
+                </p>
               </div>
             </motion.div>
           ))}

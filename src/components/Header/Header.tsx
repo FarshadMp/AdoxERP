@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Logo from "./Logo";
 import Navbar from "./Navbar";
 import Link from "next/link";
 import BurgerButton from "./BurgerButton";
 import MobileMenu from "./MobileMenu";
+import MegaMenu from "./MegaMenu";
 import { usePathname } from "next/navigation";
 import { Globe } from "lucide-react";
 
@@ -15,13 +16,33 @@ export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = (label: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    if (label === "Modules") {
+      setOpenMenu(label);
+    } else {
+      setOpenMenu(null);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setOpenMenu(null);
+    }, 200);
+  };
 
   // Pages that have a white background and need a dark header from the start
   const isWhitePage =
     pathname === "/privacy" ||
     pathname === "/terms" ||
     pathname === "/contact" ||
-    pathname === "/about";
+    pathname === "/about" ||
+    pathname === "/pricing" ||
+    pathname === "/free-demo" ||
+    pathname.startsWith("/modules/");
   const forceScrolledStyle = isScrolled || isWhitePage;
 
   useEffect(() => {
@@ -46,18 +67,18 @@ export default function Header() {
   }, [lastScrollY]);
 
   const navItems = [
-    { label: "Product", href: "/product" },
-    { label: "Solutions", href: "/#solutions" },
-    { label: "Resources", href: "/#resources" },
+    { label: "Modules", href: "/#modules" },
+    { label: "ZATCA E-Invoicing", href: "/#zatca" },
+    { label: "Pricing", href: "/pricing" },
     { label: "Company", href: "/about" },
-    { label: "Pricing", href: "/#pricing" },
+    { label: "AI Features", href: "/#ai" },
   ];
 
   const smoothEase = "transition-all duration-500 ease-[0.16,1,0.3,1]";
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[200] flex justify-center ${smoothEase} ${
+      className={`fixed top-0 left-0 right-0 z-[200] flex flex-col items-center px-4 md:px-0 ${smoothEase} ${
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       } ${isScrolled && !isMobileMenuOpen ? "pt-4" : "pt-0"}`}
     >
@@ -66,18 +87,21 @@ export default function Header() {
           isMobileMenuOpen
             ? "max-w-full bg-transparent py-5 px-6 md:px-14 shadow-none pointer-events-auto"
             : isScrolled
-              ? "max-w-[1200px] mx-4 bg-white/100 backdrop-blur-xl rounded-full py-2.5 px-6 md:px-8 shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
+              ? "max-w-[1240px] mx-4 bg-white/100 backdrop-blur-xl rounded-full py-2 md:py-3 px-6 md:px-8 shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
               : isWhitePage
-                ? "max-w-full bg-white py-4 px-6 md:px-14 border-b border-gray-100"
-                : "max-w-full bg-transparent py-5 px-6 md:px-14"
+                ? "max-w-full bg-white py-2 md:py-3 px-6 md:px-14"
+                : "max-w-full bg-transparent py-2 md:py-3 px-6 md:px-14"
         }`}
       >
         {/* Left: Logo */}
-        <div className="flex-1 flex justify-start">
+        <div className="flex-none lg:w-48 flex justify-start">
           <Logo
             isScrolled={forceScrolledStyle && !isMobileMenuOpen}
             smoothEase={smoothEase}
-            onLogoClick={() => setIsMobileMenuOpen(false)}
+            onLogoClick={() => {
+              setIsMobileMenuOpen(false);
+              setOpenMenu(null);
+            }}
           />
         </div>
 
@@ -87,22 +111,15 @@ export default function Header() {
             navItems={navItems}
             smoothEase={smoothEase}
             isScrolled={forceScrolledStyle}
+            openMenu={openMenu}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           />
         </div>
 
         {/* Right: Actions */}
-        <div className="flex-1 flex justify-end items-center gap-2 md:gap-4">
+        <div className="flex-1 lg:flex-none lg:w-fit flex justify-end items-center gap-2 md:gap-4">
           <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="/#login"
-              className={`px-6 py-2.5 text-sm rounded-full transition-all font-semibold ${
-                forceScrolledStyle
-                  ? "text-primary-dark hover:bg-gray-100"
-                  : "text-white hover:bg-white/10"
-              }`}
-            >
-              Log in
-            </Link>
             <Link
               href="/#demo"
               className="px-6 py-2.5 bg-primary hover:bg-secondary text-white text-sm font-bold rounded-full transition-all shadow-lg hover:shadow-primary/20"
@@ -126,6 +143,20 @@ export default function Header() {
             />
           </div>
         </div>
+      </div>
+
+      {/* Global Mega Menu Container */}
+      <div
+        className="hidden lg:block w-full"
+        onMouseEnter={() => {
+          if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        }}
+        onMouseLeave={handleMouseLeave}
+      >
+        <MegaMenu
+          isOpen={openMenu === "Modules"}
+          onClose={() => setOpenMenu(null)}
+        />
       </div>
 
       <MobileMenu

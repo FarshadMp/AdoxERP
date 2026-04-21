@@ -42,7 +42,6 @@ export const metadata: Metadata = {
 };
 
 import FAQ from "@/components/FAQ";
-import NewsletterCTA from "@/components/NewsletterCTA";
 
 export default function Home() {
   return (
@@ -56,7 +55,6 @@ export default function Home() {
       <Testimonials />
       <Integrations />
       <FAQ />
-      <NewsletterCTA />
     </main>
   );
 }

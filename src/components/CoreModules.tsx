@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 import {
   ShoppingBag,
   CreditCard,
@@ -22,6 +23,7 @@ import {
 const modules = [
   {
     id: 1,
+    slug: "sales-management",
     title: "Sales Management",
     description:
       "Manage your entire sales cycle from first contact to final invoice. Track quotations, sales orders, pricing, customer accounts, and sales team performance — all in one place. Whether your customers are in Riyadh or across the GCC, your sales team will always have what they need to close faster.",
@@ -80,6 +82,7 @@ const modules = [
   },
   {
     id: 2,
+    slug: "accounting-finance",
     title: "Accounting & Finance",
     description:
       "Take full control of your books with real-time accounting, automated VAT calculations, multi-currency support, and financial statements that are always up to date. Fully compliant with Saudi Arabia’s GAAP and built to integrate directly with ZATCA’s e-invoicing portal.",
@@ -136,6 +139,7 @@ const modules = [
   },
   {
     id: 3,
+    slug: "inventory-management",
     title: "Inventory Management",
     description:
       "Always know what you have, where it is, and when you need to reorder. AdoxERP tracks stock across multiple warehouses and locations — with real-time updates and automated low-stock alerts.",
@@ -224,6 +228,7 @@ const modules = [
   },
   {
     id: 4,
+    slug: "manufacturing-production",
     title: "Manufacturing & Production",
     description:
       "Plan production runs, manage bills of materials, track work-in-progress, and monitor shop floor activity in real time. Built for Saudi-based producers needing precision and traceability.",
@@ -297,6 +302,7 @@ const modules = [
   },
   {
     id: 5,
+    slug: "human-resources-payroll",
     title: "Human Resources & Payroll",
     description:
       "Manage your Saudi and expat workforce with full support for GOSI, Saudization (Vision 2030 targets), and automated payroll. Every process is handled in compliance with Saudi labor law.",
@@ -370,6 +376,7 @@ const modules = [
   },
   {
     id: 6,
+    slug: "crm-customer-management",
     title: "CRM & Customer Management",
     description:
       "Build and maintain stronger client relationships with a CRM that sits directly inside your ERP. Track interactions, manage pipelines, and automate follow-ups in real time.",
@@ -437,6 +444,7 @@ const modules = [
   },
   {
     id: 7,
+    slug: "project-management",
     title: "Project Management",
     description:
       "Plan, execute, and deliver projects on time and within budget. Assign resources, track milestones, and monitor costs — all linked to accounting and HR.",
@@ -487,6 +495,7 @@ const modules = [
   },
   {
     id: 8,
+    slug: "asset-management",
     title: "Asset Management",
     description:
       "Track every asset across its full lifecycle — from purchase to maintenance. AdoxERP keeps you audit-ready and maintenance-proactive at all times.",
@@ -530,6 +539,7 @@ const modules = [
   },
   {
     id: 9,
+    slug: "ecommerce-management",
     title: "E-Commerce Management",
     description:
       "Connect your online store directly to your ERP. Orders, inventory, and payments sync automatically — so you can grow without the operational chaos.",
@@ -641,7 +651,10 @@ const Card = ({ module, index }: { module: any; index: number }) => {
           <p className="text-base text-secondary-dark leading-relaxed max-w-[95%] pb-2 md:pb-6">
             {module.description}
           </p>
-          <button className="bg-gray-900 hover:bg-gray-800 text-white transition-all duration-300 text-sm px-5 py-2.5 rounded-xl inline-flex items-center gap-2 font-medium group">
+          <Link 
+            href={`/modules/${module.slug}`}
+            className="bg-gray-900 hover:bg-gray-800 text-white transition-all duration-300 text-sm px-5 py-2.5 rounded-xl inline-flex items-center gap-2 font-medium group"
+          >
             Learn more
             <svg
               className="w-4 h-4 transition-transform group-hover:translate-x-1"
@@ -656,7 +669,7 @@ const Card = ({ module, index }: { module: any; index: number }) => {
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>
-          </button>
+          </Link>
         </div>
 
         {/* Right Visual Container - Matching AIIntegration Style */}

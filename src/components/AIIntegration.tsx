@@ -32,7 +32,7 @@ export default function AIIntegration() {
       description:
         "Ask your ERP a question in plain Arabic or English and get an instant, intelligent answer. ‘What were our top-selling products in Riyadh last quarter?’ or ‘Which invoices are overdue this week?’ — the AdoxERP AI assistant gives you real answers from your real business data, without needing to run a single report manually.",
       cta: "EXPLORE CHATBOT",
-      bgColor: "#f3edff",
+      bgColor: "#f8f9fb",
       visual: (
         <div className="space-y-5 w-full max-w-[440px] mx-auto">
           {/* User Message */}
@@ -42,8 +42,8 @@ export default function AIIntegration() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="flex justify-end"
           >
-            <div className="bg-white/90 backdrop-blur-sm py-4 px-6 rounded-3xl shadow-sm border border-purple-100 rounded-tr-none max-w-[85%]">
-              <p className="text-[15px] font-semibold text-purple-900 leading-relaxed">
+            <div className="bg-white/90 backdrop-blur-sm py-4 px-6 rounded-3xl shadow-sm border border-gray-100 rounded-tr-none max-w-[85%]">
+              <p className="text-[15px] font-semibold text-gray-900 leading-relaxed">
                 Which invoices are overdue this week?
               </p>
             </div>
@@ -56,27 +56,27 @@ export default function AIIntegration() {
             transition={{ delay: 0.8, duration: 0.5 }}
             className="flex gap-4"
           >
-            <div className="w-11 h-11 rounded-full bg-purple-600 flex-shrink-0 flex items-center justify-center text-white shadow-lg shadow-purple-200">
+            <div className="w-11 h-11 rounded-full bg-gray-900 flex-shrink-0 flex items-center justify-center text-white shadow-lg shadow-gray-200">
               <Bot className="w-6 h-6" />
             </div>
-            <div className="bg-white/95 backdrop-blur-sm py-4 px-6 rounded-3xl shadow-sm border border-purple-100 rounded-tl-none flex-1">
+            <div className="bg-white/95 backdrop-blur-sm py-4 px-6 rounded-3xl shadow-sm border border-gray-100 rounded-tl-none flex-1">
               <div className="space-y-3">
-                <div className="h-2 w-full bg-purple-50 rounded-full overflow-hidden">
+                <div className="h-2 w-full bg-gray-50 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: "100%" }}
                     transition={{ delay: 1.2, duration: 1.5 }}
-                    className="h-full bg-purple-500"
+                    className="h-full bg-gray-400"
                   />
                 </div>
-                <div className="h-2 w-[80%] bg-purple-50/50 rounded-full" />
+                <div className="h-2 w-[80%] bg-gray-50/50 rounded-full" />
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 2.7 }}
-                  className="text-[13px] font-black text-purple-600 flex items-center gap-1.5 mt-2"
+                  className="text-[13px] font-black text-gray-600 flex items-center gap-1.5 mt-2"
                 >
-                  <Sparkles className="w-4 h-4" />
+                  <Sparkles className="w-4 h-4 text-gray-400" />
                   Insight Ready
                 </motion.p>
               </div>
@@ -89,9 +89,9 @@ export default function AIIntegration() {
             transition={{ repeat: Infinity, duration: 2 }}
             className="flex gap-2.5 ml-14"
           >
-            <div className="w-2 h-2 rounded-full bg-purple-300" />
-            <div className="w-2 h-2 rounded-full bg-purple-300" />
-            <div className="w-2 h-2 rounded-full bg-purple-300" />
+            <div className="w-2 h-2 rounded-full bg-gray-300" />
+            <div className="w-2 h-2 rounded-full bg-gray-300" />
+            <div className="w-2 h-2 rounded-full bg-gray-300" />
           </motion.div>
         </div>
       ),
@@ -103,23 +103,23 @@ export default function AIIntegration() {
       description:
         "AdoxERP’s AI engine continuously monitors your financial transactions, inventory movements, and operational data. The moment something looks out of the ordinary — a duplicate payment, an unusual stock drop, a suspicious expense entry — the system flags it instantly, so your team can investigate before it becomes a bigger problem.",
       cta: "SEE SMART ALERTS",
-      bgColor: "#dbe8ff",
+      bgColor: "#f8f9fb",
       visual: (
         <div className="space-y-3 w-full">
           {[
-            { label: "Duplicate Invoice", type: "alert", color: "blue" },
-            { label: "Inventory Drop", type: "warning", color: "indigo" },
-            { label: "Unusual Expense", type: "alert", color: "blue" },
+            { label: "Duplicate Invoice", type: "alert" },
+            { label: "Inventory Drop", type: "warning" },
+            { label: "Unusual Expense", type: "alert" },
           ].map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.2 }}
-              className="bg-white/80 backdrop-blur-sm p-3.5 rounded-xl shadow-sm border border-blue-100 flex items-center gap-4"
+              className="bg-white/80 backdrop-blur-sm p-3.5 rounded-xl shadow-sm border border-gray-100 flex items-center gap-4"
             >
               <div
-                className={`w-9 h-9 rounded-full flex items-center justify-center bg-blue-50 text-blue-600`}
+                className={`w-9 h-9 rounded-full flex items-center justify-center bg-gray-50 text-gray-600`}
               >
                 {item.type === "alert" ? (
                   <AlertTriangle className="w-4 h-4" />
@@ -127,16 +127,16 @@ export default function AIIntegration() {
                   <Bell className="w-4 h-4" />
                 )}
               </div>
-              <p className="text-sm font-semibold text-blue-900">
+              <p className="text-sm font-semibold text-gray-900">
                 {item.label}
               </p>
-              <div className="ml-auto w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+              <div className="ml-auto w-1.5 h-1.5 rounded-full bg-gray-400 animate-pulse" />
             </motion.div>
           ))}
           <motion.div
             animate={{ scale: [1, 1.02, 1] }}
             transition={{ repeat: Infinity, duration: 3 }}
-            className="p-3 bg-blue-600 rounded-xl text-center shadow-lg shadow-blue-200"
+            className="p-3 bg-gray-900 rounded-xl text-center shadow-lg shadow-gray-200"
           >
             <span className="text-[11px] font-bold text-white uppercase tracking-wider">
               Scanning Live Data
@@ -152,14 +152,14 @@ export default function AIIntegration() {
       description:
         "Stop reacting to what already happened. AdoxERP’s predictive engine uses your historical data to forecast sales demand, cash flow trends, and inventory needs — weeks or months in advance. For businesses in fast-moving markets like Jeddah or Dammam, that kind of foresight changes everything.",
       cta: "VIEW FORECASTING",
-      bgColor: "#b7e7f2",
+      bgColor: "#f8f9fb",
       visual: (
-        <div className="bg-white/90 backdrop-blur-sm p-6 rounded-3xl shadow-sm border border-cyan-100 w-full">
+        <div className="bg-white/90 backdrop-blur-sm p-6 rounded-3xl shadow-sm border border-gray-100 w-full">
           <div className="flex items-center justify-between mb-8">
-            <h4 className="text-[12px] font-bold text-cyan-900 uppercase tracking-widest">
+            <h4 className="text-[12px] font-bold text-gray-900 uppercase tracking-widest">
               Growth Forecast
             </h4>
-            <div className="w-8 h-8 rounded-lg bg-cyan-50 flex items-center justify-center text-cyan-600">
+            <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-600">
               <TrendingUp className="w-4 h-4" />
             </div>
           </div>
@@ -170,23 +170,23 @@ export default function AIIntegration() {
                 initial={{ height: 0 }}
                 animate={{ height: `${h}%` }}
                 transition={{ delay: i * 0.1, duration: 1 }}
-                className={`flex-1 rounded-t-md relative group ${i === 5 ? "bg-cyan-500" : "bg-cyan-100"}`}
+                className={`flex-1 rounded-t-md relative group ${i === 5 ? "bg-gray-900" : "bg-gray-100"}`}
               >
                 {i === 5 && (
                   <motion.div
                     animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
                     transition={{ repeat: Infinity, duration: 2 }}
-                    className="absolute -top-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.5)]"
+                    className="absolute -top-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-400 shadow-[0_0_10px_rgba(0,0,0,0.1)]"
                   />
                 )}
               </motion.div>
             ))}
           </div>
-          <div className="mt-6 pt-4 border-t border-cyan-50 flex justify-between items-center">
-            <span className="text-[10px] text-cyan-400 font-bold tracking-widest uppercase">
+          <div className="mt-6 pt-4 border-t border-gray-50 flex justify-between items-center">
+            <span className="text-[10px] text-gray-400 font-bold tracking-widest uppercase">
               Target Projection
             </span>
-            <span className="text-[12px] text-cyan-700 font-black">+34.2%</span>
+            <span className="text-[12px] text-gray-900 font-black">+34.2%</span>
           </div>
         </div>
       ),
@@ -198,7 +198,7 @@ export default function AIIntegration() {
       description:
         "AdoxERP’s AI agents handle routine business tasks automatically — from sending payment reminders and generating purchase orders when stock runs low, to flagging overdue project milestones and recommending vendor alternatives. They work quietly in the background, so your team can focus on decisions that actually need a human.",
       cta: "MEET YOUR AGENTS",
-      bgColor: "#d4d9ff",
+      bgColor: "#f8f9fb",
       visual: (
         <div className="space-y-3 w-full">
           {[
@@ -214,17 +214,17 @@ export default function AIIntegration() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.2 }}
-              className="bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-sm border border-indigo-100 flex items-center justify-between group overflow-hidden"
+              className="bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between group overflow-hidden"
             >
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center transition-colors group-hover:bg-indigo-600 group-hover:text-white">
+                <div className="w-10 h-10 bg-gray-50 text-gray-600 rounded-xl flex items-center justify-center transition-colors group-hover:bg-gray-900 group-hover:text-white">
                   {agent.icon}
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-indigo-900">
+                  <p className="text-sm font-bold text-gray-900">
                     {agent.title}
                   </p>
-                  <p className="text-[10px] text-indigo-400 font-medium uppercase tracking-tighter">
+                  <p className="text-[10px] text-gray-400 font-medium uppercase tracking-tighter">
                     Autonomous Agent
                   </p>
                 </div>
@@ -232,7 +232,7 @@ export default function AIIntegration() {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
-                className="w-5 h-5 border-2 border-indigo-100 border-t-indigo-600 rounded-full"
+                className="w-5 h-5 border-2 border-gray-100 border-t-gray-600 rounded-full"
               />
             </motion.div>
           ))}
@@ -246,52 +246,52 @@ export default function AIIntegration() {
       description:
         "Instead of spending hours building reports, ask AdoxERP to generate them for you. Our AI reporting engine creates customized business summaries, department performance snapshots, and trend analyses — in seconds — with clear language that any stakeholder can understand, whether they are technical or not.",
       cta: "EXPLORE INSIGHTS",
-      bgColor: "#f9e4da",
+      bgColor: "#f8f9fb",
       visual: (
-        <div className="bg-white/95 backdrop-blur-sm p-6 rounded-[32px] shadow-sm border border-orange-100 w-full relative overflow-hidden">
+        <div className="bg-white/95 backdrop-blur-sm p-6 rounded-[32px] shadow-sm border border-gray-100 w-full relative overflow-hidden">
           <div className="mb-6 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse"></div>
-              <span className="text-[11px] font-black text-orange-900 uppercase tracking-[0.2em]">
+              <div className="w-2.5 h-2.5 rounded-full bg-gray-900 animate-pulse"></div>
+              <span className="text-[11px] font-black text-gray-900 uppercase tracking-[0.2em]">
                 Real-time Insights
               </span>
             </div>
-            <Sparkles className="w-5 h-5 text-orange-400" />
+            <Sparkles className="w-5 h-5 text-gray-400" />
           </div>
           <div className="space-y-4 mb-8">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
               transition={{ duration: 1 }}
-              className="h-2 bg-orange-50 rounded-full"
+              className="h-2 bg-gray-50 rounded-full"
             />
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: "85%" }}
               transition={{ delay: 0.2, duration: 1 }}
-              className="h-2 bg-orange-50 rounded-full"
+              className="h-2 bg-gray-50 rounded-full"
             />
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: "95%" }}
               transition={{ delay: 0.4, duration: 1 }}
-              className="h-2 bg-orange-50 rounded-full"
+              className="h-2 bg-gray-50 rounded-full"
             />
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { l: "Revenue", v: "$124k", c: "orange" },
-              { l: "Growth", v: "+18%", c: "amber" },
+              { l: "Revenue", v: "$124k" },
+              { l: "Growth", v: "+18%" },
             ].map((stat, i) => (
               <motion.div
                 key={i}
                 whileHover={{ y: -5 }}
-                className="p-4 bg-orange-50/50 rounded-2xl border border-orange-100"
+                className="p-4 bg-gray-50/50 rounded-2xl border border-gray-100"
               >
-                <p className="text-[10px] text-orange-500 font-black mb-1 uppercase tracking-widest">
+                <p className="text-[10px] text-gray-400 font-black mb-1 uppercase tracking-widest">
                   {stat.l}
                 </p>
-                <p className="text-xl font-black text-orange-900">{stat.v}</p>
+                <p className="text-xl font-black text-gray-900">{stat.v}</p>
               </motion.div>
             ))}
           </div>
@@ -305,24 +305,24 @@ export default function AIIntegration() {
       description:
         "AdoxERP learns how your business operates and automates the repetitive parts — approval workflows, invoice matching, payroll calculations, stock replenishment, and more. The result is fewer manual errors, faster turnaround times, and a team that spends its energy where it matters most.",
       cta: "START AUTOMATING",
-      bgColor: "#e1f0e3",
+      bgColor: "#f8f9fb",
       visual: (
         <div className="space-y-4 w-full max-w-[400px] mx-auto scale-110">
           {/* Step 1: Auto-Matching */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="bg-white/95 backdrop-blur-sm p-4 rounded-[24px] shadow-sm border border-green-100 flex items-center justify-between"
+            className="bg-white/95 backdrop-blur-sm p-4 rounded-[24px] shadow-sm border border-gray-100 flex items-center justify-between"
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-green-600 text-white flex items-center justify-center shadow-lg shadow-green-200">
+              <div className="w-12 h-12 rounded-2xl bg-gray-900 text-white flex items-center justify-center shadow-lg shadow-gray-200">
                 <Zap className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-[14px] font-black text-green-900 leading-tight">
+                <p className="text-[14px] font-black text-gray-900 leading-tight">
                   Auto-Matching
                 </p>
-                <span className="text-[10px] text-green-600 font-bold uppercase tracking-widest">
+                <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
                   Active Engine
                 </span>
               </div>
@@ -331,17 +331,17 @@ export default function AIIntegration() {
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
             >
-              <Sparkles className="w-5 h-5 text-green-400" />
+              <Sparkles className="w-5 h-5 text-gray-400" />
             </motion.div>
           </motion.div>
 
           {/* Connection Line with Pulse */}
           <div className="relative h-10 ml-[38px]">
-            <div className="absolute left-0 top-0 bottom-0 w-1 bg-green-50 rounded-full overflow-hidden">
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gray-50 rounded-full overflow-hidden">
               <motion.div
                 animate={{ top: ["0%", "100%"] }}
                 transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-                className="absolute top-0 left-0 right-0 h-1/3 bg-green-500 rounded-full"
+                className="absolute top-0 left-0 right-0 h-1/3 bg-gray-400 rounded-full"
               />
             </div>
           </div>
@@ -351,21 +351,21 @@ export default function AIIntegration() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
-            className="bg-white/90 backdrop-blur-sm p-4 rounded-[24px] shadow-sm border border-green-100 flex items-center gap-4 ml-6"
+            className="bg-white/90 backdrop-blur-sm p-4 rounded-[24px] shadow-sm border border-gray-100 flex items-center gap-4 ml-6"
           >
-            <div className="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-gray-50 text-gray-600 flex items-center justify-center">
               <Check className="w-5 h-5" />
             </div>
             <div className="flex-1">
-              <p className="text-[13px] font-black text-green-800">
+              <p className="text-[13px] font-black text-gray-800">
                 Smart Approval
               </p>
-              <div className="h-1.5 w-[60%] bg-green-50 rounded-full mt-1 overflow-hidden">
+              <div className="h-1.5 w-[60%] bg-gray-50 rounded-full mt-1 overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ delay: 1, duration: 1 }}
-                  className="h-full bg-green-400"
+                  className="h-full bg-gray-400"
                 />
               </div>
             </div>
@@ -376,16 +376,16 @@ export default function AIIntegration() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.5 }}
-            className="bg-green-600/5 backdrop-blur-sm p-3 rounded-2xl border-2 border-green-100 border-dashed flex items-center gap-4 ml-12 opacity-80"
+            className="bg-gray-900/5 backdrop-blur-sm p-3 rounded-2xl border-2 border-gray-100 border-dashed flex items-center gap-4 ml-12 opacity-80"
           >
-            <Database className="w-5 h-5 text-green-400" />
-            <p className="text-[11px] font-bold text-green-900 italic">
+            <Database className="w-5 h-5 text-gray-400" />
+            <p className="text-[11px] font-bold text-gray-900 italic">
               ERP Ledger Synchronized
             </p>
             <motion.div
               animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
               transition={{ repeat: Infinity, duration: 2 }}
-              className="ml-auto w-2 h-2 rounded-full bg-green-500"
+              className="ml-auto w-2 h-2 rounded-full bg-gray-400"
             />
           </motion.div>
         </div>
@@ -397,7 +397,7 @@ export default function AIIntegration() {
     <section className="pb-16 md:pb-26 bg-white overflow-hidden">
       <div className="max-w-[1300px] mx-auto px-6 md:px-12">
         {/* Header Section */}
-        <div className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-14 md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -464,7 +464,7 @@ export default function AIIntegration() {
             >
               {/* Left Column: Text Content */}
               <div>
-                <h3 className="text-2xl md:text-[2.75rem] font-bold text-primary-dark mb-2 md:mb-8 leading-[1.15]">
+                <h3 className="text-2xl md:text-[2.75rem] font-bold text-primary-dark mb-2 md:mb-4 leading-[1.15]">
                   {tabs[activeTab].title}
                 </h3>
 
@@ -485,8 +485,8 @@ export default function AIIntegration() {
                 </div>
 
                 {/* Decorative floating elements if needed */}
-                <div className="absolute -top-6 -right-6 w-24 h-24 bg-blue-50/50 rounded-full blur-2xl -z-10" />
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-50/50 rounded-full blur-3xl -z-10" />
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-gray-100/50 rounded-full blur-2xl -z-10" />
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-gray-200/30 rounded-full blur-3xl -z-10" />
               </div>
             </motion.div>
           </AnimatePresence>

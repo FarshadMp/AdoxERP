@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
-interface PricingCardProps {
+export interface PricingCardProps {
   name: string;
   description: string;
   price: string;

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
-import PricingCard from "@/components/Pricing/PricingCard";
+import PricingCard, { PricingCardProps } from "@/components/Pricing/PricingCard";
 import PlanFeatures from "@/components/Pricing/PlanFeatures";
 import PricingFAQ from "@/components/Pricing/PricingFAQ";
 import PricingCTA from "@/components/Pricing/PricingCTA";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default function PricingPage() {
-  const plans = [
+  const plans: PricingCardProps[] = [
     {
       name: "Starter",
       description: "For growing SMEs",

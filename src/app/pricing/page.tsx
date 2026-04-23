@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
-import PricingCard, { PricingCardProps } from "@/components/Pricing/PricingCard";
+import PricingCard, {
+  PricingCardProps,
+} from "@/components/Pricing/PricingCard";
 import PlanFeatures from "@/components/Pricing/PlanFeatures";
 import PricingFAQ from "@/components/Pricing/PricingFAQ";
 import PricingCTA from "@/components/Pricing/PricingCTA";
@@ -104,7 +106,7 @@ export default function PricingPage() {
                 Transparent, Flexible, Built for Saudi Arabia
               </span>
             </h1>
-            <p className="text-xl text-secondary-dark leading-relaxed font-normal mb-8">
+            <p className="text-xl text-secondary-dark leading-relaxed font-normal mb-4">
               One platform. Every Saudi business need. Priced for the way you
               actually grow.
             </p>

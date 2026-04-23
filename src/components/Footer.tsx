@@ -15,8 +15,8 @@ export default function Footer() {
 
   const seoLinks = [
     { title: "ERP Software Saudi Arabia", href: "/#erp" },
-    { title: "AI ERP System", href: "/#ai" },
-    { title: "ZATCA E-Invoicing", href: "/#zatca" },
+    { title: "AI ERP System", href: "/ai-features" },
+    { title: "ZATCA E-Invoicing", href: "/zatca-compliance" },
     { title: "Cloud ERP for SMEs KSA", href: "/#cloud" },
     { title: "Manufacturing ERP", href: "/#manufacturing" },
     { title: "HR Software Riyadh", href: "/#hr" },
@@ -54,7 +54,7 @@ export default function Footer() {
             </p>
             <div className="pt-2 md:pt-4">
               <Link
-                href="/#consultation"
+                href="/free-demo"
                 className="px-5 py-4 md:py-3 bg-white/5 hover:bg-white hover:text-black text-white text-sm rounded-lg border border-white/10 transition-all duration-500 ease-[0.16,1,0.3,1] flex items-center justify-center gap-2 backdrop-blur-sm hover:shadow-white/5 w-fit"
               >
                 Book a Free Consultation

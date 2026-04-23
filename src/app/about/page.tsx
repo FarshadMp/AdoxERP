@@ -17,7 +17,7 @@ export default function AboutPage() {
         <div className="max-w-[1300px] mx-auto px-6 lg:px-12">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-[3.5rem] font-medium tracking-tight text-primary-dark leading-[1.05] mb-5">
-              Empowering the Future of Saudi Business with AI-Native ERP
+              Empowering the Future of Saudi Business with <span className="text-primary">AI-Native ERP</span>
             </h1>
             <p className="text-xl text-secondary-dark leading-relaxed font-normal">
               At AdoxERP, we believe that software should adapt to the business,
@@ -95,7 +95,7 @@ export default function AboutPage() {
           <div className="relative aspect-video rounded-[2.5rem] overflow-hidden bg-slate-100 border border-gray-100 shadow-2xl">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent z-10" />
             <Image
-              src="/img/hero/hero.png"
+              src="/img/vision-2030.png"
               alt="Saudi Digital Transformation"
               fill
               className="object-cover transition-transform duration-700 hover:scale-105"

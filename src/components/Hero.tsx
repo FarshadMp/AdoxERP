@@ -64,7 +64,7 @@ export default function Hero() {
             className="w-fit md:w-auto"
           >
             <Link
-              href="/#demo"
+              href="/free-demo"
               className="px-5 py-4 md:py-3 bg-white md:bg-primary hover:bg-white hover:text-black text-black md:text-white text-sm rounded-lg transition-all duration-500 ease-[0.16,1,0.3,1] flex items-center justify-center gap-2 shadow-lg shadow-white/10 md:shadow-primary/10 w-[220px] md:w-auto"
             >
               Get a Free Demo
@@ -77,7 +77,7 @@ export default function Hero() {
             className="w-fit md:w-auto"
           >
             <Link
-              href="/#modules"
+              href="#modules"
               className="px-5 py-4 md:py-3 bg-white/5 hover:bg-white hover:text-black text-white text-sm rounded-lg border border-white/10 transition-all duration-500 ease-[0.16,1,0.3,1] flex items-center justify-center gap-2 backdrop-blur-sm hover:shadow-white/5 w-[220px] md:w-auto"
             >
               Explore All Modules

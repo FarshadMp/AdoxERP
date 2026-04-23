@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import {
   MessageSquare,
   AlertTriangle,
@@ -534,10 +535,13 @@ export default function AIIntegration() {
                 </div>
 
                 <div className="flex-shrink-0">
-                  <button className="px-5 py-2.5 bg-white hover:bg-white/90 text-primary-dark text-sm font-bold rounded-lg transition-all duration-500 ease-[0.16,1,0.3,1] flex items-center justify-center gap-2 active:scale-95 group">
+                  <Link 
+                    href="/free-demo"
+                    className="px-5 py-2.5 bg-white hover:bg-white/90 text-primary-dark text-sm font-bold rounded-lg transition-all duration-500 ease-[0.16,1,0.3,1] flex items-center justify-center gap-2 active:scale-95 group"
+                  >
                     Live Demo
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

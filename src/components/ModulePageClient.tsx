@@ -31,9 +31,9 @@ export default function ModulePageClient({ module }: ModulePageClientProps) {
   };
 
   return (
-    <main className="min-h-screen bg-white pt-24">
+    <main className="min-h-screen bg-white pt-14 md:pt-24">
       {/* Module Hero Section - Enhanced UI inspired by reference */}
-      <section className="relative pt-8 md:pt-14 pb-16 md:pb-14 bg-white overflow-hidden">
+      <section className="relative pt-8 md:pt-14 pb-1 md:pb-14 bg-white overflow-hidden">
         {/* Background Decorative Gradients - Moved Outside the Box */}
         {/* Background Decorative Gradients - Matched with Primary Adox Blue */}
         <div
@@ -76,7 +76,7 @@ export default function ModulePageClient({ module }: ModulePageClientProps) {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1, duration: 0.8 }}
-                  className="text-primary-dark text-3xl md:text-[3rem] leading-[1.05] font-bold tracking-tight mb-2 md:mb-4"
+                  className="text-primary-dark text-3xl md:text-[2.5rem] leading-[1.05] font-bold tracking-tight mb-2 md:mb-4"
                 >
                   {module.heroTitle}
                 </motion.h1>
@@ -97,14 +97,14 @@ export default function ModulePageClient({ module }: ModulePageClientProps) {
                   className="grid grid-cols-2 md:flex gap-3 md:gap-4"
                 >
                   <Link
-                    href="/#demo"
+                    href="/free-demo"
                     className="px-4 md:px-8 py-3.5 bg-primary hover:bg-primary-dark text-white text-xs md:text-sm font-bold rounded-lg transition-all duration-500 ease-[0.16,1,0.3,1] flex items-center justify-center gap-2 shadow-lg shadow-primary/20 whitespace-nowrap"
                   >
                     Start for free
                     <Zap className="w-3.5 h-3.5" />
                   </Link>
                   <Link
-                    href="/#demo"
+                    href="/free-demo"
                     className="px-4 md:px-8 py-3.5 border border-primary-dark/10 hover:border-primary-dark/20 text-primary-dark text-xs md:text-sm font-bold rounded-lg bg-white transition-all duration-500 ease-[0.16,1,0.3,1] flex items-center justify-center whitespace-nowrap"
                   >
                     Get a demo
@@ -142,12 +142,12 @@ export default function ModulePageClient({ module }: ModulePageClientProps) {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-24 items-start">
-            <motion.div {...fadeInUp} className="lg:col-span-6 space-y-8">
+            <motion.div {...fadeInUp} className="lg:col-span-6 space-y-6">
               <div className="space-y-2 md:space-y-2">
-                <div className="inline-flex items-center gap-2 px-5 py-1.5 bg-primary/5 rounded-full text-primary text-sm">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-md text-primary text-sm font-semibold mb-4">
                   Module Overview
                 </div>
-                <h2 className="text-4xl md:text-[3.5rem] font-medium text-primary-dark leading-[1.05] tracking-tight">
+                <h2 className="text-3xl md:text-[3.5rem] font-medium text-primary-dark leading-[1.05] tracking-tight">
                   Intelligent {module.title}
                 </h2>
               </div>
@@ -351,7 +351,7 @@ export default function ModulePageClient({ module }: ModulePageClientProps) {
                         onClick={() => setActiveIndex(isOpen ? null : idx)}
                         className="w-full flex items-center justify-between text-left transition-all duration-300"
                       >
-                        <span className="text-xl md:text-1xl font-bold text-primary-dark tracking-tight leading-tight group-hover:text-primary transition-colors pr-8">
+                        <span className="text-xl md:text-xl font-bold text-primary-dark tracking-tight leading-tight group-hover:text-primary transition-colors pr-8">
                           {faq.question}
                         </span>
                         <div
@@ -426,7 +426,7 @@ export default function ModulePageClient({ module }: ModulePageClientProps) {
 
                   <div className="flex-shrink-0">
                     <Link
-                      href="/#demo"
+                      href="/free-demo"
                       className="px-8 py-3.5 bg-white hover:bg-white/90 text-primary-dark text-sm font-bold rounded-lg transition-all duration-500 ease-[0.16,1,0.3,1] flex items-center justify-center gap-2 active:scale-95 group shadow-lg"
                     >
                       Book a Free Demo

@@ -21,7 +21,7 @@ export default function Header() {
 
   const handleMouseEnter = (label: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    if (label === "Modules") {
+    if (label === "Modules" || label === "Industries") {
       setOpenMenu(label);
     } else {
       setOpenMenu(null);
@@ -42,7 +42,10 @@ export default function Header() {
     pathname === "/about" ||
     pathname === "/pricing" ||
     pathname === "/free-demo" ||
-    pathname.startsWith("/modules/");
+    pathname === "/zatca-compliance" ||
+    pathname === "/ai-features" ||
+    pathname.startsWith("/modules/") ||
+    pathname.startsWith("/industries/");
   const forceScrolledStyle = isScrolled || isWhitePage;
 
   useEffect(() => {
@@ -67,11 +70,12 @@ export default function Header() {
   }, [lastScrollY]);
 
   const navItems = [
-    { label: "Modules", href: "/#modules" },
-    { label: "ZATCA E-Invoicing", href: "/#zatca" },
+    { label: "Modules", href: "#" },
+    { label: "Industries", href: "#" },
+    { label: "ZATCA E-Invoicing", href: "/zatca-compliance" },
     { label: "Pricing", href: "/pricing" },
     { label: "Company", href: "/about" },
-    { label: "AI Features", href: "/#ai" },
+    { label: "AI Features", href: "/ai-features" },
   ];
 
   const smoothEase = "transition-all duration-500 ease-[0.16,1,0.3,1]";
@@ -121,7 +125,7 @@ export default function Header() {
         <div className="flex-1 lg:flex-none lg:w-fit flex justify-end items-center gap-2 md:gap-4">
           <div className="hidden lg:flex items-center gap-3">
             <Link
-              href="/#demo"
+              href="/free-demo"
               className="px-6 py-2.5 bg-primary hover:bg-secondary text-white text-sm font-bold rounded-full transition-all shadow-lg hover:shadow-primary/20"
             >
               Book a demo
@@ -154,7 +158,8 @@ export default function Header() {
         onMouseLeave={handleMouseLeave}
       >
         <MegaMenu
-          isOpen={openMenu === "Modules"}
+          isOpen={openMenu === "Modules" || openMenu === "Industries"}
+          type={openMenu}
           onClose={() => setOpenMenu(null)}
         />
       </div>

@@ -8,9 +8,10 @@ import { ArrowRight } from "lucide-react";
 interface MegaMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  type?: string | null;
 }
 
-const sections = [
+export const moduleSections = [
   {
     title: "Core Modules",
     items: [
@@ -73,7 +74,73 @@ const sections = [
   },
 ];
 
-export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
+export const industrySections = [
+  {
+    title: "Business Sectors",
+    items: [
+      {
+        name: "Trading & Distribution",
+        sub: "Wholesale, retail, and logistics solutions",
+        href: "/industries/erp-trading-distribution-saudi-arabia",
+      },
+      {
+        name: "Manufacturing Businesses",
+        sub: "Production planning and inventory control",
+        href: "/industries/erp-manufacturing-saudi-arabia",
+      },
+      {
+        name: "Retail & E-Commerce",
+        sub: "Omnichannel retail and online store integration",
+        href: "/industries/erp-retail-ecommerce-saudi-arabia",
+      },
+    ],
+  },
+  {
+    title: "Specialized Industries",
+    items: [
+      {
+        name: "Contracting & Construction",
+        sub: "Project tracking and resource management",
+        href: "/industries/erp-contracting-construction-saudi-arabia",
+      },
+      {
+        name: "Professional Services Firms",
+        sub: "Billing, projects, and workforce management",
+        href: "/industries/erp-professional-services-saudi-arabia",
+      },
+    ],
+  },
+  {
+    title: "Strategic Sectors",
+    items: [
+      {
+        name: "Healthcare Organisations",
+        sub: "Medical inventory and facility management",
+        href: "/industries/erp-healthcare-saudi-arabia",
+      },
+      {
+        name: "Vision 2030 Projects & Government Contractors",
+        sub: "Compliance and large-scale project handling",
+        href: "/industries/erp-vision-2030-government-contractors-saudi-arabia",
+      },
+    ],
+  },
+];
+
+export default function MegaMenu({ isOpen, onClose, type }: MegaMenuProps) {
+  const sections = type === "Industries" ? industrySections : moduleSections;
+  const featuredTitle =
+    type === "Industries"
+      ? "Industry-specific ERP solutions"
+      : "Solutions that drive business results";
+  const featuredSub =
+    type === "Industries"
+      ? "Tailored software solutions designed for your specific industry needs and challenges."
+      : "Deliver customer value and drive business outcomes with AdoxERP's integrated modules.";
+  const featuredLink = type === "Industries" ? "View all Industries" : "AdoxERP Solutions";
+  const featuredHref = type === "Industries" ? "/#industries" : "/#solutions";
+  const featuredImg = type === "Industries" ? "/img/industries-bg.png" : "/img/megamenu-bg.png";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10, pointerEvents: "none" }}
@@ -90,7 +157,7 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
         <div className="hidden lg:flex w-[300px] shrink-0">
           <div className="relative w-full h-[350px] rounded-2xl overflow-hidden group">
             <Image
-              src="/img/megamenu-bg.png"
+              src={featuredImg}
               alt="Featured"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -98,18 +165,17 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8">
               <h3 className="text-2xl font-bold text-white mb-3 leading-tight">
-                Solutions that drive business results
+                {featuredTitle}
               </h3>
               <p className="text-white/80 text-sm mb-6 leading-relaxed">
-                Deliver customer value and drive business outcomes with
-                AdoxERP's integrated modules.
+                {featuredSub}
               </p>
               <Link
-                href="/#solutions"
+                href={featuredHref}
                 onClick={onClose}
                 className="inline-flex items-center text-white font-bold text-sm hover:translate-x-1 transition-transform"
               >
-                AdoxERP Solutions <ArrowRight className="ml-2 w-4 h-4" />
+                {featuredLink} <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </div>
           </div>

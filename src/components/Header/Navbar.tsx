@@ -26,7 +26,7 @@ export default function Navbar({
     <nav className="flex items-center gap-2 md:gap-4 relative px-2">
       {navItems.map((item, index) => {
         const isActive = openMenu === item.label;
-        const hasMenu = item.label === "Modules";
+        const hasMenu = item.label === "Modules" || item.label === "Industries";
 
         return (
           <div

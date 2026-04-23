@@ -219,7 +219,7 @@ export default function AiFeaturesClient() {
                     <div
                       className={`w-10 h-10 rounded-xl ${card.color} text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500 shrink-0`}
                     >
-                      {React.cloneElement(card.icon as React.ReactElement, {
+                      {React.cloneElement(card.icon as React.ReactElement<any>, {
                         className: "w-6 h-6",
                       })}
                     </div>
@@ -258,7 +258,7 @@ export default function AiFeaturesClient() {
                 className="min-w-[300px] md:min-w-0 snap-center bg-white p-8 md:p-10 rounded-[2rem] border border-slate-100 hover:border-primary/30 hover:shadow-[0_30px_60px_rgba(0,138,208,0.1)] transition-all duration-700 group"
               >
                 <div className="w-14 h-14 rounded-2xl bg-slate-50 text-primary flex items-center justify-center shadow-sm mb-8 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-500 shrink-0">
-                  {React.cloneElement(feature.icon as React.ReactElement, {
+                  {React.cloneElement(feature.icon as React.ReactElement<any>, {
                     className: "w-7 h-7",
                   })}
                 </div>

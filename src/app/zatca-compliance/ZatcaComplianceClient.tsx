@@ -241,7 +241,7 @@ export default function ZatcaComplianceClient() {
                     <div
                       className={`w-10 h-10 rounded-xl ${card.color} text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500 shrink-0`}
                     >
-                      {React.cloneElement(card.icon as React.ReactElement, {
+                      {React.cloneElement(card.icon as React.ReactElement<any>, {
                         className: "w-6 h-6",
                       })}
                     </div>
@@ -434,7 +434,7 @@ export default function ZatcaComplianceClient() {
               >
                 <div className="w-12 h-12 rounded-xl bg-slate-50 text-primary flex items-center justify-center shadow-sm mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-500 shrink-0">
                   {typeof feature.icon === "object" &&
-                    React.cloneElement(feature.icon as React.ReactElement, {
+                    React.cloneElement(feature.icon as React.ReactElement<any>, {
                       className: "w-7 h-7",
                     })}
                 </div>

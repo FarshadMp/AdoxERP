@@ -73,7 +73,7 @@ export default function PricingFAQ() {
                       onClick={() => setActiveIndex(isOpen ? null : idx)}
                       className="w-full flex items-center justify-between text-left transition-all duration-300"
                     >
-                      <span className="text-xl md:text-1xl font-bold text-primary-dark tracking-tight leading-tight group-hover:text-primary transition-colors pr-8">
+                      <span className="text-xl md:text-xl font-bold text-primary-dark tracking-tight leading-tight group-hover:text-primary transition-colors pr-8">
                         {faq.question}
                       </span>
                       <div
